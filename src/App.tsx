@@ -1,16 +1,12 @@
-import { Box } from '@chakra-ui/react'
 import './App.css'
-
 
 
 function App() {
 
-  
- 
   return (
     <>
       <div>
-      <Box>Jayachandran Srini</Box>
+       <h1>Hi from suriya </h1>
       
       </div>
     </>
