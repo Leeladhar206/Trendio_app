@@ -1,2 +1,3 @@
 # handy-string-7765
-Curriculum Construct week Project - Website for Loan Services
+Curriculum Construct week Project - E-commerce website for Apparels
+
