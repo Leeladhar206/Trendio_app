@@ -22,7 +22,7 @@ const Signup = () => {
 
     return (
         <>
-            <Flex justify={"center"} align={"center"} h={"90vh"}>
+            <Flex justify={"center"} align={"center"} h={"90vh"}   >
                 <Box p={8} boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px;"} w={'400px'} h={"500px"}>
                     <Heading textAlign={'center'}>Sign up</Heading>
                     <form onSubmit={handleSubmit}>
