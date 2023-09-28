@@ -4,6 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter } from 'react-router-dom'
+import AuthContextProvider from './Components/AuthContextProvider.tsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -11,7 +12,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   
   <BrowserRouter>
     <ChakraProvider>
-    <App />
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider>
    </ChakraProvider>
    </BrowserRouter>
   
