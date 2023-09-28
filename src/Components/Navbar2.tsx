@@ -51,7 +51,7 @@ export default function Navbar2() {
   return (
     <Box zIndex="10" width="100%" position="fixed" bg="white" color="black" px={4}>
       <Flex h={16} alignItems="center" justifyContent="space-between">
-        {/* Show the hamburger icon only on small screens */}
+        {/* Show the hamburger for small screens */}
         <IconButton
           size="md"
           icon={isOpen ? <CloseIcon /> : <MenuIcon />}

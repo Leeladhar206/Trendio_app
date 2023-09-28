@@ -37,7 +37,7 @@ interface SocialButtonProps {
 const SocialButton: React.FC<SocialButtonProps> = ({ children, label, href }) => {
   return (
     <chakra.button
-      bg={useColorModeValue('gray.200', 'gray.700')}
+      bg={useColorModeValue('#f3e4e6', '#f3e4e6')}
       rounded={'full'}
       w={8}
       h={8}
@@ -60,7 +60,7 @@ const SocialButton: React.FC<SocialButtonProps> = ({ children, label, href }) =>
 const Footer: React.FC = () => {
   return (
     <Box
-      bg="gray.100" // Grey background
+      bg="#f3e4e6" // Grey background
       color="black" // Black text color
     >
       <Container as={Stack} maxW={'6xl'} py={10}>
@@ -135,7 +135,7 @@ const Footer: React.FC = () => {
           justify={{ md: 'space-between' }}
           align={{ md: 'center' }}>
           <Text>
-            <Image src='https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yesn3i1u9al31fgqrulk.png' width="8rem" /> ©. All rights reserved
+            <Image src='https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yesn3i1u9al31fgqrulk.png' width="8rem" /> ©2023. All rights reserved
           </Text>
           <Stack direction={'row'} spacing={6}>
           <SocialButton label={'Twitter'} href={'#'}>
