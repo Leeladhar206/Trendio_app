@@ -9,7 +9,7 @@ import AuthContextProvider from './Components/AuthContextProvider.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 
-  <React.StrictMode>
+  
   <BrowserRouter>
     <ChakraProvider>
     <AuthContextProvider>
@@ -17,5 +17,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </AuthContextProvider>
    </ChakraProvider>
    </BrowserRouter>
-  </React.StrictMode>,
+  
 )
