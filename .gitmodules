@@ -1,0 +1,3 @@
+[submodule "handy-string-backend"]
+	path = handy-string-backend
+	url = https://github.com/dev-subhadeep/handy-string-backend.git
