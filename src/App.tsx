@@ -5,17 +5,17 @@ import MainRoutes from "./Components/MainRoutes"
 import Footer from './Components/Footer'
 import "./App.css"
 import Navbar2 from './Components/Navbar2'
-import { DesktopNav } from './Components/BottomNavbar'
-import TopNavbar from "./Components/TopNavbar"
+// import { DesktopNav } from './Components/BottomNavbar'
+// import TopNavbar from "./Components/TopNavbar"
 
 function App() {
 
   return (
     <>
       <div className='app'>
-       {/* <Navbar/> */}
-      <TopNavbar/> 
-      <DesktopNav/>
+       <Navbar2/>
+      {/* <TopNavbar/> 
+      <DesktopNav/> */}
       <MainRoutes/>
       <Footer/>
       </div>
