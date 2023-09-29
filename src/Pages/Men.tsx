@@ -60,6 +60,7 @@ const Men = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   // Fetch product data from the API
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -79,11 +80,11 @@ const Men = () => {
   }, []);
 
   return (
-    <Container maxW="container.lg" py={8}>
+    <Container maxW="container.lg" py={8}   pt={20}>
       <Heading as="h1" mb={4}>
         Men's Clothing
       </Heading>
-      <SimpleGrid columns={[1, 2, 4]} spacing={4}>
+      <SimpleGrid columns={[1, 2, 3]} spacing={4}>
         {products.map((product) => (
           <Box
             key={product.id}
@@ -96,12 +97,12 @@ const Men = () => {
               <Heading as="h2" size="md" mb={2}>
                 {product.name}
               </Heading>
-              <Text>Category: {product.category}</Text>
+              {/* <Text>Category: {product.category}</Text> */}
               <Text>Price: ${product.price}</Text>
               <Text>Brand: {product.brand}</Text>
-              <Text>Material: {product.material}</Text>
-              <Text>Color: {product.color}</Text>
-              <Text>Description: {product.description}</Text>
+              {/* <Text>Material: {product.material}</Text> */}
+              {/* <Text>Color: {product.color}</Text> */}
+              {/* <Text>Description: {product.description}</Text> */}
               <Text>
                 Rating: {renderStarRating(product.rating)} ({product.rating.toFixed(1)})
               </Text>

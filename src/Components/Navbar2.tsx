@@ -88,7 +88,8 @@ export default function Navbar2() {
       {/* Show the navigation links in a dropdown on small screens */}
       {isOpen && (
         <Box pb={4} display={{ base: 'block', md: 'none' }}>
-          <HStack as="nav" spacing={4} alignItems="center">
+          <HStack as="nav" spacing={4} alignItems="center"  style={{display:"flex", flexDirection:"column",
+           }}>
             {links.map(({ text, path }) => (
               <NavLink to={path} key={path}>
                 {text}

@@ -79,9 +79,9 @@ const Men = () => {
   }, []);
 
   return (
-    <Container maxW="container.lg" py={8}>
+    <Container maxW="container.lg" py={8}  pt={20}>
       <Heading as="h1" mb={4}>
-        Men's Clothing
+        Women's Clothing
       </Heading>
       <SimpleGrid columns={[1, 2, 4]} spacing={4}>
         {products.map((product) => (
