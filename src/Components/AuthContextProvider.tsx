@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext, ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 interface User {
   userName: string;
