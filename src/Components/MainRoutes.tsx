@@ -5,7 +5,6 @@ import HomePage from "../Pages/HomePage"
 import Men from "../Pages/Men"
 import Women from "../Pages/Women"
 import Accessories from '../Pages/Accessories'
-import Admin from '../Pages/Admin'
 import CartPage from '../Pages/CartPage'
 import Login from '../Pages/Login'
 import Signup from '../Pages/Signup'
@@ -14,6 +13,7 @@ import About from '../Pages/About'
 import SinglePage from '../Pages/SinglePage'
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 import Brands from '../Pages/Brands'
+import Admin from '../Pages/Admin'
 
 const MainRoutes = () => {
   return (
@@ -34,7 +34,8 @@ const MainRoutes = () => {
   <Alert status='error'>
     <AlertIcon />
     There was an error processing your request
-  </Alert>  </Stack>} />
+    </Alert>  
+    </Stack>} />
     </Routes>
   )
 }
