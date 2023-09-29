@@ -1,12 +1,11 @@
-
-import { Container, Box, Heading, Text, VStack,Stack, Divider,Image,Button,ButtonGroup,Tooltip ,AspectRatio} from '@chakra-ui/react';
+import { Container, Box, Heading, Text, VStack,Stack, Divider,Image,Button,ButtonGroup,Tooltip } from '@chakra-ui/react';
 // import { Badge } from '@mui/material';
 import {ArrowForwardIcon} from "@chakra-ui/icons"
 import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
-    <Container maxW="3xl">
+    <Container maxW="3xl" display={"flex"} flexDirection="column" flexWrap={"wrap"} justifyItems="center">
       <Heading > About Us</Heading>
       <Box w="100%" maxW="800px" m="0 auto"  p="4">
         <video autoPlay loop muted controls style={{width:"1000px", borderRadius:"10px"}}>
@@ -85,13 +84,15 @@ Discover. Express. Transform with Trendio - Your Fashion Odyssey.
     display='flex'
     alignItems='flex-end'
     justifyContent='center'
+    flexWrap='wrap'
     width='100%'
+    borderRadius={10}
     py={12}
     bgImage="url('https://img.freepik.com/free-photo/portrait-smiling-beautiful-girl-her-handsome-boyfriend-laughing_158538-4877.jpg?w=900&t=st=1695897427~exp=1695898027~hmac=c2a0e64c98646b83242cc780ce0e94bfcc3429160f9a8b534979358c961f49f5')"
     bgPosition='center'
     bgRepeat='no-repeat'
     m={2}
-    height="600px"
+    height={['200px','400px','600px']}
   >
     <ButtonGroup gap='4'>
     <Tooltip label='Goto Mens Shop'>
