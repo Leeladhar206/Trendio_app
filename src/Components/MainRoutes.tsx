@@ -31,7 +31,7 @@ const MainRoutes = () => {
         <Route path="/wishlist" element={<Wishlist/>} />
         <Route path="/product:id" element={<SinglePage/>} />
         <Route path="*" element={<Stack spacing={3}>
-  <Alert status='error'>
+  <Alert paddingTop={120} status='error'>
     <AlertIcon />
     There was an error processing your request
     </Alert>  
