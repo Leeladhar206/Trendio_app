@@ -14,6 +14,7 @@ import About from '../Pages/About'
 import SinglePage from '../Pages/SinglePage'
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 import Brands from '../Pages/Brands'
+import { Payment } from '../Pages/Payment'
 
 const MainRoutes = () => {
   return (
@@ -26,6 +27,7 @@ const MainRoutes = () => {
         <Route path="/accessories" element={<Accessories/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/brands" element={<Brands/>} />
+        <Route path="/payment" element={<Payment/>} />
         <Route path="/admin" element={<Admin/>} />
         <Route path="/cart" element={<CartPage/>} />
         <Route path="/wishlist" element={<Wishlist/>} />
