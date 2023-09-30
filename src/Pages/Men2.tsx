@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; // Removed unused useState and useSelector
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { getData } from '../Redux/productReducer/action';
@@ -37,28 +37,6 @@ interface Product {
   reviews: Review[];
 }
 
-const renderStarRating = (rating: number) => {
-  const maxRating = 5;
-  const filledStars = Math.round(rating);
-  const emptyStars = maxRating - filledStars;
-
-  const stars = [];
-
-  for (let i = 0; i < filledStars; i++) {
-    stars.push(<span key={`filled-star-${i}`} className="star">&#9733;</span>);
-  }
-
-  for (let i = 0; i < emptyStars; i++) {
-    stars.push(<span key={`empty-star-${i}`} className="star">&#9734;</span>);
-  }
-
-  return (
-    <span className="star-rating">
-      {stars}
-    </span>
-  );
-};
-
 const Men2 = () => {
   const products = useSelector((store) => store.productReducer.products);
   const loading = useSelector((store) => store.productReducer.loading);
@@ -73,6 +51,40 @@ const Men2 = () => {
   const menProducts: Product[] = products.filter(
     (product: Product) => product.gender === 'Men'
   );
+
+  const renderStarRating = (rating: number) => {
+    const maxRating = 5;
+    const filledStars = Math.round(rating);
+    const emptyStars = maxRating - filledStars;
+
+    const stars = [];
+
+    for (let i = 0; i < filledStars; i++) {
+      stars.push(
+        <span
+          key={`filled-star-${i}`}
+          className="star"
+          style={{ color: '#ffb128' }}
+        >
+          &#9733;
+        </span>
+      );
+    }
+
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(
+        <span
+          key={`empty-star-${i}`}
+          className="star"
+          style={{ color: '#ffb128' }}
+        >
+          &#9734;
+        </span>
+      );
+    }
+
+    return <span className="star-rating">{stars}</span>;
+  };
 
   return (
     <Container maxW="container.lg" py={8} pt={20}>

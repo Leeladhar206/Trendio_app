@@ -45,11 +45,11 @@ const renderStarRating = (rating: number) => {
   const stars = [];
 
   for (let i = 0; i < filledStars; i++) {
-    stars.push(<span key={`filled-star-${i}` } className="star">&#9733;</span>);
+    stars.push(<span key={`filled-star-${i}` } className="star">&#fbfbfb33;</span>);
   }
 
   for (let i = 0; i < emptyStars; i++) {
-    stars.push(<span key={`empty-star-${i}`} className="star">&#9734;</span>);
+    stars.push(<span key={`empty-star-${i}`} className="star">&#211e1944;</span>);
   }
 
   return (

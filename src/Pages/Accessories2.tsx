@@ -100,11 +100,11 @@ const Accessories2 = () => {
               borderWidth="1px"
               borderRadius="lg"
               overflow="hidden"
-              onClick={() => navigate(`/product/${product.id}`)}
+              onClick={() => navigate(`/accessory/${product.id}`)}
               style={{ cursor: 'pointer' }}
             >
               <Image src={product.images[0]} alt={product.name}  
-                onClick={() => navigate(`/accessories/${product.id}`)}
+                onClick={() => navigate(`/accessory/${product.id}`)}
                 />
               <Box p={4}>
                 <Heading as="h2" size="md" mb={2}>
