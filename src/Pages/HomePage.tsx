@@ -16,13 +16,13 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { BiRightTopArrowCircle } from "react-icons/bi";
-import { BsArrowRightSquare,BsCheckCircle } from "react-icons/bs";
+import { BsArrowRightSquare, BsCheckCircle } from "react-icons/bs";
 
 const HomePage = () => {
   const newFont = `
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Dela+Gothic+One&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">`;
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Dela+Gothic+One&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">`;
 
   const faqs = [
     {
@@ -63,62 +63,86 @@ const HomePage = () => {
   ];
 
   return (
-    <Box fontFamily="Poppins, sans-serif" fontSize="md" padding={10}>
+    <Box
+      fontFamily="Poppins, sans-serif"
+      fontSize="md"
+      padding={10}
+      // border="1px solid green"
+      width="100%"
+      margin="auto"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+    >
       <Box dangerouslySetInnerHTML={{ __html: newFont }} />
 
       <Box pt={10}>
         <Flex
+          w="100%"
+          m="auto"
           flexDirection={{ base: "column", sm: "row" }}
-          justifyContent="space-around
-          "
+          justifyContent={{ base: "center", sm: "space-between" }}
           alignItems="center"
           textAlign="center"
+          flexWrap="wrap"
+          gap={8}
         >
-          <Box flex={{ base: "auto", md: "1" }} textAlign={"left"}>
+          <Box
+            flex={{ base: "auto", md: "1" }}
+            textAlign={{ base: "center", md: "left" }}
+            w="100%"
+          >
             <Image
-              src="https://i.ibb.co/4t1Vzsk/img3.jpg"
+              src="https://i.ibb.co/HKhTgvj/img15.png"
               alt="3 circles"
-              width="90%"
+              width="100%"
               height="auto"
+              display={{ base: "none", md: "block" }}
             />
-            <Text pl={10} fontWeight={500}>
-              Fashion is a form of self-
-            </Text>
-            <Text pl={10} fontWeight={500}>
-              expression and autonomy
-            </Text>
-            <Text pl={10} fontWeight={500}>
-              at a particular period
-            </Text>
-            <Text pt={4} pl={10} fontWeight={600}>
-              READ MORE <Icon as={BiRightTopArrowCircle} mb={-1.1} />
-            </Text>
+            <Box>
+              <Text fontWeight={500} pt={{ base: 4, sm: 0 }}>
+                Fashion is a form of self-
+              </Text>
+              <Text fontWeight={500}>expression and autonomy</Text>
+              <Text fontWeight={500}>at a particular period</Text>
+              <Text pt={4} fontWeight={600}>
+                READ MORE <Icon as={BiRightTopArrowCircle} mb={-1.1} />
+              </Text>
+            </Box>
           </Box>
+
           <Box flex={{ base: "auto", md: "3" }} m={0}>
             <Text
-              fontSize="4.7rem"
+              fontSize={{ base: "2rem", sm: "2.5rem", xl: "4.6rem" }} // Adjusted font size for smaller screens
               fontFamily={"Dela Gothic One, sans-serif"}
               mb={-3}
-              letterSpacing={4}
+              letterSpacing={2}
             >
               CLOTHES ARE
             </Text>
             <Text
-              fontSize="4.5rem"
+              fontSize={{ base: "2rem", sm: "2.5rem", xl: "4.6rem" }} // Adjusted font size for smaller screens
               fontFamily={"Dela Gothic One, sans-serif"}
               mb={-3}
             >
-              THE <Icon h={"3.6rem"} ml={2} mr={2} as={BsArrowRightSquare} />
+              THE <Icon h={"3rem"} ml={2} mr={2} as={BsArrowRightSquare} />{" "}
               SPIRIT
             </Text>
-            <Text fontSize="4.5rem" fontFamily={"Dela Gothic One, sans-serif"}>
+            <Text
+              fontSize={{ base: "2rem", sm: "2.5rem", xl: "4.6rem" }} // Adjusted font size for smaller screens
+              fontFamily={"Dela Gothic One, sans-serif"}
+            >
               OF FASHION
             </Text>
           </Box>
 
-          <Box flex={{ base: "auto", md: "1" }} mt={3}>
+          <Box
+            flex={{ base: "auto", md: "1" }}
+            mt={{ base: 3, sm: 0 }}
+            w={{ base: "70%", md: "100%" }}
+          >
             <Box
-              w="60%"
+              w={{ base: "100%", sm: "40%", md: "80%" }} // Adjusted width for smaller screens
               border={"2px solid black"}
               m={"auto"}
               borderRadius={"6rem"}
@@ -138,10 +162,10 @@ const HomePage = () => {
           </Box>
         </Flex>
       </Box>
-      <Spacer h={16} />
-      <Box pl={6} pr={20} mb={-2}>
+
+      <Box mb={-2} w="90%" mt={10}>
         <Flex
-          justifyContent="space-between"
+          justifyContent={{ base: "center", md: "space-between" }}
           alignItems="center"
           textAlign="center"
         >
@@ -158,18 +182,26 @@ const HomePage = () => {
               MAN COLLECTION
             </Button>
           </Box>
-          <Text fontFamily={"Dela Gothic One, sans-serif"}>#2023</Text>
+          <Text
+            fontFamily={"Dela Gothic One, sans-serif"}
+            display={{ base: "none", md: "block" }}
+          >
+            #2023
+          </Text>
         </Flex>
       </Box>
 
       <Box>
         <Flex
+          w="100%"
+          m="auto"
           flexDirection={{ base: "column", sm: "row" }}
-          justifyContent="space-around"
+          justifyContent={{ base: "center", sm: "space-around" }}
           alignItems="center"
-          textAlign="center"
+          flexWrap="wrap"
+          gap={3}
         >
-          <Box>
+          <Box flex={{ base: "auto", md: "1" }}>
             <Image
               src="https://i.ibb.co/bmMR3FG/img7.png"
               alt="Image 3"
@@ -178,7 +210,7 @@ const HomePage = () => {
             />
           </Box>
 
-          <Box position="relative">
+          <Box position="relative" flex={{ base: "auto", md: "1" }}>
             <Image
               src="https://i.ibb.co/6bgHWzK/img8.png"
               alt="Image 3"
@@ -187,8 +219,9 @@ const HomePage = () => {
             />
             <Text
               position="absolute"
-              top={"4.7rem"}
-              right={"6rem"}
+              top="20%"
+              left="70%"
+              transform="translate(-50%, -50%)"
               color="white"
               fontSize="md"
               fontWeight={500}
@@ -198,8 +231,9 @@ const HomePage = () => {
             </Text>
             <Text
               position="absolute"
-              top={"6rem"}
-              right={"7rem"}
+              top="25%"
+              left="70%"
+              transform="translate(-50%, -50%)"
               color="white"
               fontSize="md"
               fontWeight={500}
@@ -214,7 +248,7 @@ const HomePage = () => {
               transform="translate(-50%, -50%)"
               color="black"
               fontFamily={"Archivo black, sans-serif"}
-              fontSize="6xl"
+              fontSize={{ base: "6xl", md: "4xl", lg: "6xl" }}
               zIndex="1"
             >
               25%
@@ -232,7 +266,8 @@ const HomePage = () => {
               on new-arrivals
             </Text>
           </Box>
-          <Box>
+
+          <Box flex={{ base: "auto", md: "1" }}>
             <Image
               src="https://i.ibb.co/X458F5R/img6.png"
               alt="Image 3"
@@ -242,65 +277,99 @@ const HomePage = () => {
           </Box>
         </Flex>
       </Box>
-      <Box>
 
-
-        <Text fontSize="4xl" fontWeight={700} pl={6} >
-          POPULAR PRODUCTS
-        </Text>
-        <Box width="100%" border={"1px solid black"} height={"300px"} pl={6.
-        }></Box>
+      <Box w="100%">
+        <Box w="80%" m="auto">
+          <Text fontSize="4xl" fontWeight={700}>
+            POPULAR PRODUCTS
+          </Text>
+        </Box>
+        <Box
+          width="80%"
+          border={"1px solid black"}
+          height={"300px"}
+          margin="auto"
+          pl={6}
+        ></Box>
       </Box>
 
-      <Box pt={10} pl={10} pr={10}>
+      <Box w="90%">
         <Flex
-          flexDirection={{ base: "column", sm: "row" }}
-          justifyContent="space-around"
+          flexDirection={{ base: "column", lg: "row" }}
+          justifyContent={{ base: "center", lg: "space-around" }}
           alignItems="center"
           textAlign="center"
         >
-          <Box width={"55%"} textAlign={"left"} pl={"6rem"} pr={"5rem"} pt={-10}>
-            <Text fontSize="4rem"
-              fontFamily={"Dela Gothic One, sans-serif"}  >WE THINK</Text>
-              <Flex alignItems={"center"}>
-
-            <Text fontSize="4rem"
-              fontFamily={"Dela Gothic One, sans-serif"}>YOU'LL </Text>
-              <Text pl={4} pb={5} fontSize={'2xl'} fontFamily={"Dela Gothic One, sans-serif"}>LIKE THIS</Text>
-              </Flex>
-            <Text fontWeight={500} pt={10}>Fashion is a form of self-expression and autonomy at a</Text>
-            <Text fontWeight={500} pt={3}>particular period and place in a specific context,</Text>
-            <Text fontWeight={500} pt={3} pb={3}>of clothing, footwear, lifestyle, accessories. The latest</Text>
-            <Text fontWeight={500} pb={10}>fashion news, beauty coverage, celebrity style.</Text>
-            
-            <Box display={"flex"} pt={10}>
-
-            <Box display={"flex"} alignItems={"center"}>
-              <Icon w={"3rem"} h={"3rem"} as={BsCheckCircle} />
-              <Flex
-              flexDirection={"column"}
-               >
-                <Text pl={5} pb={4} fontWeight={600}>Care instructions</Text>
-                <Text pl={5} fontWeight={400}>Machine wash at 30'C</Text>
-            </Flex>
-            </Box>
-
-            <Box display={"flex"} alignItems={"center"} pl={5}>
-              <Icon w={"3rem"} h={"3rem"} as={BsCheckCircle} />
-              <Flex
-              flexDirection={"column"}
+          <Box
+            flex={{ base: "auto", md: "55%" }}
+            textAlign={"left"}
+            pl={"6rem"}
+            pr={"5rem"}
+            pt={-10}
+          >
+            <Text
+              fontSize={{ base: "5xl", xl: "4rem" }}
+              fontFamily={"Dela Gothic One, sans-serif"}
             >
-                <Text pl={5} pb={4} fontWeight={600}>Fabric Material</Text>
-                <Text pl={5} fontWeight={400}>84% Cotton, 16% Polyster</Text>
-               </Flex>
-            </Box>
-            
-            </Box>
+              WE THINK
+            </Text>
+            <Flex alignItems={"center"}>
+              <Text
+                fontSize={{ base: "5xl", xl: "4rem" }}
+                fontFamily={"Dela Gothic One, sans-serif"}
+              >
+                YOU'LL
+              </Text>
+              <Text
+                pl={4}
+                pb={5}
+                fontSize={"2xl"}
+                fontFamily={"Dela Gothic One, sans-serif"}
+              >
+                LIKE THIS
+              </Text>
+            </Flex>
+            <Text fontWeight={500} pt={10}>
+              Fashion is a form of self-expression and autonomy at a
+            </Text>
+            <Text fontWeight={500} pt={3}>
+              particular period and place in a specific context,
+            </Text>
+            <Text fontWeight={500} pt={3} pb={3}>
+              of clothing, footwear, lifestyle, accessories. The latest
+            </Text>
+            <Text fontWeight={500} pb={10}>
+              fashion news, beauty coverage, celebrity style.
+            </Text>
 
+            <Box display={{ base: "none", md: "flex" }} pt={10}>
+              <Box display={"flex"} alignItems={"center"}>
+                <Icon w={"3rem"} h={"3rem"} as={BsCheckCircle} />
+                <Flex flexDirection={"column"}>
+                  <Text pl={5} pb={4} fontWeight={600}>
+                    Care instructions
+                  </Text>
+                  <Text pl={5} fontWeight={400}>
+                    Machine wash at 30'C
+                  </Text>
+                </Flex>
+              </Box>
+
+              <Box display={"flex"} alignItems={"center"} pl={5}>
+                <Icon w={"3rem"} h={"3rem"} as={BsCheckCircle} />
+                <Flex flexDirection={"column"}>
+                  <Text pl={5} pb={4} fontWeight={600}>
+                    Fabric Material
+                  </Text>
+                  <Text pl={5} fontWeight={400}>
+                    84% Cotton, 16% Polyster
+                  </Text>
+                </Flex>
+              </Box>
+            </Box>
           </Box>
 
-
-          <Box width={"45%"} pt={10}>
+          <Box pt={10} flex={{ base: "auto", md: "45%" }}>
             <Image
               src="https://i.ibb.co/cNdF2zW/img9.png"
               alt="Image 3"
@@ -310,96 +379,133 @@ const HomePage = () => {
           </Box>
         </Flex>
       </Box>
+
       <Spacer h={10} />
 
-      <Box border="2px solid black" w="85%" m="auto"
-      borderRadius={"3rem"}
-      >
-      <Grid
-        templateRows="repeat(2, 1fr)"
-        templateColumns="repeat(7, 1fr)"
-      >
-        <GridItem colSpan={3} rowSpan={2}>
-          <Box borderRight={"2px solid black"}>
-            <Image
-              src="https://i.ibb.co/BBHZjy6/img10.png"
-              alt="Image 3"
-              width="100%"
-              borderBottomLeftRadius={"4rem"}
-              borderTopLeftRadius={"4rem"}
-              height="auto"
-            />
-          </Box>
-        </GridItem>
-        <GridItem colSpan={2} rowSpan={1} display="flex" alignItems="center"
-        borderRight={"2px solid black"}
-        borderBottom={"2px solid black"}
+      <Box border="2px solid black" w="85%" m="auto" borderRadius={"3rem"}>
+        <Grid
+          templateRows={{ base: "repeat(1, 1fr)", lg: "repeat(2, 1fr)" }}
+          templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(7, 1fr)" }}
+          gap={0}
         >
-         <Box m={14}>
-          <Text fontSize={'3xl'} fontWeight={600}>Pattern</Text>
-          <Text>Colourful & Print</Text>
-          </Box>
-        </GridItem>
-        <GridItem colSpan={2} rowSpan={1} display="flex" alignItems="center" borderBottom={"2px solid black"}>
-        <Box m={14}>
-          <Text fontSize={'3xl'} fontWeight={600}>We are the online platform for fashion and lifestyle</Text>
+          <GridItem colSpan={{ base: 1, lg: 3 }} rowSpan={{ base: 2, lg: 2 }}>
+            <Box>
+              <Image
+                src="https://i.ibb.co/BBHZjy6/img10.png"
+                alt="Image 3"
+                width="100%"
+                borderRadius={"4rem"}
+                height="auto"
+              />
+            </Box>
+          </GridItem>
 
-          </Box>
-        </GridItem>
-        <GridItem colSpan={2} rowSpan={1} display="flex"  alignItems="center"
-        borderRight={"2px solid black"}
-        >
-        <Box m={14} >
-          <Text>we have grown from a pioneer in e-commerse to become a leading European online platform</Text>
-          </Box>
-        </GridItem>
-        <GridItem colSpan={2} rowSpan={1} display="flex"alignItems="center">
-        <Box m={14}>
-          <Text fontSize={'3xl'} fontWeight={600}>Material</Text>
-          <Text> 100% cotton & polyester</Text>
-          </Box>
-        </GridItem>
-      </Grid>
-    </Box>
+          <GridItem
+            colSpan={{ base: 2, lg: 2 }}
+            rowSpan={{ base: 1, lg: 1 }}
+            display="flex"
+            alignItems="center"
+            borderRight={{ base: "none", lg: "2px solid black" }}
+            borderBottom={{ base: "none", lg: "2px solid black" }}
+            borderLeft={{ base: "none", lg: "2px solid black" }}
+          >
+            <Box m={4}>
+              <Text fontSize={"3xl"} fontWeight={600}>
+                Pattern
+              </Text>
+              <Text>Colourful & Print</Text>
+            </Box>
+          </GridItem>
+          <GridItem
+            colSpan={{ base: 2, lg: 2 }}
+            rowSpan={{ base: 1, lg: 1 }}
+            display="flex"
+            alignItems="center"
+            borderBottom={{ base: "none", lg: "2px solid black" }}
+          >
+            <Box m={4}>
+              <Text fontSize={"3xl"} fontWeight={600}>
+                We are the online platform for fashion and lifestyle
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem
+            colSpan={{ base: 2, lg: 2 }}
+            rowSpan={{ base: 1, lg: 1 }}
+            display="flex"
+            alignItems="center"
+            borderRight={{ base: "none", lg: "2px solid black" }}
+            borderLeft={{ base: "none", lg: "2px solid black" }}
+          >
+            <Box m={4}>
+              <Text>
+                we have grown from a pioneer in e-commerse to become a leading
+                European online platform
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem
+            colSpan={{ base: 2, lg: 2 }}
+            rowSpan={{ base: 1, lg: 1 }}
+            display="flex"
+            alignItems="center"
+          >
+            <Box m={4}>
+              <Text fontSize={"3xl"} fontWeight={600}>
+                Material
+              </Text>
+              <Text> 100% cotton & polyester</Text>
+            </Box>
+          </GridItem>
+        </Grid>
+      </Box>
 
-      <Box pt={10}>
+      <Box w="90%" mt={12}>
         <Flex
-          flexDirection={{ base: "column", sm: "row" }}
-          justifyContent="space-between"
+          flexDirection={{ base: "column", md: "row" }}
+          justifyContent={{ base: "center", md: "space-around" }}
           alignItems="center"
           textAlign="center"
         >
-          <Box flex={{ base: "auto", md: "2" }} border={"1px solid black"}>
-            <Text>Outfit inspiration</Text>
-            <Text>Snag their style</Text>
+          <Box flex={{ base: "auto", md: "1" }}>
+            <Text
+              fontSize={{ base: "3xl", md: "5xl" }}
+              fontWeight={700}
+              textAlign={{ base: "center", md: "left" }}
+            >
+              Outfit inspiration Snag their style
+            </Text>
           </Box>
-          <Box flex={{ base: "auto", md: "1" }} border={"1px solid black"}>
+          <Box display={{ base: "none", md: "flex" }}>
             <Image
-              src="https://i.ibb.co/4t1Vzsk/img3.jpg"
+              src="https://i.ibb.co/4dv2NSD/img14.png"
               alt="Image 3"
               width="100%"
               height="auto"
             />
           </Box>
 
-          <Box flex={{ base: "auto", md: "2" }} border={"1px solid black"}>
-            <Text>Open communication and participation</Text>
-            <Text>are pivotal elements of our company</Text>
-            <Text>culture. How a bold idea spawned a</Text>
-            <Text>leading European online platform</Text>
+          <Box flex={{ base: "auto", md: "1" }}>
+            <Text p={10} textAlign={"left"} fontWeight={500}>
+              Open communication and participation are pivotal elements of our
+              company culture. How a bold idea spawned a leading European online
+              platform
+            </Text>
           </Box>
         </Flex>
       </Box>
 
       <Box>
-        <Text fontSize="4xl" fontFamily={"Archivo , sans-serif"}>
-          NEW ARRIVALS
-        </Text>
-        <Box width="100%" border={"1px solid black"} height={"300px"}></Box>
+        <Image
+          src="https://i.ibb.co/6W9kNJj/img12.png"
+          alt="Image 3"
+          width="100%"
+          height="auto"
+        />
       </Box>
 
-      <Box>
-        <Text fontSize="3xl" fontWeight="bold" mb={4}>
+      <Box m={10} w="90%">
+        <Text fontSize="3xl" fontWeight="bold" mb={8}>
           Frequently Asked Questions
         </Text>
         <Accordion allowToggle>
