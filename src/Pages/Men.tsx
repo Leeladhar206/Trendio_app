@@ -64,7 +64,21 @@ const Men = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true); // Add loading state
 
-  // Fetch product data from the API
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('https://handy-string-backend.onrender.com/products');
+        if (response.ok) {
+          const data = await response.json();
+          setProducts(data.filter((product: Product) => product.gender === "Men"));
+          setLoading(false);
+        } else {
+          console.error('Failed to fetch product data');
+        }
+      } catch (error) {
+        console.error('Error while fetching product data:', error);
+
   const fetchProducts = async () => {
     try {
       const response = await fetch('https://handy-string-backend.onrender.com/products');
@@ -74,6 +88,7 @@ const Men = () => {
         setLoading(false); // Set loading to false when data is loaded
       } else {
         console.error('Failed to fetch product data');
+
       }
     } catch (error) {
       console.error('Error while fetching product data:', error);
@@ -87,6 +102,11 @@ console.log(value)
     fetchProducts();
   }, []);
 
+
+
+  const menProducts: Product[] = products.filter(
+    (product: Product) => product.gender==='Men'
+  );
 
   return (
     <Box maxW="box.lg" display={"flex"} >
@@ -146,11 +166,10 @@ console.log(value)
               <Skeleton height="20px" mt={2} />
               <Skeleton height="20px" mt={2} />
               <Skeleton height="20px" mt={2} />
-              <Skeleton height="20px" mt={2} />
             </Box>
           ))
         ) : (
-          products.map((product) => (
+          menProducts.map((product) => (
             <Box
               key={product.id}
               borderWidth="1px"
@@ -158,7 +177,7 @@ console.log(value)
               overflow="hidden"
             >
               <Image src={product.images[0]} alt={product.name} />
-              <Box p={4}>
+              <Box p={4} >
                 <Heading as="h2" size="md" mb={2}>
                   {product.name}
                 </Heading>
