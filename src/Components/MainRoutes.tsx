@@ -15,6 +15,7 @@ import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 import Brands from '../Pages/Brands'
 import Admin from '../Pages/Admin'
 import { Payment } from '../Pages/Payment'
+import Men2 from '../Pages/Men2'
 
 
 const MainRoutes = () => {
@@ -23,7 +24,7 @@ const MainRoutes = () => {
         <Route path="/" element={<HomePage/>}   />  
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<Signup/>} />
-        <Route path="/men" element={<Men/>}   />
+        <Route path="/men" element={<Men2/>}   />
         <Route path="/women" element={<Women/>} />
         <Route path="/accessories" element={<Accessories/>} />
         <Route path="/about" element={<About/>} />

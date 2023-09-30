@@ -1,5 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react'; // Removed unused useState and useSelector
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { getData } from '../Redux/productReducer/action';
 import './Men.css';
+import {getAccessories} from "../Redux/productReducer/action"
+
 import {
   Box,
   Container,
@@ -8,13 +13,13 @@ import {
   SimpleGrid,
   Image,
   Text,
-  Skeleton, // Import Skeleton component
+  Skeleton,
 } from '@chakra-ui/react';
 
 interface Review {
   username: string;
   rating: number;
-  comAccessoriest: string;
+  comment: string;
 }
 
 interface Product {
@@ -41,7 +46,7 @@ const renderStarRating = (rating: number) => {
   const stars = [];
 
   for (let i = 0; i < filledStars; i++) {
-    stars.push(<span key={`filled-star-${i}` } className="star">&#9733;</span>);
+    stars.push(<span key={`filled-star-${i}`} className="star">&#9733;</span>);
   }
 
   for (let i = 0; i < emptyStars; i++) {
@@ -55,38 +60,26 @@ const renderStarRating = (rating: number) => {
   );
 };
 
-const Accessories = () => {
-  // State to store product data
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true); // Add loading state
+const Accessories2 = () => {
+  const accessories = useSelector((store) => store.productReducer.accessories);
+  const loading = useSelector((store) => store.productReducer.loading);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  // Fetch product data from the API
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch('https://handy-string-backend.onrender.com/accessories');
-        if (response.ok) {
-          const data = await response.json();
-          setProducts(data);
-          setLoading(false); 
-        } else {
-          console.error('Failed to fetch product data');
-        }
-      } catch (error) {
-        console.error('Error while fetching product data:', error);
-      }
-    };
+    // Dispatch the action to get data
+    dispatch(getAccessories);
+  }, [dispatch]);
 
-    fetchProducts();
-  }, []);
+
 
   return (
     <Container maxW="container.lg" py={8} pt={20}>
       <Heading as="h1" mb={4}>
-        Accessories
+       Accessories
       </Heading>
       <SimpleGrid columns={[1, 2, 3]} spacing={4}>
-        {loading ? ( // Display skeletons when loading
+        {loading ? (
           Array.from({ length: 6 }).map((_, index) => (
             <Box
               key={index}
@@ -98,18 +91,21 @@ const Accessories = () => {
               <Skeleton height="20px" mt={2} />
               <Skeleton height="20px" mt={2} />
               <Skeleton height="20px" mt={2} />
-            
             </Box>
           ))
         ) : (
-          products.map((product) => (
+          accessories.map((product: Product) => (
             <Box
               key={product.id}
               borderWidth="1px"
               borderRadius="lg"
               overflow="hidden"
+              onClick={() => navigate(`/product/${product.id}`)}
+              style={{ cursor: 'pointer' }}
             >
-              <Image src={product.images[0]} alt={product.name} />
+              <Image src={product.images[0]} alt={product.name}  
+                onClick={() => navigate(`/accessories/${product.id}`)}
+                />
               <Box p={4}>
                 <Heading as="h2" size="md" mb={2}>
                   {product.name}
@@ -128,4 +124,4 @@ const Accessories = () => {
   );
 };
 
-export default Accessories;
+export default Accessories2;

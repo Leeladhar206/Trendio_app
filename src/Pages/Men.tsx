@@ -68,7 +68,7 @@ const Men = () => {
         if (response.ok) {
           const data = await response.json();
           setProducts(data.filter((product: Product) => product.gender === "Men"));
-          setLoading(false); // Set loading to false when data is loaded
+          setLoading(false);
         } else {
           console.error('Failed to fetch product data');
         }
@@ -79,6 +79,11 @@ const Men = () => {
 
     fetchProducts();
   }, []);
+
+
+  const menProducts: Product[] = products.filter(
+    (product: Product) => product.gender==='Men'
+  );
 
   return (
     <Container maxW="container.lg" py={8} pt={20}>
@@ -98,11 +103,10 @@ const Men = () => {
               <Skeleton height="20px" mt={2} />
               <Skeleton height="20px" mt={2} />
               <Skeleton height="20px" mt={2} />
-              <Skeleton height="20px" mt={2} />
             </Box>
           ))
         ) : (
-          products.map((product) => (
+          menProducts.map((product) => (
             <Box
               key={product.id}
               borderWidth="1px"
@@ -110,7 +114,7 @@ const Men = () => {
               overflow="hidden"
             >
               <Image src={product.images[0]} alt={product.name} />
-              <Box p={4}>
+              <Box p={4} >
                 <Heading as="h2" size="md" mb={2}>
                   {product.name}
                 </Heading>
