@@ -1,73 +1,81 @@
-import React, { useContext, useState } from 'react';
+import axios from "axios"
+import React, { ChangeEvent, FormEvent, useState } from "react"
+import { useDispatch } from "react-redux"
 import {
-  Box,
-  Button,
-  Flex,
-  FormControl,
-  HStack,
-  Heading,
-  Icon,
-  Input,
-  Text,
-  VStack,
-  Link as ChakraLink,
-} from '@chakra-ui/react';
-import { FaUser } from 'react-icons/fa';
-import { AuthContext } from '../Components/AuthContextProvider';
-import { Link as RoutLink, useNavigate } from 'react-router-dom';
-import './Login.css'; 
+  authRequest,
+  authRequestFailure,
+  authRequestSuccess,
+} from "../Redux/auth/actions"
+import { Link, useNavigate } from "react-router-dom"
 
-const Login = () => {
-  const authContext = useContext(AuthContext);
-  const navigate = useNavigate();
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+export const URL: string = import.meta.env.VITE_DBURL as string
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+const Login: React.FC = () => {
+  const [email, setEmail] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+  const [token, setToken] = useState<string>("")
 
-    if (authContext?.login) {
-      authContext.login(userName, password);
+  const navigate = useNavigate()
+
+  const dispatch = useDispatch()
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.name === "email") {
+      setEmail(e.target.value)
     }
 
-    setUserName("");
-    setPassword("");
+    if (e.target.name === "password") {
+      setPassword(e.target.value)
+    }
+  }
 
-    navigate("/");
-  };
-
-  if (authContext?.isAuth) {
-    navigate("/");
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    dispatch(authRequest())
+    axios({
+      method: "get",
+      url: `${URL}/users`,
+      params: {
+        email,
+        password,
+      },
+    })
+      .then((r) => {
+        dispatch(authRequestSuccess(r.data[0].token))
+        setToken(r.data[0].token)
+        localStorage.setItem("token", r.data[0].token)
+        console.log(token)
+        navigate("/")
+      })
+      .catch(() => dispatch(authRequestFailure()))
   }
 
   return (
-    <div className="login-container"> {/* Use the CSS class for the container */}
-      <div className="login-box"> {/* Use the CSS class for the login box */}
-        <Box fontSize="3xl" color="gray.500" textAlign="center" mb={4}>
-          <Icon as={FaUser} />
-        </Box>
+    <div>
+      <h1>Login</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="email"
+          onChange={handleChange}
+          name="email"
+          value={email}
+        />
+        <input
+          type="password"
+          placeholder="password"
+          onChange={handleChange}
+          name="password"
+          value={password}
+        />
+        <button type="submit">Login</button>
+      </form>
 
-        <Heading mt={4}>Log in</Heading>
-        <form onSubmit={handleSubmit}>
-          <VStack spacing={4} mt={4}>
-            <FormControl>
-              <Input onChange={(e) => setUserName(e.target.value)} name="userName" value={userName} border={"1px solid #3333"} placeholder='Enter User Name' type='text' />
-            </FormControl>
-            <FormControl>
-              <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password} border={"1px solid #3333"} placeholder='Enter Password' type='password' />
-            </FormControl>
-          </VStack>
-          <Box mt={4} textAlign={'center'}>
-            <Button type='submit' w={"150px"} bg={"black"} color={"#fff"} _hover={{ bg: "yellow.500", color: "#000" }}>LOGIN</Button>
-          </Box>
-          <HStack mt={4} justifyContent={"flex-end"}>
-            <Text>Don't have an account?</Text>
-            <ChakraLink as={RoutLink} color='blue.500' to={"/Signup"}>Sign up</ChakraLink>
-          </HStack>
-        </form>
+      <div>
+        <Link to="/register">Register</Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
