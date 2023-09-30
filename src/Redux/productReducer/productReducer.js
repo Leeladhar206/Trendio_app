@@ -1,4 +1,4 @@
-import { GETDATA_REQUEST,GETDATA_SUCCESS,GETDATA_FAILURE, POSTDATA_REQUEST, POSTDATA_FAILURE, POSTDATA_SUCCESS, GETSINGLEPRODUCT_REQUEST, GETSINGLEPRODUCT_FAILURE, GETSINGLEPRODUCT_SUCCESS, EDITPRODUCT_SUCCESS, GETACCESSORIES_SUCCESS} from "./actionType"
+import { GETDATA_REQUEST,GETDATA_SUCCESS,GETDATA_FAILURE, POSTDATA_REQUEST, POSTDATA_FAILURE, POSTDATA_SUCCESS, GETSINGLEPRODUCT_REQUEST, GETSINGLEPRODUCT_FAILURE, GETSINGLEPRODUCT_SUCCESS, EDITPRODUCT_SUCCESS, GETACCESSORIES_SUCCESS, GETACCESSORYSINGLEPRODUCT_SUCCESS} from "./actionType"
 
 const initialState = {
     isLoading:false,
@@ -6,6 +6,7 @@ const initialState = {
     products:[],
     product:{},
     accessories:[],
+    accessory:{}
 }
 
 
@@ -25,6 +26,9 @@ const productReducer = (state=initialState,{type,payload}) => {
         return {...state,isLoading:false, isError:false,products:[...state.products,payload]}   
     case GETSINGLEPRODUCT_SUCCESS:
         return {...state, isLoading:false, isError:false,product:payload}   
+    
+    case GETACCESSORYSINGLEPRODUCT_SUCCESS:
+        return {...state, isLoading:false, isError:false,accessory:payload}        
         
     case EDITPRODUCT_SUCCESS:
         return {...state, isLoading:false}    

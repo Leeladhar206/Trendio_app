@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import { RootState } from "../Redux/rootReducer"; 
-import {getSingleProduct} from "../Redux/productReducer/action"
+import {getAccessoriesSingleProduct} from "../Redux/productReducer/action"
 
 import {
   Box,
@@ -23,10 +23,9 @@ import {
     ListItem
 } from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
-// import { CartDrawer } from './CartDrawer';
-// import { getSingleProductData } from '../Redux/UserPage/action';
 
-export const SinglePage: React.FC = () => {
+
+export const AccessorySinglePage: React.FC = () => {
 
 
   let { id } = useParams<{id:number}>();
@@ -34,13 +33,9 @@ export const SinglePage: React.FC = () => {
  
   const dispatch = useDispatch();
   
-//   let { singleProduct, isLoading, isError } = useSelector((store: RootState) => ({
-//     singleProduct: store.productReducer.singleProduct,
-//     isLoading: store.productReducer.isLoading,
-//     isError: store.productReducer.isError,
-//   }));
 
-let singleProduct= useSelector((store)=>store.productReducer.product)
+
+let singleProduct= useSelector((store)=>store.productReducer.accessory)
 
   const {
     getInputProps,
@@ -66,14 +61,12 @@ let singleProduct= useSelector((store)=>store.productReducer.product)
 
   useEffect(() => {
  
-    dispatch(getSingleProduct(id));
+    dispatch(getAccessoriesSingleProduct(id));
   }, [id]);
 
-  // const {id,gender,category, name, price, images, brand, size, material, color, 
-  //   description, rating, reviews} = singleProduct
 
-  // ... rest of your component code
 console.log(singleProduct,id)
+
 
 
   return (
@@ -91,15 +84,14 @@ console.log(singleProduct,id)
       bg={"#f5f5f5"}
     >
       <Box>
-        <Image src= {singleProduct?.images}   w={["500px","500px", "500px"]} m={"50px auto"} />
+        <Image src= {singleProduct?.images[0]}   w={["500px","500px", "500px"]} m={"50px auto"} />
       </Box>
       <Box bgColor={"white"} borderRadius={"20px"} w={["100%","100%", "45%"]} p={"50px"} m={"auto"}>
         <Text color={"#070808"} textTransform={"uppercase"} fontSize={32} fontWeight={600}>
           {singleProduct?.name}
         </Text>
-        <Text fontWeight={500}  m={"10px auto"}> Price: $ {singleProduct?.price}</Text>
+        <Text fontWeight={500}  m={"20px auto 10px"}>$ {singleProduct?.price}</Text>
         <Text fontWeight={500}>{singleProduct?.description}</Text>
-        <Text fontWeight={500} m={"10px auto 10px"}> Category: {singleProduct?.category}</Text>
 
         <Flex alignItems={"center"} fontSize={18} m={"10px auto"}>
           {new Array(Math.floor(singleProduct?.rating || 1)).fill(0).map((el, index) => (
@@ -140,7 +132,7 @@ console.log(singleProduct,id)
           colorScheme="#f8ac2a"
           size={"lg"}
           fontWeight={500}
-          _hover={{ bgColor: "#407542" }}
+          _hover={{ bgColor: "#477842" }}
           p={"20px 20px"}
           w={["100%","100%", "70%"]}
           m={"20px 0"}
@@ -154,7 +146,7 @@ console.log(singleProduct,id)
     </Flex>
    
     <Box bg={"white"} mt={"50px"} fontFamily={"poppins"}>
-    <Heading  as="h3" size="xl" color={"black"}  fontWeight="lightbold" textAlign="center" fontFamily={"poppins"} mb={{ base: '4', md: '4' }} >
+    <Heading  as="h3" size="xl"  color={"black"}  fontWeight="lightbold" textAlign="center" fontFamily={"poppins"} mb={{ base: '4', md: '4' }} >
             Product Details
           </Heading>
     <Box m={["50px auto"]} w={["85%","85%","70%"]}  borderRadius={"20px"}  border={"1px solid #ebebeb"} p={[0,"10px","20px"]}>
@@ -163,7 +155,7 @@ console.log(singleProduct,id)
 <Text p={"10px"}>Brand</Text>
 <Text p={"10px"}>Color</Text>
 <Text p={"10px"}>Material</Text>
-<Text p={"10px"}>Size</Text>
+{/* <Text p={"10px"}>Size</Text> */}
 {/* <Text p={"10px"}>Finish Type</Text> */}
               </Box>
               <Box w={["60%","60%","80%"]} p={["5px",0]}>
@@ -179,7 +171,7 @@ console.log(singleProduct,id)
                 <Text  p={"10px"}>{singleProduct?.brand}</Text>
 <Text p={"10px"}>{singleProduct?.color}</Text>
 <Text p={"10px"}>{singleProduct?.material}</Text>
-<Text p={"10px"}>{singleProduct?.size}</Text>
+{/* <Text p={"10px"}>{singleProduct?.size}</Text> */}
 {/* <Text p={"10px"}>{singleProduct?.finish_type}</Text> */}
                 </Box>
                 </Flex>
@@ -189,7 +181,7 @@ console.log(singleProduct,id)
     <Box>
     <Container maxW="80%" p={{ base: 5, md: 10 }} fontFamily={"poppins"} > 
         <Flex justify="center">
-          <Heading as="h3" size="xl" pb={"20px"}  color={"black"}  fontWeight="lightbold" textAlign="left" fontFamily={"poppins"} mb={{ base: '4', md: '2' }}>
+          <Heading as="h3" size="xl" pb={"20px"}  color={"#0c0c0c"}  fontWeight="lightbold" textAlign="left" fontFamily={"poppins"} mb={{ base: '4', md: '2' }}>
             Recent Reviews
           </Heading>
         </Flex>
@@ -198,7 +190,7 @@ console.log(singleProduct,id)
             return (
               <Stack bg={"#fafafa"} m={"auto"} w={["100%","85%"]} p={["05px","20px"]} borderRadius={"20px"} key={index} direction="column" >
                 <HStack spacing={3}>
-                  <Avatar size="md" name={el?.username} src={'https://avatars.githubusercontent.com/u/37829341?v=4'} />
+                  <Avatar size="md" name={el?.username} src={'https://avatars.githubusercontent.com/u/37159012?v=4'} />
                   <Flex direction="column">
                     <Text fontWeight="500" fontSize="md">
                       {el?.username}
