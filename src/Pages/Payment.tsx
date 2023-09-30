@@ -47,7 +47,7 @@ export const Payment = () => {
           gap="20px"
           flexDirection={{ lg: "row", md: "row", sm: "column", base: "column" }}
         >
-          <Button width="300px" bg="white" variant="outline" colorScheme="teal" size={5} >Paytm
+          <Button width="300px" bg="white" variant="outline" colorScheme="teal" >Paytm
           </Button>
           <Button width="300px" variant={"outline"} colorScheme="teal" leftIcon={<Icon as={FaGooglePay} boxSize={55} alignItems={"center"} />}>
           </Button>
@@ -100,7 +100,7 @@ export const Payment = () => {
               </FormControl>{" "}
               <br />
               <br />
-              <Button className="paymentbtn" ml={20} width="300px" colorScheme="teal" variant={"outline"} type="submit">
+              <Button className="paymentbtn" ml={["5","10","15","20"]} m={"auto"} width="300px" colorScheme="teal" variant={"outline"} type="submit">
                 Make Payment
               </Button>{" "}
               <br />
