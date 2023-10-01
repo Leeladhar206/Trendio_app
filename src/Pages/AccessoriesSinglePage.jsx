@@ -64,7 +64,7 @@ let singleProduct= useSelector((store)=>store.productReducer.accessory)
   }, [id]);
 
 
-console.log(singleProduct,id)
+  const {images} = singleProduct
 
 
 
@@ -83,7 +83,7 @@ console.log(singleProduct,id)
       bg={"#f5f5f5"}
     >
       <Box>
-        <Image src= {singleProduct?.images[0]}   w={["500px","500px", "500px"]} m={"50px auto"} />
+      <Image src= {images[0]}   w={["500px","500px", "500px"]} m={"50px auto"} />
       </Box>
       <Box bgColor={"white"} borderRadius={"20px"} w={["100%","100%", "45%"]} p={"50px"} m={"auto"}>
         <Text color={"#070808"} textTransform={"uppercase"} fontSize={32} fontWeight={600}>
