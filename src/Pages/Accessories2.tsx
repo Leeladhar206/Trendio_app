@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'; // Removed unused useState and useSelector
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { getData } from '../Redux/productReducer/action';
 import './Men.css';
 import {getAccessories} from "../Redux/productReducer/action"
 
@@ -15,6 +14,7 @@ import {
   Text,
   Skeleton,
 } from '@chakra-ui/react';
+import { FaStar } from 'react-icons/fa';
 
 interface Review {
   username: string;
@@ -67,7 +67,6 @@ const Accessories2 = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Dispatch the action to get data
     dispatch(getAccessories);
   }, [dispatch]);
 
@@ -113,7 +112,23 @@ const Accessories2 = () => {
                 <Text>Price: ${product.price}</Text>
                 <Text>Brand: {product.brand}</Text>
                 <Text>
-                  Rating: {renderStarRating(product.rating)} ({product.rating.toFixed(1)})
+                <Flex alignItems={"center"} fontSize={16} m={"10px auto"}>
+        Rating:  {new Array(Math.floor(product.rating || 1)).fill(0).map((el, index) => (
+            <Box key={index} m={"0px 1px"}>
+              <FaStar color="#ffb128" />
+            </Box>
+          ))}
+          {new Array(5 - Math.floor(product.rating || 1)).fill(0).map((el, index) => (
+            <Box key={index} m={"0px 1px"}>
+              <FaStar color="grey" />
+            </Box>
+          ))}
+          {/* <Box ml={"10px"} alignItems={"center"}>
+            <Text fontSize={"15px"} color={"#5c676d"}>
+              ({product?.reviews?.length} customer reviews)
+            </Text>
+          </Box> */}
+        </Flex>
                 </Text>
               </Box>
             </Box>

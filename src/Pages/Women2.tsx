@@ -13,7 +13,9 @@ import {
   Image,
   Text,
   Skeleton,
+  Center,
 } from '@chakra-ui/react';
+import { FaStar } from 'react-icons/fa';
 
 interface Review {
   username: string;
@@ -45,11 +47,11 @@ const renderStarRating = (rating: number) => {
   const stars = [];
 
   for (let i = 0; i < filledStars; i++) {
-    stars.push(<span key={`filled-star-${i}`} className="star">&#9733;</span>);
+    stars.push(<span key={`filled-star-${i}`} className="star"  style={{ color: '#ffb128' }}>&#9733;</span>);
   }
 
   for (let i = 0; i < emptyStars; i++) {
-    stars.push(<span key={`empty-star-${i}`} className="star">&#9734;</span>);
+    stars.push(<span key={`empty-star-${i}`} className="star"  style={{ color: '#ffb128' }}>&#9734;</span>);
   }
 
   return (
@@ -75,7 +77,7 @@ const Women2 = () => {
   );
 
   return (
-    <Container maxW="container.lg" py={8} pt={20}>
+    <Container maxW="container.lg" py={8} pt={20} alignItems="center">
       <Heading as="h1" mb={4}>
         Women's Clothing
       </Heading>
@@ -112,7 +114,18 @@ const Women2 = () => {
                 <Text>Price: ${product.price}</Text>
                 <Text>Brand: {product.brand}</Text>
                 <Text>
-                  Rating: {renderStarRating(product.rating)} ({product.rating.toFixed(1)})
+                <Flex alignItems={"center"} fontSize={16} m={"5px auto"}>
+        Rating:  {new Array(Math.floor(product.rating || 1)).fill(0).map((el, index) => (
+            <Box key={index} m={"0px 1px"}>
+              <FaStar color="#ffb128" />
+            </Box>
+          ))}
+          {new Array(5 - Math.floor(product.rating || 1)).fill(0).map((el, index) => (
+            <Box key={index} m={"0px 1px"}>
+              <FaStar color="grey" />
+            </Box>
+          ))}
+        </Flex>
                 </Text>
               </Box>
             </Box>
