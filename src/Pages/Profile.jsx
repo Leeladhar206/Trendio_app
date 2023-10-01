@@ -1,15 +1,13 @@
-import axios from "axios"
-import React, { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import { URL } from "./Login"
-import { useNavigate } from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { Box, Heading, Button } from "@chakra-ui/react";
+import axios from "axios";
+import { URL } from "./Login";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const token = localStorage.getItem("token") || ""
-
-  const [userData, setUserData] = useState(null)
-
-  const navigate = useNavigate()
+  const token = localStorage.getItem("token") || "";
+  const [userData, setUserData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (token) {
@@ -21,34 +19,44 @@ const Profile = () => {
         },
       })
         .then((response) => {
-          const userData = response.data[0]
+          const userData = response.data[0];
           if (userData) {
-            console.log(userData.f_name)
-            setUserData(userData)
+            setUserData(userData);
           }
         })
-        .catch((error) => console.log(error))
+        .catch((error) => console.log(error));
     }
-  }, [token])
+  }, [token]);
 
   const logout = () => {
-    localStorage.removeItem("token")
-    navigate("/")
-  }
+    localStorage.removeItem("token");
+    navigate("/");
+  };
 
   return (
-    <div>
-      <h1>Profile</h1>
+    <Box maxW="400px" mx="auto" p="4" bg="gray.100" borderRadius="md" boxShadow="md">
+      <Heading as="h1" textAlign="center" mb="4">
+        Profile
+      </Heading>
       {userData && (
-        <div>
-          <p>First Name: {userData.f_name}</p>
-          <div>
-            <button onClick={logout}>Logout</button>
-          </div>
-        </div>
+        <Box textAlign="center">
+          <p className="welcome-text">Welcome, {userData.f_name}!</p>
+          
+          <Button
+            colorScheme="red"
+            size="md"
+            mt="4"
+            onClick={logout}
+          >
+            Logout
+          </Button>
+        
+        </Box>
+        
       )}
-    </div>
-  )
-}
+      
+    </Box>
+  );
+};
 
-export default Profile
+export default Profile;
