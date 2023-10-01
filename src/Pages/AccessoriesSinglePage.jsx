@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {getAccessoriesSingleProduct} from "../Redux/productReducer/action"
+import { getAccessoriesSingleProduct } from '../Redux/productReducer/action';
 
 import {
   Box,
@@ -12,29 +12,23 @@ import {
   Input,
   Text,
   useNumberInput,
-    Container,
-    Heading,
-    Stack,
-    Avatar,
-    useColorModeValue,
-    SimpleGrid,
-    List,
-    ListItem
+  Container,
+  Heading,
+  Stack,
+  Avatar,
+  useColorModeValue,
+  SimpleGrid,
+  List,
+  ListItem,
 } from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
 
-
 export const AccessorySinglePage = () => {
-
-
   let { id } = useParams();
-
- 
   const dispatch = useDispatch();
-  
 
-
-let singleProduct= useSelector((store)=>store.productReducer.accessory)
+  let singleProduct = useSelector((store) => store.productReducer.accessory);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const {
     getInputProps,
@@ -52,39 +46,53 @@ let singleProduct= useSelector((store)=>store.productReducer.accessory)
   const dec = getDecrementButtonProps();
   const input = getInputProps();
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  function onClose() {
-    setIsOpen(!isOpen);
-  }
-
   useEffect(() => {
- 
     dispatch(getAccessoriesSingleProduct(id));
   }, [id]);
 
-
-  const {images} = singleProduct
-
-
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
+  };
 
   return (
     <>
-    <Flex 
-      p={120}
-      direction={["column","column", "row"]}
-      w={"100%"}
-      m={"auto"}
-      pb={"80px"}
-      pl={["10%"]}
-      pr={["10%"]}
-      pt={"50px"}
-      fontFamily={"Poppins"}
-      bg={"#f5f5f5"}
-    >
-      <Box>
-      <Image src= {images[0]}   w={["500px","500px", "500px"]} m={"50px auto"} />
-      </Box>
+      <Flex
+        p={120}
+        direction={["column", "column", "row"]}
+        w={"100%"}
+        m={"auto"}
+        pb={"80px"}
+        pl={["10%"]}
+        pr={["10%"]}
+        pt={"50px"}
+        fontFamily={"Poppins"}
+        bg={"#f5f5f5"}
+      >
+       {/* <Box w="12%" alignItems="center" paddingRight={10}>
+  {singleProduct.images?.map((image, index) => (
+    <Image
+      key={index}
+      src={image}
+      w={["500px", "500px", "500px"]}
+      m={"50px auto"}
+      onClick={() => handleImageClick(index)}
+    />
+  ))}
+</Box>
+        <Box>
+          <Image
+            src={singleProduct.images[selectedImageIndex]}
+            w={["500px", "500px", "500px"]}
+            m={"50px auto"}
+          />
+        </Box> */}
+        <Box>
+         <Image
+            src={singleProduct.images}
+            w={["500px", "500px", "500px"]}
+            m={"50px auto"}
+          />
+          </Box>
       <Box bgColor={"white"} borderRadius={"20px"} w={["100%","100%", "45%"]} p={"50px"} m={"auto"}>
         <Text color={"#070808"} textTransform={"uppercase"} fontSize={32} fontWeight={600}>
           {singleProduct?.name}
@@ -123,9 +131,9 @@ let singleProduct= useSelector((store)=>store.productReducer.accessory)
           </Button>
         </HStack>
         <Button
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
+          // onClick={() => {
+          //   setIsOpen(!isOpen);
+          // }}
           bgColor={"#2b3954"}
           color={"white"}
           colorScheme="#f8ac2a"
@@ -160,11 +168,10 @@ let singleProduct= useSelector((store)=>store.productReducer.accessory)
               <Box w={["60%","60%","80%"]} p={["5px",0]}>
                 <Flex>
                 <Box display={"inline-flex"} pos={"relative"} flexDirection={"column"} gap={"30px"}  mr={"5px"} alignItems={"center"}>
-<Box p={"6px"} borderBottom={"1px solid #ebebeb"}  w={["40px","120px","600px"]} mt={"10px"} ></Box>
+<Box p={"16px"} borderBottom={"1px solid #ebebeb"}  w={["40px","120px","600px"]} mt={"10px"} ></Box>
 <Box p={"10px"} borderBottom={"1px solid #ebebeb"}  w={"100%"} mt={"-5px"}></Box>
 <Box p={"9px"} borderBottom={"1px solid #ebebeb"}  w={"100%"}mt={"-5px"} ></Box>
-<Box p={"9px"} borderBottom={"1px solid #ebebeb"}  w={"100%"}mt={"-7px"} ></Box>
-<Box  p={"9px"} borderBottom={"1px solid #ebebeb"}  w={"100%"}mt={"-7px"} ></Box>
+
                 </Box>
                 <Box color={"#5c676d"} textAlign={"left"} ml={"3px"} >
                 <Text  p={"10px"}>{singleProduct?.brand}</Text>

@@ -5,7 +5,7 @@ import Login from "../Pages/Login"
 import Register from "../Pages/Register"
 import Profile from "../Pages/Profile"
 import Signup from "../Pages/Singup"
-import Men from "../Pages/Men"
+
 import Women from "../Pages/Women"
 import Accessories from "../Pages/Accessories"
 import About from "../Pages/About"
@@ -18,6 +18,7 @@ import { SinglePage } from "../Pages/SinglePage"
 import { AccessorySinglePage } from "../Pages/AccessoriesSinglePage"
 import PrivateRouter from "./PrivateRouter"
 import { Alert, AlertIcon, Stack } from "@chakra-ui/react"
+import Men from "../Pages/Men"
 
 const MainRoutes = () => {
   return (

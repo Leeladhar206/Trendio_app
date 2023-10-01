@@ -45,7 +45,7 @@ export default function Navbar() {
   const [token, setToken] = useState(
     localStorage.getItem("token") ? localStorage.getItem("token") : null
   )
-  console.log(token)
+  // console.log(token)
 
   return (
     <Box

@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import 
 { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill}
  from 'react-icons/bs'
+import { useDispatch, useSelector } from 'react-redux';
  import 
  { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
  from 'recharts';
+import { getData } from '../../Redux/productReducer/action';
 
 function Home() {
+
+  const products = useSelector((store) => store.productReducer.products);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Dispatch the action to get data
+    dispatch(getData);
+  }, [dispatch]);
 
     const data = [
         {
@@ -66,7 +76,7 @@ function Home() {
                     <h3>PRODUCTS</h3>
                     <BsFillArchiveFill className='card_icon'/>
                 </div>
-                <h1>300</h1>
+                <h1>{products.length}</h1>
             </div>
             <div className='card'>
                 <div className='card-inner'>
