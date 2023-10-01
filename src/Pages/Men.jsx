@@ -34,39 +34,6 @@ const Men = () => {
     (product) => product.gender === 'Men'
   );
 
-  const renderStarRating = (rating) => {
-    const maxRating = 5;
-    const filledStars = Math.round(rating);
-    const emptyStars = maxRating - filledStars;
-
-    const stars = [];
-
-    for (let i = 0; i < filledStars; i++) {
-      stars.push(
-        <span
-          key={`filled-star-${i}`}
-          className="star"
-          style={{ color: '#ffb128' }}
-        >
-          &#9733;
-        </span>
-      );
-    }
-
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(
-        <span
-          key={`empty-star-${i}`}
-          className="star"
-          style={{ color: '#ffb128' }}
-        >
-          &#9734;
-        </span>
-      );
-    }
-
-    return <span className="star-rating">{stars}</span>;
-  };
 
   return (
     <Container maxW="container.lg" py={8} pt={20}>
