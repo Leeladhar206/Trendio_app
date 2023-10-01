@@ -74,7 +74,13 @@ const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     setSelectedImageIndex(index);
   };
 
-console.log(singleProduct.images)
+
+  const addCartHandle = ()=>{
+    console.log(singleProduct)
+  }
+
+
+// console.log(singleProduct.images)
 
 
   return (
@@ -91,34 +97,34 @@ console.log(singleProduct.images)
       fontFamily={"Poppins"}
       bg={"#f5f5f5"}
     >
-      {/* <Box w="12%" alignItems="center" paddingRight={10}>
-  {singleProduct.images.length && singleProduct.images.map((image, index) => (
+      <Flex direction={["column-reverse","row"]}>
+      <Flex w={["40%","18%"]}  paddingRight={10} paddingTop={[0,0,20]} direction={["row","column"]}
+       justifyContent={["start"]} alignItems={["center","flex-start"]} >
+  {singleProduct?.images?.length>0 ?  singleProduct.images.map((image, index) => (
     <Image
       key={index}
       src={image}
       w={["500px", "500px", "500px"]}
-      m={"50px auto"}
+      m={["auto 12px","25px auto"]}
+      border={"1px solid white" }
       onClick={() => handleImageClick(index)}
     />
-  ))}
-</Box>
+  )):null}
+  </Flex >
+{singleProduct?.images?.length>0 ? 
         <Box>
           <Image
-            src={singleProduct.images[selectedImageIndex]}
+            src={singleProduct?.images[selectedImageIndex]}
             w={["500px", "500px", "500px"]}
             m={"50px auto"}
+            border={"1px solid white" }
           />
-        </Box> */}
+        </Box>:null}
 
-<Box >
-         {/* <p> {singleProduct.images} </p> */}
-          <Image
-            src={singleProduct.images}
-            w={["500px", "500px", "500px"]}
-            m={"50px auto"}
-          />
-        </Box>
-      <Box bgColor={"white"} borderRadius={"20px"} w={["100%","100%", "45%"]} p={"50px"} m={"auto"}>
+        </Flex>
+
+
+      <Box bgColor={"white"} borderRadius={"20px"} w={["100%","100%", "55%"]} p={"50px"} m={"auto"} marginTop={[10,10,20]}>
         <Text color={"#070808"} textTransform={"uppercase"} fontSize={32} fontWeight={600}>
           {singleProduct?.name}
         </Text>
@@ -157,9 +163,7 @@ console.log(singleProduct.images)
           </Button>
         </HStack>
         <Button
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
+          onClick={addCartHandle}
           bgColor={"#2b3954"}
           color={"white"}
           colorScheme="#f8ac2a"
