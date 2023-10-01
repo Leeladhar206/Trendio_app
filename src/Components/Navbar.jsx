@@ -49,7 +49,7 @@ export default function Navbar() {
       localStorage.getItem("token") ? localStorage.getItem("token") : null
     )
     console.log(token)
-  }, [token])
+  }, [])
 
   return (
     <Box
