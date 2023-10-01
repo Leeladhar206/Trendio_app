@@ -67,7 +67,6 @@ const HomePage = () => {
       fontFamily="Poppins, sans-serif"
       fontSize="md"
       padding={10}
-      // border="1px solid green"
       width="100%"
       margin="auto"
       display="flex"
@@ -113,7 +112,7 @@ const HomePage = () => {
 
           <Box flex={{ base: "auto", md: "3" }} m={0}>
             <Text
-              fontSize={{ base: "2rem", sm: "2.5rem", xl: "4.6rem" }} // Adjusted font size for smaller screens
+              fontSize={{ base: "2rem", sm: "2.5rem", xl: "4.6rem" }}
               fontFamily={"Dela Gothic One, sans-serif"}
               mb={-3}
               letterSpacing={2}
@@ -121,7 +120,7 @@ const HomePage = () => {
               CLOTHES ARE
             </Text>
             <Text
-              fontSize={{ base: "2rem", sm: "2.5rem", xl: "4.6rem" }} // Adjusted font size for smaller screens
+              fontSize={{ base: "2rem", sm: "2.5rem", xl: "4.6rem" }}
               fontFamily={"Dela Gothic One, sans-serif"}
               mb={-3}
             >
@@ -129,7 +128,7 @@ const HomePage = () => {
               SPIRIT
             </Text>
             <Text
-              fontSize={{ base: "2rem", sm: "2.5rem", xl: "4.6rem" }} // Adjusted font size for smaller screens
+              fontSize={{ base: "2rem", sm: "2.5rem", xl: "4.6rem" }}
               fontFamily={"Dela Gothic One, sans-serif"}
             >
               OF FASHION
@@ -142,7 +141,7 @@ const HomePage = () => {
             w={{ base: "70%", md: "100%" }}
           >
             <Box
-              w={{ base: "100%", sm: "40%", md: "80%" }} // Adjusted width for smaller screens
+              w={{ base: "100%", sm: "40%", md: "80%" }}
               border={"2px solid black"}
               m={"auto"}
               borderRadius={"6rem"}
@@ -504,8 +503,8 @@ const HomePage = () => {
         />
       </Box>
 
-      <Box m={10} w="90%">
-        <Text fontSize="3xl" fontWeight="bold" mb={8}>
+      <Box mx={[2, 4, 6, 10]} w={['100%', '95%', '90%']} px={2} py={4}>
+        <Text fontSize={['2xl', '3xl', '4xl']} fontWeight="bold" mb={4}>
           Frequently Asked Questions
         </Text>
         <Accordion allowToggle>
@@ -514,15 +513,15 @@ const HomePage = () => {
               <h2>
                 <AccordionButton>
                   <Box flex="1" textAlign="left">
-                    <Text fontSize="lg" fontWeight={600} p={3}>
+                    <Text fontSize={['lg', 'xl', '2xl']} fontWeight={500} p={2}>
                       {faq.question}
                     </Text>
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
-                <Text fontSize="lg" p={3}>
+              <AccordionPanel pb={2}>
+                <Text fontSize={['md', 'lg', 'xl']} p={2}>
                   {faq.answer}
                 </Text>
               </AccordionPanel>

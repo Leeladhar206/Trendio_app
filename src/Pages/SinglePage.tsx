@@ -69,11 +69,9 @@ let singleProduct= useSelector((store)=>store.productReducer.product)
     dispatch(getSingleProduct(id));
   }, [id]);
 
-  // const {id,gender,category, name, price, images, brand, size, material, color, 
-  //   description, rating, reviews} = singleProduct
 
-  // ... rest of your component code
-console.log(singleProduct,id)
+
+// console.log(singleProduct,id)
 
 
   return (
@@ -164,23 +162,23 @@ console.log(singleProduct,id)
 <Text p={"10px"}>Color</Text>
 <Text p={"10px"}>Material</Text>
 <Text p={"10px"}>Size</Text>
-{/* <Text p={"10px"}>Finish Type</Text> */}
-              </Box>
-              <Box w={["60%","60%","80%"]} p={["5px",0]}>
-                <Flex>
-                <Box display={"inline-flex"} pos={"relative"} flexDirection={"column"} gap={"30px"}  mr={"5px"} alignItems={"center"}>
-<Box p={"6px"} borderBottom={"1px solid #ebebeb"}  w={["40px","120px","600px"]} mt={"10px"} ></Box>
+
+</Box>
+<Box w={["60%","60%","90%"]} p={["5px",0]}>
+<Flex>
+<Box display={"inline-flex"} pos={"relative"} flexDirection={"column"} gap={"30px"}  mr={"5px"} alignItems={"center"}>
+<Box p={"12px"} borderBottom={"1px solid #ebebeb"}  w={["40px","120px","600px"]} mt={"10px"} ></Box>
 <Box p={"10px"} borderBottom={"1px solid #ebebeb"}  w={"100%"} mt={"-5px"}></Box>
 <Box p={"9px"} borderBottom={"1px solid #ebebeb"}  w={"100%"}mt={"-5px"} ></Box>
 <Box p={"9px"} borderBottom={"1px solid #ebebeb"}  w={"100%"}mt={"-7px"} ></Box>
-<Box  p={"9px"} borderBottom={"1px solid #ebebeb"}  w={"100%"}mt={"-7px"} ></Box>
+{/* <Box  p={"9px"} borderBottom={"1px solid #ebebeb"}  w={"100%"}mt={"-7px"} ></Box> */}
                 </Box>
                 <Box color={"#5c676d"} textAlign={"left"} ml={"3px"} >
-                <Text  p={"10px"}>{singleProduct?.brand}</Text>
+<Text paddingTop={"5px"} p={"10px"}>{singleProduct?.brand}</Text>
 <Text p={"10px"}>{singleProduct?.color}</Text>
 <Text p={"10px"}>{singleProduct?.material}</Text>
 <Text p={"10px"}>{singleProduct?.size}</Text>
-{/* <Text p={"10px"}>{singleProduct?.finish_type}</Text> */}
+
                 </Box>
                 </Flex>
               </Box>
