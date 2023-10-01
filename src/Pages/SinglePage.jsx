@@ -29,6 +29,7 @@ import {
 } from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
 import { getSingleProduct } from '../Redux/SingleProduct/action';
+import { ZoomIn, ZoomOut } from '@mui/icons-material';
 // import { CartDrawer } from './CartDrawer';
 // import { getSingleProductData } from '../Redux/UserPage/action';
 
@@ -66,7 +67,7 @@ const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const input = getInputProps();
 
   const [isOpen, setIsOpen] = useState(false);
-
+  // const [zoomLevel, setZoomLevel] = useState(1);
   function onClose() {
     setIsOpen(!isOpen);
   }
@@ -83,6 +84,17 @@ const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const addCartHandle = ()=>{
     console.log(singleProduct)
   }
+
+  
+  // const zoomIn = () => {
+  //   // Increase the zoom level
+  //   setZoomLevel(zoomLevel + 0.2);
+  // };
+
+  // const zoomOut = () => {
+  //   // Decrease the zoom level
+  //   setZoomLevel(zoomLevel - 0.2);
+  // };
 
   const faqs = [
     {
@@ -149,7 +161,7 @@ const [selectedImageIndex, setSelectedImageIndex] = useState(0);
       src={image}
       w={["500px", "500px", "500px"]}
       m={["auto 12px","25px auto"]}
-      border={"1px solid white" }
+      // border={"1px solid white" }
       onClick={() => handleImageClick(index)}
     />
   )):null}
@@ -160,7 +172,13 @@ const [selectedImageIndex, setSelectedImageIndex] = useState(0);
             src={singleProduct?.images[selectedImageIndex]}
             w={["500px", "500px", "500px"]}
             m={"50px auto"}
-            border={"1px solid white" }
+            // border={"1px solid white" }
+            // onMouseEnter={zoomIn}
+            // onMouseLeave={zoomOut}
+            // style={{
+            //   transform: `scale(${zoomLevel})`, // Apply zoom level
+            //   transition: 'transform 0.2s ease',
+            // }}
           />
         </Box>:null}
 
