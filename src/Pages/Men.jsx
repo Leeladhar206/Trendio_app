@@ -107,7 +107,7 @@ const Men = () => {
                 </Heading>
                 <Text>Price: ${product.price}</Text>
                 <Text>Brand: {product.brand}</Text>
-                {/* <Text>
+                <Text>
                   Rating:  <Flex  fontSize={18} m={"8px 0"}>
           {new Array(Math.floor(product?.rating || 1)).fill(0).map((el, index) => (
             <Box key={index} m={"0px 1px"}>
@@ -120,7 +120,7 @@ const Men = () => {
             </Box>
           ))}
         </Flex>
-                </Text> */}
+                </Text>
               </Box>
             </Box>
           ))
