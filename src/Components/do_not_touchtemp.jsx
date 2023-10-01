@@ -1,6 +1,4 @@
-
-import React, { ReactNode, useEffect, useState } from "react"
-
+import React, { ReactNode, useState } from "react"
 import {
   Box,
   Flex,
@@ -16,6 +14,7 @@ import CloseIcon from "@mui/icons-material/Close"
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined"
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined"
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined"
+
 import { Link } from "react-router-dom"
 
 const links = [
@@ -46,19 +45,19 @@ export default function Navbar() {
   const [token, setToken] = useState(
     localStorage.getItem("token") ? localStorage.getItem("token") : null
   )
-  // console.log(token)
-
-
-  useEffect(() => {
-    setToken(
-      localStorage.getItem("token") ? localStorage.getItem("token") : null
-    )
-    console.log(token)
-  }, [])
+  console.log(token)
 
   return (
-    <Box zIndex="10" bg="white" color="black" px={4}>
+    <Box
+      zIndex="10"
+      width="100%"
+      position="fixed"
+      bg="white"
+      color="black"
+      px={4}
+    >
       <Flex h={16} alignItems="center" justifyContent="space-between">
+        {/* Show the hamburger for small screens */}
         <IconButton
           size="md"
           icon={isOpen ? <CloseIcon /> : <MenuIcon />}
@@ -75,7 +74,7 @@ export default function Navbar() {
             />
           </Link>
         </HStack>
-        
+
         <HStack
           as="nav"
           spacing={4}
@@ -100,6 +99,8 @@ export default function Navbar() {
           </Link>
         </HStack>
       </Flex>
+
+      {/* Show the navigation links in a dropdown on small screens */}
       {isOpen && (
         <Box pb={4} display={{ base: "block", md: "none" }}>
           <HStack
@@ -117,5 +118,5 @@ export default function Navbar() {
         </Box>
       )}
     </Box>
-  );
+  )
 }
