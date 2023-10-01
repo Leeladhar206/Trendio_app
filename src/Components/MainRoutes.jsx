@@ -17,6 +17,7 @@ import Wishlist from "../Pages/Wishlist"
 import { SinglePage } from "../Pages/SinglePage"
 import { AccessorySinglePage } from "../Pages/AccessoriesSinglePage"
 import PrivateRouter from "./PrivateRouter"
+import PrivateRoutes from "./PrivateRoutes"
 import { Alert, AlertIcon, Stack } from "@chakra-ui/react"
 
 const MainRoutes = () => {
@@ -25,7 +26,6 @@ const MainRoutes = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/profile" element={<Profile />} />
       {/* <Route path="/signup" element={<Signup />} /> */}
       <Route path="/men" element={<Men />} />
       <Route path="/women" element={<Women />} />
@@ -36,9 +36,10 @@ const MainRoutes = () => {
       <Route path="/admin" element={<Admin />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/wishlist" element={<Wishlist />} />
-      <Route path="/product/:id" element={<SinglePage />} />
+
       <Route path="/accessory/:id" element={<AccessorySinglePage />} />
-      <Route element={<PrivateRouter />}>
+      <Route path="/product/:id" element={<SinglePage />} />
+      <Route element={<PrivateRoutes />}>
         <Route path="/profile" element={<Profile />} />
       </Route>
       <Route
