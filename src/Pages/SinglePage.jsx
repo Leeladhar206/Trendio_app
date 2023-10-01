@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import { RootState } from "../Redux/rootReducer"; 
-import {getSingleProduct} from "../Redux/productReducer/action"
+// import {getSingleProduct} from "../Redux/productReducer/action"
 
 import {
   Box,
@@ -23,6 +23,7 @@ import {
     ListItem
 } from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
+import { getSingleProduct } from '../Redux/SingleProduct/action';
 // import { CartDrawer } from './CartDrawer';
 // import { getSingleProductData } from '../Redux/UserPage/action';
 
@@ -40,7 +41,8 @@ export const SinglePage = () => {
 //     isError: store.productReducer.isError,
 //   }));
 
-let singleProduct= useSelector((store)=>store.productReducer.product)
+let singleProduct= useSelector((store)=>store.singleProductReducer.product)
+const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const {
     getInputProps,
@@ -65,13 +67,14 @@ let singleProduct= useSelector((store)=>store.productReducer.product)
   }
 
   useEffect(() => {
- 
     dispatch(getSingleProduct(id));
-  }, [id]);
+  }, []);
 
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
+  };
 
-
-const {images} = singleProduct
+console.log(singleProduct.images)
 
 
   return (
@@ -88,9 +91,33 @@ const {images} = singleProduct
       fontFamily={"Poppins"}
       bg={"#f5f5f5"}
     >
-      <Box>
-        <Image src= {images}   w={["500px","500px", "500px"]} m={"50px auto"} />
-      </Box>
+      {/* <Box w="12%" alignItems="center" paddingRight={10}>
+  {singleProduct.images.length && singleProduct.images.map((image, index) => (
+    <Image
+      key={index}
+      src={image}
+      w={["500px", "500px", "500px"]}
+      m={"50px auto"}
+      onClick={() => handleImageClick(index)}
+    />
+  ))}
+</Box>
+        <Box>
+          <Image
+            src={singleProduct.images[selectedImageIndex]}
+            w={["500px", "500px", "500px"]}
+            m={"50px auto"}
+          />
+        </Box> */}
+
+<Box >
+         {/* <p> {singleProduct.images} </p> */}
+          <Image
+            src={singleProduct.images}
+            w={["500px", "500px", "500px"]}
+            m={"50px auto"}
+          />
+        </Box>
       <Box bgColor={"white"} borderRadius={"20px"} w={["100%","100%", "45%"]} p={"50px"} m={"auto"}>
         <Text color={"#070808"} textTransform={"uppercase"} fontSize={32} fontWeight={600}>
           {singleProduct?.name}

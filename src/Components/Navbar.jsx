@@ -43,7 +43,11 @@ const NavLink = ({ to, children }) => (
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure()
-  const [token, setToken] = useState("")
+  const [token, setToken] = useState(
+    localStorage.getItem("token") ? localStorage.getItem("token") : null
+  )
+  // console.log(token)
+
 
   useEffect(() => {
     setToken(
