@@ -4,7 +4,6 @@ import HomePage from "../Pages/HomePage"
 import Login from "../Pages/Login"
 import Register from "../Pages/Register"
 import Profile from "../Pages/Profile"
-import Signup from "../Pages/Singup"
 import Men from "../Pages/Men"
 import Women from "../Pages/Women"
 import Accessories from "../Pages/Accessories"
@@ -25,7 +24,6 @@ const MainRoutes = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/profile" element={<Profile />} />
       {/* <Route path="/signup" element={<Signup />} /> */}
       <Route path="/men" element={<Men />} />
       <Route path="/women" element={<Women />} />
@@ -36,8 +34,11 @@ const MainRoutes = () => {
       <Route path="/admin" element={<Admin />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/wishlist" element={<Wishlist />} />
-      <Route path="/product/:id" element={<SinglePage />} />
+
       <Route path="/accessory/:id" element={<AccessorySinglePage />} />
+
+      <Route path="/product/:id" element={<SinglePage />} />
+
       <Route element={<PrivateRoutes />}>
         <Route path="/profile" element={<Profile />} />
       </Route>
