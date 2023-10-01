@@ -36,7 +36,9 @@ const MainRoutes = () => {
       <Route path="/wishlist" element={<Wishlist />} />
 
       <Route path="/accessory/:id" element={<AccessorySinglePage />} />
+
       <Route path="/product/:id" element={<SinglePage />} />
+
       <Route element={<PrivateRoutes />}>
         <Route path="/profile" element={<Profile />} />
       </Route>
