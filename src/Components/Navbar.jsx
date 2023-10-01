@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+
+import React, { ReactNode, useEffect, useState } from "react"
+
 import {
   Box,
   Flex,
@@ -41,10 +43,14 @@ const NavLink = ({ to, children }) => (
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure()
-  const [token, setToken] = useState(
-    localStorage.getItem("token") ? localStorage.getItem("token") : null
-  )
-  console.log(token)
+  const [token, setToken] = useState("")
+
+  useEffect(() => {
+    setToken(
+      localStorage.getItem("token") ? localStorage.getItem("token") : null
+    )
+    console.log(token)
+  }, [])
 
   return (
     <Box zIndex="10" bg="white" color="black" px={4}>
