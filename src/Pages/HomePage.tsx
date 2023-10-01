@@ -14,9 +14,13 @@ import {
   Icon,
   Button,
   Spacer,
+  IconButton,
+  Heading,
 } from "@chakra-ui/react";
 import { BiRightTopArrowCircle } from "react-icons/bi";
 import { BsArrowRightSquare, BsCheckCircle } from "react-icons/bs";
+import { FaHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const newFont = `
@@ -105,9 +109,11 @@ const HomePage = () => {
               </Text>
               <Text fontWeight={500}>expression and autonomy</Text>
               <Text fontWeight={500}>at a particular period</Text>
-              <Text pt={4} fontWeight={600}>
-                READ MORE <Icon as={BiRightTopArrowCircle} mb={-1.1} />
-              </Text>
+              <Link to="/about">
+                <Text pt={4} fontWeight={600}>
+                  READ MORE <Icon as={BiRightTopArrowCircle} mb={-1.1} />
+                </Text>
+              </Link>
             </Box>
           </Box>
 
@@ -217,30 +223,32 @@ const HomePage = () => {
               width="100%"
               height="auto"
             />
-            <Text
-              position="absolute"
-              top="20%"
-              left="70%"
-              transform="translate(-50%, -50%)"
-              color="white"
-              fontSize="md"
-              fontWeight={500}
-              zIndex="1"
-            >
-              Explore
-            </Text>
-            <Text
-              position="absolute"
-              top="25%"
-              left="70%"
-              transform="translate(-50%, -50%)"
-              color="white"
-              fontSize="md"
-              fontWeight={500}
-              zIndex="1"
-            >
-              More
-            </Text>
+            <Link to="/men">
+              <Text
+                position="absolute"
+                top="20%"
+                left="70%"
+                transform="translate(-50%, -50%)"
+                color="white"
+                fontSize="md"
+                fontWeight={500}
+                zIndex="1"
+              >
+                Explore
+              </Text>
+              <Text
+                position="absolute"
+                top="25%"
+                left="70%"
+                transform="translate(-50%, -50%)"
+                color="white"
+                fontSize="md"
+                fontWeight={500}
+                zIndex="1"
+              >
+                More
+              </Text>
+            </Link>
             <Text
               position="absolute"
               top="50%"
@@ -284,13 +292,120 @@ const HomePage = () => {
             POPULAR PRODUCTS
           </Text>
         </Box>
-        <Box
-          width="80%"
-          border={"1px solid black"}
-          height={"300px"}
-          margin="auto"
-          pl={6}
-        ></Box>
+        <Box width="80%" height="auto" margin="auto" mt={8}>
+          <Grid
+            templateColumns={{
+              base: "repeat(1, 1fr)",
+              sm: "repeat(1, 1fr)",
+              md: "repeat(2, 1fr)",
+              lg: "repeat(4, 1fr)",
+            }}
+            gap={6}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Link to="/product/12">
+              <Box
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                w="100%"
+                transition="transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
+                _hover={{
+                  transform: "scale(1.02)",
+                  boxShadow: "lg",
+                }}
+              >
+                <Image
+                  src="https://www.rareism.com/cdn/shop/files/FINN-PINK-SWEAT2029_900x.jpg?v=1693215214"
+                  alt="Cropped Hoodie"
+                />
+                <Box p={4}>
+                  <Heading as="h2" size="md" mb={2}>
+                    Cropped Hoodie
+                  </Heading>
+                  <Text>Price: $34.99</Text>
+                  <Text>Brand: Adidas</Text>
+                </Box>
+              </Box>
+            </Link>
+            <Link to="/product/17">
+              <Box
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                w="100%"
+                transition="transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
+                _hover={{
+                  transform: "scale(1.02)",
+                  boxShadow: "lg",
+                }}
+              >
+                <Image
+                  src="https://thehouseofrare.com/cdn/shop/files/EASE-BLACK1524_900x.jpg?v=1692699317"
+                  alt="Hawaiian Shirt"
+                />
+                <Box p={4}>
+                  <Heading as="h2" size="md" mb={2}>
+                    Hawaiian Shirt
+                  </Heading>
+                  <Text>Price: $32.99</Text>
+                  <Text>Brand: Tommy Bahama</Text>
+                </Box>
+              </Box>
+            </Link>
+            <Link to="/product/19">
+              <Box
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                w="100%"
+                transition="transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
+                _hover={{
+                  transform: "scale(1.02)",
+                  boxShadow: "lg",
+                }}
+              >
+                <Image
+                  src="https://thehouseofrare.com/cdn/shop/files/BASTIAN-BEIGE3016HERO_900x.jpg?v=1693807429"
+                  alt="Jogger Pants"
+                />
+                <Box p={4}>
+                  <Heading as="h2" size="md" mb={2}>
+                    Jogger Pants
+                  </Heading>
+                  <Text>Price: $34.99</Text>
+                  <Text>Brand: Adidas</Text>
+                </Box>
+              </Box>
+            </Link>
+            <Link to="/product/4">
+              <Box
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                w="100%"
+                transition="transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
+                _hover={{
+                  transform: "scale(1.02)",
+                  boxShadow: "lg",
+                }}
+              >
+                <Image
+                  src="https://www.rareism.com/cdn/shop/products/IMG_0038_bbc9666a-7fbd-462a-8afb-795a18a565da_900x.jpg?v=1661174565"
+                  alt="Striped Sweater"
+                />
+                <Box p={4}>
+                  <Heading as="h2" size="md" mb={2}>
+                    Striped Sweater
+                  </Heading>
+                  <Text>Price: $39.99</Text>
+                  <Text>Brand: Gap</Text>
+                </Box>
+              </Box>
+            </Link>
+          </Grid>
+        </Box>
       </Box>
 
       <Box w="90%">
