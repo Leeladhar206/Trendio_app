@@ -40,6 +40,8 @@ const paramsobj={
   }
 }
 
+
+
   useEffect(() => {
     // Dispatch the action to get data
     dispatch(getData(paramsobj));
@@ -48,7 +50,7 @@ const paramsobj={
   const WomenProducts = products.filter(
     (product) => product.gender === 'Women'
   );
-
+  console.log(WomenProducts)
   return (
     <Box maxW="box.lg" display={"flex"}>
       <Sidebar order={order} setSort={setSort}/>
@@ -85,6 +87,11 @@ const paramsobj={
               borderWidth="1px"
               borderRadius="lg"
               overflow="hidden"
+              _hover={{
+                transform: 'scale(1.05)',
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+              }}
               onClick={() => navigate(`/product/${product.id}`)}
               style={{ cursor: 'pointer' }}
             >
