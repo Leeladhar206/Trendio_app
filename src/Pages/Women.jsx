@@ -16,31 +16,11 @@ import {
 } from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
 
-const renderStarRating = (rating) => {
-  const maxRating = 5;
-  const filledStars = Math.round(rating);
-  const emptyStars = maxRating - filledStars;
 
-  const stars = [];
-
-  for (let i = 0; i < filledStars; i++) {
-    stars.push(<span key={`filled-star-${i}`} className="star" style={{ color: '#ffb128' }}>&#9733;</span>);
-  }
-
-  for (let i = 0; i < emptyStars; i++) {
-    stars.push(<span key={`empty-star-${i}`} className="star" style={{ color: '#ffb128' }}>&#9734;</span>);
-  }
-
-  return (
-    <span className="star-rating">
-      {stars}
-    </span>
-  );
-};
 
 const Women = () => {
   const products = useSelector((store) => store.productReducer.products);
-  const loading = useSelector((store) => store.productReducer.loading);
+  const loading = useSelector((store) => store.productReducer.isLoading);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
