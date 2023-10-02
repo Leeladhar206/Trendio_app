@@ -81,10 +81,12 @@ export const SinglePage = () => {
   const addCartHandle = () => {
     let cartItem = {}
     cartItem.productId = singleProduct.id
+    cartItem.image = singleProduct.images[0]
     cartItem.productName = singleProduct.name
     cartItem.price = singleProduct.price
     cartItem.quantity = quantity
     cartItem.total = cartItem.price * cartItem.quantity
+
     cartItem.checkedOut = false
     cartItem.usertoken = localStorage.getItem("token")
     // console.log(cartItem)
