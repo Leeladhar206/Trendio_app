@@ -119,7 +119,7 @@ body {
   .main-container {
     grid-area: main;
     overflow-y: auto;
-    padding: 20px 20px;
+    padding: 0px 20px;
     color: rgba(255, 255, 255, 0.95);
   }
   
@@ -156,7 +156,7 @@ body {
   }
   
   .card:nth-child(4) {
-    background-color: #d50000;
+    background-color: #e9d600;
   }
   
   .card-inner {
@@ -175,6 +175,25 @@ body {
     gap: 20px;
     margin-top: 60px;
     height: 300px;
+  }
+
+  .card-hover:hover {
+ 
+    /* background-color: #f0f0f0; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer; /* Optional: Change the cursor to a pointer on hover */
+  }
+
+  .card-zoom {
+    /* Set the initial scale to 1 (normal size) */
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition */
+  }
+  
+  .card-zoom:hover {
+    /* Increase the scale on hover to create a zoom effect */
+    transform: scale(1.1); /* You can adjust the scale factor as needed */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
   }
   
   /* End Main  */

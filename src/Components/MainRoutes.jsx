@@ -18,6 +18,8 @@ import { AccessorySinglePage } from "../Pages/AccessoriesSinglePage"
 import PrivateRoutes from "./PrivateRoutes"
 import { Alert, AlertIcon, Stack } from "@chakra-ui/react"
 import Men from "../Pages/Men"
+import { Payment } from "../Pages/Payment"
+
 
 const MainRoutes = () => {
   return (
@@ -31,7 +33,7 @@ const MainRoutes = () => {
       <Route path="/accessories" element={<Accessories />} />
       <Route path="/about" element={<About />} />
       <Route path="/brands" element={<Brands />} />
-      {/* <Route path="/payment" element={<Payment />} /> */}
+      <Route path="/payment" element={<Payment />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/wishlist" element={<Wishlist />} />
