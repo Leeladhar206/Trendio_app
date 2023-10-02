@@ -11,6 +11,7 @@ import Brands from "../Pages/Brands"
 // import Payment from "../Pages/Payment"
 import Admin from "../Pages/Admin"
 import CartPage from "../Pages/CartPage"
+import Cart from "../Pages/Cart"
 import Wishlist from "../Pages/Wishlist"
 import { SinglePage } from "../Pages/SinglePage"
 import { AccessorySinglePage } from "../Pages/AccessoriesSinglePage"
@@ -34,7 +35,7 @@ const MainRoutes = () => {
       <Route path="/brands" element={<Brands />} />
       <Route path="/payment" element={<Payment />} />
       <Route path="/admin" element={<Admin />} />
-      <Route path="/cart" element={<CartPage />} />
+      <Route path="/cart" element={<Cart />} />
       <Route path="/wishlist" element={<Wishlist />} />
 
       <Route path="/accessory/:id" element={<AccessorySinglePage />} />
