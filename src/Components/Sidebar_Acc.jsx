@@ -2,12 +2,12 @@ import { Box, Button, Checkbox, Divider, Heading, Select, Stack } from '@chakra-
 import React,{useState,useEffect} from 'react'
 import { useSearchParams } from 'react-router-dom';
 
-const Sidebar = ({order,setSort}) => {
+const Sidebar_Acc = ({order,setSort}) => {
     const[searchParams,setSearchParams]=useSearchParams()
     const [brand,setBrands]=useState(searchParams.getAll("brand")||[]);
     const [material,setMaterial]=useState(searchParams.get("material")||"")
-    const [color,setColor]=useState(searchParams.get("color")||"");
     const [category,setCategory]=useState(searchParams.getAll("category")||[]);
+    const [gender,setGender]=useState(searchParams.get("gender")|| "")
     //console.log(order)
     const handleChange=(e)=>{
 const {value}=e.target
@@ -35,16 +35,16 @@ setCategory(newcategory)
             brand:brand 
         }
         category && (params.category=category)
-        color && (params.color=color)
+        gender && (params.gender=gender)
         order && (params.order=order)
         material &&(params.material=material)
 setSearchParams(params)
-    },[brand,category,color,order,material])
+    },[brand,category,gender,order,material])
     const handleReset=()=>{
       setBrands([])
       setMaterial("")
-      setColor("")
       setCategory([])
+      setGender("")
       setSort("")
         searchParams("")
     }
@@ -55,20 +55,18 @@ setSearchParams(params)
 <Heading as="h6" fontSize={["sm","md",'xl']} ml={8} mb={5} >Filter By Brands</Heading>
 <Box ml={8} mb={5}>
         <Stack spacing={[1, 5]} direction={['column',"column", 'row']} >
-    <Checkbox value='H&M' checked={brand.includes("H&M")} onChange={handleChange}>H&M</Checkbox>
-    <Checkbox value="Levi's" checked={brand.includes("Levi's")} onChange={handleChange}>LEVI'S</Checkbox>
-    <Checkbox value='Old Navy'checked={brand.includes("Old Navy")} onChange={handleChange}>Old Navy</Checkbox>
+    <Checkbox value='Ray-Ban' checked={brand.includes("Ray-Ban")} onChange={handleChange}>Ray-Ban</Checkbox>
+    <Checkbox value="Tommy Hilfiger" checked={brand.includes("Tommy Hilfiger")} onChange={handleChange}>Tommy Hilfiger</Checkbox>
+    <Checkbox value='Burberry'checked={brand.includes("Burberry")} onChange={handleChange}>Burberry</Checkbox>
     
   </Stack>
   <Stack spacing={[1, 5]} direction={['column',"column", 'row']} >
-  <Checkbox value='Gap'checked={brand.includes("gap")} onChange={handleChange}>GAP</Checkbox>
+  <Checkbox value='Puma'checked={brand.includes("Puma")} onChange={handleChange}>Puma</Checkbox>
     <Checkbox value="Calvin Klein" checked={brand.includes("Calvin Klein")} onChange={handleChange}>Calvin Klein</Checkbox>
-    <Checkbox value="Zara" checked={brand.includes("Zara")} onChange={handleChange}>Zara</Checkbox>
   </Stack>
   <Stack spacing={[1, 5]} direction={['column','column', 'row']} onChange={(e)=>setBrands(e.target.value)}>
-  <Checkbox value='Adidas'checked={brand.includes("Adidas")} onChange={handleChange}>ADDIDAS</Checkbox>
-    <Checkbox value='Forever 21'checked={brand.includes("Forever 21")} onChange={handleChange}>Forever 21</Checkbox>
-    <Checkbox value="Lacoste" checked={brand.includes("Lacoste")} onChange={handleChange}>Lacoste</Checkbox>
+  <Checkbox value='Hugo Boss'checked={brand.includes("Hugo Boss")} onChange={handleChange}>Hugo Boss</Checkbox>
+    <Checkbox value='Gucci'checked={brand.includes("Gucci")} onChange={handleChange}>Gucci</Checkbox>
       </Stack>
         </Box>
         <Divider/>
@@ -77,37 +75,36 @@ setSearchParams(params)
         <Heading as="h6" mt={5}fontSize={["sm","md",'xl']}  ml={8}>Filter By Material</Heading>
         <Box ml={8} mt={5} mb={5}>
         <Select placeholder='Select Category' value={material} onChange={(e)=>setMaterial(e.target.value)}>
+  <option value='Metal'>Metal</option>
+  <option value='Leather'>Leather</option>
+  <option value='Glass Bottle'>Glass Bottle</option>
   <option value='Cotton'>Cotton</option>
-  <option value='Silk'>Silk</option>
-  <option value='Denim'>Denim</option>
-  <option value='Cahmere'>Cashmere</option>
-  <option value='Cotton Blend'>Cotton Blend</option>
-  <option value='Polyester'>Polyester</option>
-  <option value='Olive'>Olive</option>
-  <option value='Flannel'>Flannel</option>
+  <option value='Acetate'>Acetate</option>
 </Select>
         </Box>
         <Divider/>
 
-        <Heading as="h6" mt={5}fontSize={["sm","md",'xl']} ml={8}>Filter By Color</Heading>
+        <Heading as="h6" mt={5}fontSize={["sm","md",'xl']} ml={8}>Filter By Gender</Heading>
         <Box ml={8} mt={5} mb={5}>
-        <Select placeholder='Select Color' variant='filled' value={color} onChange={(e)=>setColor(e.target.value)}>
-  <option value='Blue' style={{backgroundColor:"blue",}} >Blue</option>
-  <option value='Black' style={{backgroundColor:"black"}}>Black</option>
-  <option value='Mustard' style={{backgroundColor:"#F1EDA7"}}>Mustard</option>
-  <option value='Maroon' style={{backgroundColor:"	#800000"}}>Maroon</option>
-  <option value='Light Blue' style={{backgroundColor:"lightblue"}}>Light Blue</option>
-  <option value='Pink' style={{backgroundColor:"pink"}}>Pink</option>
-  <option value='Olive' style={{backgroundColor:"olive"}}>Olive</option>
-  <option value='Red' style={{backgroundColor:"red"}}>Red</option>
+        <Select placeholder='Select Gender' variant='filled' value={gender} onChange={(e)=>setGender(e.target.value)}>
+  <option value='men' >Men</option>
+  <option value='women' >Women</option>
+  
 </Select>
         </Box>
         <Divider/>
         <Heading as="h6" fontSize={["sm","md",'xl']} ml={8} mb={5} >Filter By Category</Heading>
         <Box ml={8} mb={5}>
         <Stack spacing={[1, 5]} direction={['column',"column","column","column",'row']} >
-    <Checkbox value='Topwear' checked={category.includes("Topwear")} onChange={handleCat}>Top Wear</Checkbox>
-    <Checkbox value="Bottomwear" checked={category.includes("Bottomwear")} onChange={handleCat}>Bottom Wear</Checkbox>
+    <Checkbox value='Perfume' checked={category.includes("Perfume")} onChange={handleCat}>Perfume</Checkbox>
+    <Checkbox value="Belts" checked={category.includes("Belts")} onChange={handleCat}>Belts</Checkbox>
+    <Checkbox value="Wallets" checked={category.includes("Wallets")} onChange={handleCat}>Wallets</Checkbox>
+    </Stack>
+    <Stack spacing={[1, 5]} direction={['column',"column","column","column",'row']} >
+    <Checkbox value="Socks" checked={category.includes("Socks")} onChange={handleCat}>Socks</Checkbox>
+    <Checkbox value="Bags" checked={category.includes("Bags")} onChange={handleCat}>Bags</Checkbox>
+    <Checkbox value="Caps" checked={category.includes("Caps")} onChange={handleCat}>Caps</Checkbox>
+    <Checkbox value="Sunglasses" checked={category.includes("Sunglasses")} onChange={handleCat}>Sunglasses</Checkbox>
     </Stack>
   </Box>
   <Divider/>
@@ -118,4 +115,4 @@ setSearchParams(params)
   )
 }
 
-export default Sidebar
+export default Sidebar_Acc

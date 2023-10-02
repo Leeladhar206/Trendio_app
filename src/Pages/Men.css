@@ -7,4 +7,8 @@
   .star {
     color: rgb(140, 161, 35); /* Change the color to yellow or any other color you prefer */
   }
-  
+  @media(max-width:768px){
+    .heading{
+      display: none;
+    }
+  }

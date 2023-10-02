@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
 import Sidebar from '../Components/Sidebar';
+import Sidebar_Acc from '../Components/Sidebar_Acc';
 
 const Accessories2 = () => {
   const products = useSelector((store) => store.productReducer.products);
@@ -27,10 +28,10 @@ const Accessories2 = () => {
 
   const paramsobj = {
     params: {
-      brand: searchParams.getAll('brand'),
+      brand: searchParams.getAll("brand"),
       category: searchParams.getAll('category'),
       material: searchParams.get('material'),
-      color: searchParams.get('color'),
+      gender: searchParams.get('gender'),
       _sort: searchParams.get('order') && 'price',
       _order: searchParams.get('order'),
     },
@@ -41,17 +42,31 @@ const Accessories2 = () => {
     dispatch(getData(paramsobj));
   }, [searchParams]);
 
-  console.log(products)
+  //console.log(products)
 
   const accessories = products.filter((product) => product.type === 'accessories');
 
-  console.log(accessories)
+  //console.log(accessories)
 
   return (
+    <Box maxW="box.lg" display="flex">
+      <Sidebar_Acc order={order} setSort={setSort} />
     <Container maxW="container.lg" py={8} pt={20}>
-    <Heading as="h1" mb={4}>
+    <Box display="flex" justifyContent="space-between">
+    <Heading as="h1" mb={4} className='heading'>
      Accessories
     </Heading>
+    <Select
+            placeholder="Sort By Price"
+            value={order}
+            borderColor="gray"
+            w={["60%","40%","20%"]}
+            onChange={(e) => setSort(e.target.value)}
+          >
+            <option value="asc">Low to High</option>
+            <option value="desc">High to Low</option>
+          </Select>
+    </Box>
     <SimpleGrid columns={[1, 2, 3]} spacing={4}>
       {loading ? (
         Array.from({ length: 6 }).map((_, index) => (
@@ -116,6 +131,7 @@ const Accessories2 = () => {
       )}
     </SimpleGrid>
   </Container>
+  </Box>
   );
 };
 

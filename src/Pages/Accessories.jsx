@@ -34,7 +34,7 @@ const Accessories = () => {
 
   return (
     <Container maxW="container.lg" py={8} pt={20}>
-      <Heading as="h1" mb={4}>
+      <Heading as="h1" mb={4} className='heading'>
        Accessories
       </Heading>
       <SimpleGrid columns={[1, 2, 3]} spacing={4}>

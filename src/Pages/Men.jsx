@@ -48,14 +48,14 @@ const Men = () => {
       <Sidebar order={order} setSort={setSort} />
       <Container maxW="container.lg" py={8} pt={20} alignItems="center">
         <Box display="flex" justifyContent="space-between">
-          <Heading as="h1" mb={4}>
+          <Heading as="h1" mb={4} className='heading'>
             Men's Clothing
           </Heading>
           <Select
             placeholder="Sort By Price"
             value={order}
             borderColor="gray"
-            w="20%"
+            w={["55%","40%","20%"]}
             onChange={(e) => setSort(e.target.value)}
           >
             <option value="asc">Low to High</option>
