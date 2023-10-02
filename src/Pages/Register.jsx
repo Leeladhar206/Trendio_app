@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { URL } from "./Login";
@@ -13,7 +12,11 @@ import {
   VStack,
   Link as ChakraLink,
   FormControl,
+  InputGroup,
+  InputRightElement,
+  IconButton,
 } from "@chakra-ui/react";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons"; // Import icons for show/hide password
 
 const initialData = {
   f_name: "",
@@ -26,6 +29,7 @@ const initialData = {
 
 const Register = () => {
   const [userData, setUserData] = useState(initialData);
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -40,6 +44,10 @@ const Register = () => {
           prev.l_name.slice(3),
       };
     });
+  };
+
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   const handleSubmit = (e) => {
@@ -58,10 +66,11 @@ const Register = () => {
       <Box
         p={8}
         boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
-        w="400px"
-        h="500px"
+        w={{ base: "70%", md: "380px" }}
         margin="0 auto"
-        mt="90px"
+        mt="30px"
+        mb="20px"
+        height={"500px"}
       >
         <Heading textAlign="center" size="lg">
           Sign up
@@ -96,13 +105,23 @@ const Register = () => {
               />
             </FormControl>
             <FormControl>
-              <Input
-                required
-                onChange={handleChange}
-                name="password"
-                type="password"
-                placeholder="Password"
-              />
+              <InputGroup>
+                <Input
+                  required
+                  onChange={handleChange}
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                />
+                <InputRightElement width="4.5rem">
+                  <IconButton
+                    h="1.75rem"
+                    size="sm"
+                    onClick={handlePasswordVisibility}
+                    icon={showPassword ? <ViewOffIcon /> : <ViewIcon />}
+                  />
+                </InputRightElement>
+              </InputGroup>
             </FormControl>
           </VStack>
           <Box mt="40px" textAlign="center">

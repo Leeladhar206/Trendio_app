@@ -1,88 +1,12 @@
-// import axios from "axios"
-// import React, { useEffect, useState } from "react"
-// import { useDispatch } from "react-redux"
-// import {
-//   authRequest,
-//   authRequestFailure,
-//   authRequestSuccess,
-// } from "../Redux/auth/actions"
-// import { Link, useNavigate } from "react-router-dom"
-
-// export const URL = import.meta.env.VITE_DBURL
-
-// const Login = () => {
-//   const [email, setEmail] = useState("")
-//   const [password, setPassword] = useState("")
-
-//   const [token, setToken] = useState("")
-
-//   const navigate = useNavigate()
-
-//   const dispatch = useDispatch()
-//   const handleChange = (e) => {
-//     if (e.target.name === "email") {
-//       setEmail(e.target.value)
-//     }
-
-//     if (e.target.name === "password") {
-//       setPassword(e.target.value)
-//     }
-//   }
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault()
-//     dispatch(authRequest())
-//     axios({
-//       method: "get",
-//       url: `${URL}/users`,
-//       params: {
-//         email,
-//         password,
-//       },
-//     })
-//       .then((r) => {
-//         dispatch(authRequestSuccess(r.data[0].token))
-//         setToken(r.data[0].token)
-//         localStorage.setItem("token", r.data[0].token)
-//         navigate("/")
-//       })
-//       .catch((error) => dispatch(authRequestFailure()))
-//   }
-
-//   return (
-//     <div style={{ padding: "100px" }}>
-//       <h1>Login</h1>
-//       <input
-//         type="email"
-//         placeholder="email"
-//         onChange={handleChange}
-//         name="email"
-//       />
-//       <input
-//         type="password"
-//         placeholder="password"
-//         onChange={handleChange}
-//         name="password"
-//       />
-//       <button onClick={handleSubmit}>Login</button>
-
-//       <div>
-//         <Link to="/register">Register</Link>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default Login
-import axios from "axios"
-import React, { useState } from "react"
-import { useDispatch } from "react-redux"
+import axios from "axios";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   authRequest,
   authRequestFailure,
   authRequestSuccess,
-} from "../Redux/auth/actions"
-import { Link, useNavigate } from "react-router-dom"
+} from "../Redux/auth/actions";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -92,29 +16,38 @@ import {
   VStack,
   Link as ChakraLink,
   FormControl,
-} from "@chakra-ui/react"
+  InputGroup,
+  InputRightElement, // Import InputRightElement
+  IconButton, // Import IconButton
+} from "@chakra-ui/react";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons"; // Import icons for show/hide password
 
-export const URL = import.meta.env.VITE_DBURL
+export const URL = import.meta.env.VITE_DBURL;
 
 const Login = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [token, setToken] = useState("")
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [token, setToken] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     if (e.target.name === "email") {
-      setEmail(e.target.value)
+      setEmail(e.target.value);
     }
     if (e.target.name === "password") {
-      setPassword(e.target.value)
+      setPassword(e.target.value);
     }
-  }
+  };
+
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    dispatch(authRequest())
+    e.preventDefault();
+    dispatch(authRequest());
     axios({
       method: "get",
       url: `${URL}/users`,
@@ -124,22 +57,23 @@ const Login = () => {
       },
     })
       .then((r) => {
-        dispatch(authRequestSuccess(r.data[0].token))
-        setToken(r.data[0].token)
-        localStorage.setItem("token", r.data[0].token)
-        navigate(-1)
+        dispatch(authRequestSuccess(r.data[0].token));
+        setToken(r.data[0].token);
+        localStorage.setItem("token", r.data[0].token);
+        navigate(-1);
       })
-      .catch((error) => dispatch(authRequestFailure()))
-  }
+      .catch((error) => dispatch(authRequestFailure()));
+  };
 
   return (
     <Box
       p={8}
       boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
-      w="400px"
-      h="500px"
+      w={{ base: "70%", md: "350px" }}
       margin="0 auto"
-      mt="90px"
+      mt="30px"
+      mb="20px"
+      height={"380px"}
     >
       <Heading textAlign="center" size="lg">
         Login
@@ -156,16 +90,26 @@ const Login = () => {
             />
           </FormControl>
           <FormControl>
-            <Input
-              type="password"
-              placeholder="Password"
-              onChange={handleChange}
-              name="password"
-              required
-            />
+            <InputGroup>
+              <Input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                onChange={handleChange}
+                name="password"
+                required
+              />
+              <InputRightElement width="4.5rem">
+                <IconButton
+                  h="1.75rem"
+                  size="sm"
+                  onClick={handlePasswordVisibility}
+                  icon={showPassword ? <ViewOffIcon /> : <ViewIcon />}
+                />
+              </InputRightElement>
+            </InputGroup>
           </FormControl>
         </VStack>
-        <Box mt="40px" textAlign="center">
+        <Box mt={4} textAlign="center">
           <Button
             type="submit"
             w="150px"
@@ -177,13 +121,13 @@ const Login = () => {
           </Button>
         </Box>
         <Text mt={4} textAlign="center">
-          <Link to="/register" as={ChakraLink} color="blue.500">
+          <ChakraLink as={RouterLink} to="/register" color="blue.500">
             Register
-          </Link>
+          </ChakraLink>
         </Text>
       </form>
     </Box>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

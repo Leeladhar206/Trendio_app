@@ -53,8 +53,12 @@ const MainRoutes = () => {
 
       <Route path="/accessory/:id" element={<AccessorySinglePage />} />
 
-      <Route path="/product/:id" element={<SinglePage />} />
+      {/* <Route path="/product/:id" element={  <SinglePage />} /> */}
 
+      <Route element={<PrivateRoutes/>}>
+        <Route path="/product/:id" element={<SinglePage />} />
+      </Route>
+      {/* <Route path="*" element={<NotFound />} /> */}
       <Route element={<PrivateRoutes />}>
         <Route path="/profile" element={<Profile />} />
       </Route>
