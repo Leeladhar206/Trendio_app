@@ -17,6 +17,7 @@ const Cart = () => {
         data: {
           usertoken: i.usertoken,
           productId: i.productId,
+          productImage: i.image,
           productName: i.productName,
           productPrice: i.price,
           quantity: i.quantity,
