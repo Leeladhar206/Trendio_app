@@ -79,11 +79,11 @@ const Accessories2 = () => {
               boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
               transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
             }}
-            onClick={() => navigate(`/accessory/${product.id}`)}
+            onClick={() => navigate(`/product/${product.id}`)}
             style={{ cursor: 'pointer' }}
           >
             <Image src={product.images[0]} alt={product.name}  
-              onClick={() => navigate(`/accessory/${product.id}`)}
+              onClick={() => navigate(`/product/${product.id}`)}
               />
             <Box p={4}>
               <Heading as="h2" size="md" mb={2}>
