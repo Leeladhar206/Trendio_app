@@ -10,24 +10,22 @@ import {
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
-const Sidebar = ({ order, setSort }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [brand, setBrands] = useState(searchParams.getAll("brand") || []);
-  const [material, setMaterial] = useState(searchParams.get("material") || "");
-  const [color, setColor] = useState(searchParams.get("color") || "");
-  const [category, setCategory] = useState(
-    searchParams.getAll("category") || []
-  );
-  console.log(order);
-  const handleChange = (e) => {
-    const { value } = e.target;
-    let newbrands = [...brand];
-    if (newbrands.includes(value)) {
-      newbrands = newbrands.filter((el) => el !== value);
-    } else {
-      newbrands.push(value);
-    }
-    setBrands(newbrands);
+const Sidebar = ({order,setSort}) => {
+    const[searchParams,setSearchParams]=useSearchParams()
+    const [brand,setBrands]=useState(searchParams.getAll("brand")||[]);
+    const [material,setMaterial]=useState(searchParams.get("material")||"")
+    const [color,setColor]=useState(searchParams.get("color")||"");
+    const [category,setCategory]=useState(searchParams.getAll("category")||[]);
+    //console.log(order)
+    const handleChange=(e)=>{
+const {value}=e.target
+let newbrands=[...brand]
+if(newbrands.includes(value)){
+   newbrands= newbrands.filter(el=>el!==value)
+}else{
+    newbrands.push(value)
+}
+setBrands(newbrands)
   };
   const handleCat = (e) => {
     const { value } = e.target;
@@ -58,82 +56,30 @@ const Sidebar = ({ order, setSort }) => {
     searchParams("");
   };
   return (
-    <Box
-      py={8}
-      mt={5}
-      mb={10}
-      pt={20}
-      borderRight={".2px solid whitesmoke"}
-      w={["30%", "30%", "20%"]}
-      position="fixed" // Use absolute positioning
-      top="0" // Stick it to the top
-      zIndex={"1"}
-    >
-      <Heading as="h6" fontSize={["sm", "md", "xl"]} ml={8} mb={5}>
-        Filter By Brands
-      </Heading>
-      <Box ml={8} mb={5}>
-        <Stack spacing={[1, 5]} direction={["column", "column", "row"]}>
-          <Checkbox
-            value="H&M"
-            checked={brand.includes("H&M")}
-            onChange={handleChange}
-          >
-            H&M
-          </Checkbox>
-          <Checkbox
-            value="Levi's"
-            checked={brand.includes("Levi's")}
-            onChange={handleChange}
-          >
-            LEVI'S
-          </Checkbox>
-          <Checkbox
-            value="Old Navy"
-            checked={brand.includes("Old Navy")}
-            onChange={handleChange}
-          >
-            Old Navy
-          </Checkbox>
-        </Stack>
-        <Stack spacing={[1, 5]} direction={["column", "column", "row"]}>
-          <Checkbox
-            value="Gap"
-            checked={brand.includes("gap")}
-            onChange={handleChange}
-          >
-            GAP
-          </Checkbox>
-          <Checkbox
-            value="Calvin Klein"
-            checked={brand.includes("Calvin Klein")}
-            onChange={handleChange}
-          >
-            Calvin Klein
-          </Checkbox>
-        </Stack>
-        <Stack
-          spacing={[1, 5]}
-          direction={["column", "column", "row"]}
-          onChange={(e) => setBrands(e.target.value)}
-        >
-          <Checkbox
-            value="Adidas"
-            checked={brand.includes("Adidas")}
-            onChange={handleChange}
-          >
-            ADDIDAS
-          </Checkbox>
-          <Checkbox
-            value="Forever 21"
-            checked={brand.includes("Forever 21")}
-            onChange={handleChange}
-          >
-            Forever 21
-          </Checkbox>
-        </Stack>
-      </Box>
-      <Divider />
+
+    <Box py={8} mt={5} mb={10} pt={20}  borderRight={".2px solid whitesmoke"} w={["30%","35%","40%"]} position="sticky" // Use absolute positioning
+    top="0"             // Stick it to the top
+    zIndex={"1"}>
+<Heading as="h6" fontSize={["sm","md",'xl']} ml={8} mb={5} >Filter By Brands</Heading>
+<Box ml={8} mb={5}>
+        <Stack spacing={[1, 5]} direction={['column',"column", 'row']} >
+    <Checkbox value='H&M' checked={brand.includes("H&M")} onChange={handleChange}>H&M</Checkbox>
+    <Checkbox value="Levi's" checked={brand.includes("Levi's")} onChange={handleChange}>LEVI'S</Checkbox>
+    <Checkbox value='Old Navy'checked={brand.includes("Old Navy")} onChange={handleChange}>Old Navy</Checkbox>
+    
+  </Stack>
+  <Stack spacing={[1, 5]} direction={['column',"column", 'row']} >
+  <Checkbox value='Gap'checked={brand.includes("gap")} onChange={handleChange}>GAP</Checkbox>
+    <Checkbox value="Calvin Klein" checked={brand.includes("Calvin Klein")} onChange={handleChange}>Calvin Klein</Checkbox>
+    <Checkbox value="Zara" checked={brand.includes("Zara")} onChange={handleChange}>Zara</Checkbox>
+  </Stack>
+  <Stack spacing={[1, 5]} direction={['column','column', 'row']} onChange={(e)=>setBrands(e.target.value)}>
+  <Checkbox value='Adidas'checked={brand.includes("Adidas")} onChange={handleChange}>ADDIDAS</Checkbox>
+    <Checkbox value='Forever 21'checked={brand.includes("Forever 21")} onChange={handleChange}>Forever 21</Checkbox>
+    <Checkbox value="Lacoste" checked={brand.includes("Lacoste")} onChange={handleChange}>Lacoste</Checkbox>
+      </Stack>
+        </Box>
+        <Divider/>
 
       <Heading as="h6" mt={5} fontSize={["sm", "md", "xl"]} ml={8}>
         Filter By Material
