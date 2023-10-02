@@ -23,8 +23,7 @@ import Men from "../Pages/Men"
 // import EditProduct from "../Pages/Admin/EditProduct"
 import { Payment } from "../Pages/Payment"
 import Accessories2 from "../Pages/Accessories2"
-
-
+import { AdminRoutes } from "../Pages/Admin/AdminRoutes"
 
 const MainRoutes = () => {
   return (
@@ -41,13 +40,11 @@ const MainRoutes = () => {
 
       {/* <Route path="/payment" element={<Payment />} /> */}
 
-      <Route path="/admin/*" element={<Admin />} />
-
       {/* <Route path="/cart" element={<CartPage />} /> */}
 
       <Route path="/payment" element={<Payment />} />
-{/* //       <Route path="/admin" element={<Admin />} /> */}
-        <Route path="/cart" element={<Cart />} />
+      {/* //       <Route path="/admin" element={<Admin />} /> */}
+      <Route path="/cart" element={<Cart />} />
 
       <Route path="/wishlist" element={<Wishlist />} />
 
@@ -55,13 +52,14 @@ const MainRoutes = () => {
 
       {/* <Route path="/product/:id" element={  <SinglePage />} /> */}
 
-      <Route element={<PrivateRoutes/>}>
-        <Route path="/product/:id" element={<SinglePage />} />
-      </Route>
+      <Route path="/product/:id" element={<SinglePage />} />
+
       {/* <Route path="*" element={<NotFound />} /> */}
       <Route element={<PrivateRoutes />}>
         <Route path="/profile" element={<Profile />} />
+        <Route path="/admin/*" element={<Admin />} />
       </Route>
+
       <Route
         path="*"
         element={
