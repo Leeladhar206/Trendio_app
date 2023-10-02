@@ -193,33 +193,34 @@ const Cart = () => {
   }, []);
 
   return (
+     <center>
     <div>
-     
-     <VStack align="start" spacing={4}  width="100%"> 
+     <VStack  spacing={4}  width="100%"> 
         {cartItems.length > 0 &&
           cartItems
             .filter((item) => item.checkedOut === false)
             .map((item) => (
-              <Box key={item.id} w="40%"> 
+              <Box key={item.id} w="50%" > 
                 <CartCard {...item} images={item.images} />
               </Box>
             ))}
       </VStack>
-
       <Text>
         {cartItems?.filter((item) => item.checkedOut === false).length > 0 &&
           "Grandtotal: "}
         {cartItems?.filter((item) => item.checkedOut === false).length > 0 &&
           cartItems
-            .filter((item) => item.checkedOut === false)
-            .reduce((a, c) => (a += c.total), 0)}
+          .filter((item) => item.checkedOut === false)
+          .reduce((a, c) => (a += c.total), 0)}
       </Text>
 
       <Button onClick={handleCheckout} colorScheme="teal" mt={4}>
         Checkout
       </Button>
     </div>
+          </center>
   );
 };
 
 export default Cart;
+
