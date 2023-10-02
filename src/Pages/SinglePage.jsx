@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-// import { RootState } from "../Redux/rootReducer";
-// import {getSingleProduct} from "../Redux/productReducer/action"
+
+import { useToast } from "@chakra-ui/react";
+
 
 import {
   Box,
@@ -40,6 +41,7 @@ export const SinglePage = () => {
 
   let singleProduct = useSelector((store) => store.singleProductReducer.product)
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+  const toast = useToast();
 
 
   let { id } = useParams()
@@ -101,6 +103,21 @@ export const SinglePage = () => {
       url: `${URL}/carts`,
       data: cartItem,
     })
+    .then((response) => {
+      console.log("Added to cart:", response.data);
+      // Show a success toast
+      toast({
+        title: "Product Added",
+        description: "The product has been added to your cart successfully.",
+        status: "success",
+        duration: 3000, // Display for 3 seconds
+        isClosable: true,
+      });
+    })
+    .catch((error) => {
+      console.error("Error adding to cart:", error);
+      // Handle error if needed
+    });
   }
 
   // const zoomIn = () => {
