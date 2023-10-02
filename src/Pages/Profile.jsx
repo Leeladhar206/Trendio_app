@@ -4,7 +4,7 @@ import { Box, Heading, Button, Link } from "@chakra-ui/react";
 import axios from "axios";
 import { URL } from "./Login";
 import { useNavigate } from "react-router-dom";
-import CartCard from "../Components/CartCard";
+import ProfileOrders from "../Components/ProfileOrders";
 
 
 const Profile = () => {
@@ -13,6 +13,7 @@ const Profile = () => {
   const navigate = useNavigate();
   const [pendingOrders, setPendingOrders] = useState([]);
   const [recentOrders, setRecentOrders] = useState([]);
+
 
   useEffect(() => {
     if (token) {
@@ -54,7 +55,7 @@ const Profile = () => {
       });
     }
   }, [token]);
-
+  console.log(pendingOrders)
   const logout = () => {
     localStorage.removeItem("token");
     navigate("/");
@@ -88,11 +89,11 @@ const Profile = () => {
         </Box>
       )}
       <h1>Pending Orders</h1>
-      {pendingOrders.length > 0 &&
-        pendingOrders.map((item) => <CartCard key={item.id} {...item} />)}
+      {pendingOrders?.length > 0 &&
+        pendingOrders?.map((item) => <ProfileOrders key={item.id} image={item.productImage} {...item} />)}
       <h1>Recent Orders</h1>
-      {recentOrders.length > 0 &&
-        recentOrders.map((item) => <CartCard key={item.id} {...item} />)}
+      {recentOrders?.length > 0 &&
+        recentOrders?.map((item) => <ProfileOrders key={item.id} image={item.productImage} {...item} />)}
     </Box>
   );
 };
