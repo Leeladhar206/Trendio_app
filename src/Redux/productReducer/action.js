@@ -23,12 +23,12 @@ export const postData = (newData)=>(dispatch)=>{
    .catch((err)=> dispatch({type:POSTDATA_FAILURE}))
 }
 
-export const getSingleProduct = (id)=> (dispatch)=>{
-   dispatch({type:GETSINGLEPRODUCT_REQUEST})
-   axios.get(`https://handy-string-backend.onrender.com/products`+"/"+id)
-   .then((res)=> dispatch({type:GETSINGLEPRODUCT_SUCCESS, payload:res.data}))
-   .catch((err)=> dispatch({type:GETSINGLEPRODUCT_FAILURE}))
-}
+// export const getSingleProduct = (id)=> (dispatch)=>{
+//    dispatch({type:GETSINGLEPRODUCT_REQUEST})
+//    axios.get(`https://handy-string-backend.onrender.com/products`+"/"+id)
+//    .then((res)=> dispatch({type:GETSINGLEPRODUCT_SUCCESS, payload:res.data}))
+//    .catch((err)=> dispatch({type:GETSINGLEPRODUCT_FAILURE}))
+// }
 
 
 export const getAccessoriesSingleProduct = (id)=> (dispatch)=>{

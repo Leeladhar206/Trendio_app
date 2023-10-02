@@ -22,7 +22,7 @@ import { FaStar } from 'react-icons/fa';
 
 const Accessories = () => {
   const accessories = useSelector((store) => store.productReducer.accessories);
-  const loading = useSelector((store) => store.productReducer.loading);
+  const loading = useSelector((store) => store.productReducer.isLoading);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

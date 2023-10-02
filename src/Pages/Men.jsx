@@ -16,27 +16,23 @@ import {
 } from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
 
-
-
-
 const Men = () => {
   const products = useSelector((store) => store.productReducer.products);
-  const loading = useSelector((store) => store.productReducer.loading);
+  const loading = useSelector((store) => store.productReducer.isLoading);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
     // Dispatch the action to get data
-    dispatch(getData);
+    dispatch(getData); // Corrected dispatch statement
   }, [dispatch]);
 
-  const menProducts = products.filter(
-    (product) => product.gender === 'Men'
-  );
+  const menProducts = products.filter((product) => product.gender === 'Men');
+
 
 
   return (
-    <Container maxW="container.lg" py={8} pt={20}>
+    <Container maxW="container.lg" py={8} pt={20} alignItems="center">
       <Heading as="h1" mb={4}>
         Men's Clothing
       </Heading>
@@ -73,24 +69,18 @@ const Men = () => {
                 <Text>Price: ${product.price}</Text>
                 <Text>Brand: {product.brand}</Text>
                 <Text>
-                 
-        <Flex alignItems={"center"} fontSize={16} m={"10px auto"}>
-        Rating:  {new Array(Math.floor(product.rating || 1)).fill(0).map((el, index) => (
-            <Box key={index} m={"0px 1px"}>
-              <FaStar color="#ffb128" />
-            </Box>
-          ))}
-          {new Array(5 - Math.floor(product.rating || 1)).fill(0).map((el, index) => (
-            <Box key={index} m={"0px 1px"}>
-              <FaStar color="grey" />
-            </Box>
-          ))}
-          {/* <Box ml={"10px"} alignItems={"center"}>
-            <Text fontSize={"15px"} color={"#5c676d"}>
-              ({product?.reviews?.length} customer reviews)
-            </Text>
-          </Box> */}
-        </Flex>
+                  Rating: <Flex fontSize={18} m={'8px 0'}>
+                    {new Array(Math.floor(product?.rating || 1)).fill(0).map((el, index) => (
+                      <Box key={index} m={'0px 1px'}>
+                        <FaStar color="#ffb128" />
+                      </Box>
+                    ))}
+                    {new Array(5 - Math.floor(product?.rating || 1)).fill(0).map((el, index) => (
+                      <Box key={index} m={'0px 1px'}>
+                        <FaStar color="grey" />
+                      </Box>
+                    ))}
+                  </Flex>
                 </Text>
               </Box>
             </Box>
