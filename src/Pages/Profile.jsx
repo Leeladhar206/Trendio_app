@@ -5,6 +5,7 @@ import axios from "axios";
 import { URL } from "./Login";
 import { useNavigate } from "react-router-dom";
 import ProfileOrders from "../Components/ProfileOrders";
+import OrderCard from "../Components/OrderCard";
 
 
 const Profile = () => {
@@ -88,12 +89,12 @@ const Profile = () => {
           </Button>
         </Box>
       )}
-      <h1>Pending Orders</h1>
+      <h1>My Orders</h1>
       {pendingOrders?.length > 0 &&
-        pendingOrders?.map((item) => <ProfileOrders key={item.id} image={item.productImage} {...item} />)}
-      <h1>Recent Orders</h1>
+        pendingOrders?.map((item) => <OrderCard key={item.id} image={item.productImage} {...item} />)}
+      {/* <h1>Recent Orders</h1>
       {recentOrders?.length > 0 &&
-        recentOrders?.map((item) => <ProfileOrders key={item.id} image={item.productImage} {...item} />)}
+        recentOrders?.map((item) => <ProfileOrders key={item.id} image={item.productImage} {...item} />)} */}
     </Box>
   );
 };

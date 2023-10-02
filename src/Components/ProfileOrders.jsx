@@ -1,11 +1,11 @@
 import React from "react"
 
-const ProfileOrders = ({ productName, productPrice, quantity, total, image }) => {
-  console.log(image)
+const ProfileOrders = ({ productName, productPrice, quantity, total, productImage }) => {
+  // console.log(image)
   return (
     <div>
       <p>{productName}</p>
-      <img src={image} alt="" />
+      <img src={productImage} alt="" />
       <p>{productPrice}</p>
       <p>{quantity}</p>
       <p>{total}</p>
