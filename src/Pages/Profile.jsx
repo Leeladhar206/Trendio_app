@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Heading, Button } from "@chakra-ui/react";
 import axios from "axios";
 import { URL } from "./Login";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const token = localStorage.getItem("token") || "";
@@ -41,7 +41,9 @@ const Profile = () => {
       {userData && (
         <Box textAlign="center">
           <p className="welcome-text">Welcome, {userData.f_name}!</p>
-          
+         <Box padding={3}>
+         <Link  to="/admin"> Admin Dashboard </Link>
+          </Box>
           <Button
             colorScheme="red"
             size="md"
