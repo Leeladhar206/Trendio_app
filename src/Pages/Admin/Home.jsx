@@ -1,54 +1,66 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import 
 { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill}
  from 'react-icons/bs'
+import { useDispatch, useSelector } from 'react-redux';
  import 
  { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
  from 'recharts';
+import { getData } from '../../Redux/productReducer/action';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
 
+  const products = useSelector((store) => store.productReducer.products);
+  const dispatch = useDispatch();
+  
+  const navigate = useNavigate()
+  useEffect(() => {
+    // Dispatch the action to get data
+    dispatch(getData);
+  }, [dispatch]);
+
     const data = [
         {
-          name: 'Page A',
-          uv: 4000,
-          pv: 2400,
+          name: 'Mon',
+          Women: 4000,
+          Men: 2400,
           amt: 2400,
         },
         {
-          name: 'Page B',
-          uv: 3000,
-          pv: 1398,
+          name: 'Tue',
+          Women: 3000,
+          Men: 1398,
           amt: 2210,
         },
         {
-          name: 'Page C',
-          uv: 2000,
-          pv: 9800,
+          name: 'Wed',
+          Women: 2000,
+          Men: 2800,
           amt: 2290,
         },
         {
-          name: 'Page D',
-          uv: 2780,
-          pv: 3908,
+          name: 'Thurs',
+          Women: 2780,
+          Men: 3908,
           amt: 2000,
         },
         {
-          name: 'Page E',
-          uv: 1890,
-          pv: 4800,
+          name: 'Fri',
+          Women: 1890,
+          Men: 4800,
           amt: 2181,
         },
         {
-          name: 'Page F',
-          uv: 2390,
-          pv: 3800,
+          name: 'Sat',
+          Women: 6980,
+          Men: 5200,
           amt: 2500,
         },
         {
-          name: 'Page G',
-          uv: 3490,
-          pv: 4300,
+          name: 'Sun',
+          Women: 9490,
+          Men: 7300,
           amt: 2100,
         },
       ];
@@ -61,12 +73,13 @@ function Home() {
         </div>
 
         <div className='main-cards'>
-            <div className='card'>
-                <div className='card-inner'>
-                    <h3>PRODUCTS</h3>
+        <div className='card card-zoom' onClick={() => { navigate('/men') }}>
+
+                <div  className='card-inner'>
+                    <h3 >PRODUCTS</h3>
                     <BsFillArchiveFill className='card_icon'/>
                 </div>
-                <h1>300</h1>
+                <h1>{products.length}</h1>
             </div>
             <div className='card'>
                 <div className='card-inner'>
@@ -84,7 +97,7 @@ function Home() {
             </div>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>ALERTS</h3>
+                    <h3>ORDERS</h3>
                     <BsFillBellFill className='card_icon'/>
                 </div>
                 <h1>42</h1>
@@ -109,8 +122,8 @@ function Home() {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="pv" fill="#8884d8" />
-                <Bar dataKey="uv" fill="#82ca9d" />
+                <Bar dataKey="Men" fill="#8884d8" />
+                <Bar dataKey="Women" fill="#82ca9d" />
                 </BarChart>
             </ResponsiveContainer>
 
@@ -131,8 +144,8 @@ function Home() {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                <Line type="monotone" dataKey="Men" stroke="#8884d8" activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="Women" stroke="#82ca9d" />
                 </LineChart>
             </ResponsiveContainer>
 

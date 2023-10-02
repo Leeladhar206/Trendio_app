@@ -1,6 +1,4 @@
-
-import React, { ReactNode, useEffect, useState } from "react"
-
+import React, { ReactNode, useState } from "react"
 import {
   Box,
   Flex,
@@ -11,17 +9,12 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react"
 
-import {  Button, ChakraProvider, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Heading, Icon, Text } from "@chakra-ui/react";
-
-import { FaShoppingCart } from "react-icons/fa";
-
-
-
 import MenuIcon from "@mui/icons-material/Menu"
 import CloseIcon from "@mui/icons-material/Close"
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined"
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined"
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined"
+
 import { Link } from "react-router-dom"
 
 const links = [
@@ -49,21 +42,22 @@ const NavLink = ({ to, children }) => (
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure()
-  const [token, setToken] = useState()
-  // console.log(token)
-
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
-  useEffect(() => {
-    setToken(
-      localStorage.getItem("token") ? localStorage.getItem("token") : null
-    )
-    console.log(token)
-  }, [])
+  const [token, setToken] = useState(
+    localStorage.getItem("token") ? localStorage.getItem("token") : null
+  )
+  console.log(token)
 
   return (
-    <Box zIndex="10" bg="white" color="black" px={4}>
+    <Box
+      zIndex="10"
+      width="100%"
+      position="fixed"
+      bg="white"
+      color="black"
+      px={4}
+    >
       <Flex h={16} alignItems="center" justifyContent="space-between">
+        {/* Show the hamburger for small screens */}
         <IconButton
           size="md"
           icon={isOpen ? <CloseIcon /> : <MenuIcon />}
@@ -80,7 +74,7 @@ export default function Navbar() {
             />
           </Link>
         </HStack>
-        
+
         <HStack
           as="nav"
           spacing={4}
@@ -101,40 +95,12 @@ export default function Navbar() {
             <FavoriteBorderOutlinedIcon />
           </Link>
           <Link to="/cart">
-         
-            
-      <Flex justifyContent="center" alignItems="center" height="100vh">
-        <Button
-          onClick={() => setIsCartOpen(true)}
-          // rightIcon={<Icon as={FaShoppingCart} />}
-          colorScheme="black"
-          variant="link"
-        >
-     <ShoppingCartOutlinedIcon />
-        </Button>
-      </Flex>
-
-      {/* Cart Drawer */}
-      <Drawer placement="right" isOpen={isCartOpen} onClose={() => setIsCartOpen(false)}>
-        <DrawerOverlay>
-          <DrawerContent>
-            <DrawerHeader>Shopping Cart</DrawerHeader>
-            <DrawerBody>
-              {/* {cartItems?.length === 0 ? (
-                <Text>Your cart is empty.</Text>
-              ) : (
-                <Box>
-                  
-                </Box>
-              )} */}
-            </DrawerBody>
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
-
+            <ShoppingCartOutlinedIcon />
           </Link>
         </HStack>
       </Flex>
+
+      {/* Show the navigation links in a dropdown on small screens */}
       {isOpen && (
         <Box pb={4} display={{ base: "block", md: "none" }}>
           <HStack
@@ -152,5 +118,5 @@ export default function Navbar() {
         </Box>
       )}
     </Box>
-  );
+  )
 }

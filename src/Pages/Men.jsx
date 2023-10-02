@@ -18,15 +18,13 @@ import {
 import { FaStar } from 'react-icons/fa';
 import Sidebar from '../Components/Sidebar';
 
-
-
-
 const Men = () => {
   
   const dispatch = useDispatch();
   const products = useSelector((store) => store.productReducer.products);
-  const loading = useSelector((store) => store.productReducer.loading);
+  const loading = useSelector((store) => store.productReducer.isLoading);
   const navigate = useNavigate();
+
  
 const [searchParams]=useSearchParams()
 const [order,setSort]=useState(searchParams.get("order")||"")
@@ -52,7 +50,17 @@ const paramsobj={
     const filledStars = Math.round(rating);
     const emptyStars = maxRating - filledStars;
 
-    const stars = [];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Dispatch the action to get data
+    dispatch(getData); // Corrected dispatch statement
+  }, [dispatch]);
+
+  const menProducts = products.filter((product) => product.gender === 'Men');
+
+
+
 
     for (let i = 0; i < filledStars; i++) {
       stars.push(
@@ -85,15 +93,21 @@ const paramsobj={
     dispatch(getData(paramsobj));
   }, [searchParams]);
 
+
   //position: relative; /* Container needs a position */
   //height: 100%; /* Set a height to create a scrolling container */
   // overflow-y: auto;
   return (
+
     <Box maxW="box.lg" display={"flex"} >
       <Sidebar order={order} setSort={setSort}/>
     <Container maxW="container.lg" py={8} pt={20} >
       <Box display={"flex"} justifyContent={"space-between"}>
       <Heading as="h1" mb={4} >
+
+    <Container maxW="container.lg" py={8} pt={20} alignItems="center">
+      <Heading as="h1" mb={4}>
+
         Men's Clothing
       </Heading>
 <Select placeholder='Sort By Price' value={order} borderColor='gray' w={["50%","30%","25%"]} onChange={(e)=>setSort(e.target.value)}> 
@@ -135,6 +149,7 @@ const paramsobj={
                 <Text>Price: ${product.price}</Text>
                 <Text>Brand: {product.brand}</Text>
                 <Text>
+
                  
         <Flex alignItems={"center"} fontSize={16} m={"10px auto"}>
        Rating:  {new Array(Math.floor(product.rating || 1)).fill(0).map((el, index) => (
@@ -153,6 +168,20 @@ const paramsobj={
             </Text>
           </Box> */}
         </Flex>
+
+                  Rating: <Flex fontSize={18} m={'8px 0'}>
+                    {new Array(Math.floor(product?.rating || 1)).fill(0).map((el, index) => (
+                      <Box key={index} m={'0px 1px'}>
+                        <FaStar color="#ffb128" />
+                      </Box>
+                    ))}
+                    {new Array(5 - Math.floor(product?.rating || 1)).fill(0).map((el, index) => (
+                      <Box key={index} m={'0px 1px'}>
+                        <FaStar color="grey" />
+                      </Box>
+                    ))}
+                  </Flex>
+
                 </Text>
               </Box>
             </Box>
