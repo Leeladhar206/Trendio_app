@@ -37,7 +37,6 @@ export const SinglePage = () => {
 
 
   let { id } = useParams();
-
  
   const dispatch = useDispatch();
   
