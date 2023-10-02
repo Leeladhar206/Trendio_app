@@ -36,11 +36,6 @@ import { URL } from "./Login"
 // import { getSingleProductData } from '../Redux/UserPage/action';
 
 export const SinglePage = () => {
-  let { id } = useParams()
-
-  const dispatch = useDispatch()
-
-
   //   let { singleProduct, isLoading, isError } = useSelector((store: RootState) => ({
   //     singleProduct: store.productReducer.singleProduct,
   //     isLoading: store.productReducer.isLoading,
@@ -50,16 +45,15 @@ export const SinglePage = () => {
   let singleProduct = useSelector((store) => store.singleProductReducer.product)
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
 
-  let { id } = useParams();
- 
-  const dispatch = useDispatch();
-  
-//   let { singleProduct, isLoading, isError } = useSelector((store: RootState) => ({
-//     singleProduct: store.productReducer.singleProduct,
-//     isLoading: store.productReducer.isLoading,
-//     isError: store.productReducer.isError,
-//   }));
+  let { id } = useParams()
 
+  const dispatch = useDispatch()
+
+  //   let { singleProduct, isLoading, isError } = useSelector((store: RootState) => ({
+  //     singleProduct: store.productReducer.singleProduct,
+  //     isLoading: store.productReducer.isLoading,
+  //     isError: store.productReducer.isError,
+  //   }));
 
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
     useNumberInput({
