@@ -12,10 +12,12 @@ import {
   BsFillGearFill,
   BsBoxArrowRight,
 } from 'react-icons/bs';
+import styled from 'styled-components';
 
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
   return (
+    <DIV>
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive" : ""}>
       <div className='sidebar-title'>
         {/* <div className='sidebar-brand' style={{ width: "130px" }}>
@@ -69,7 +71,16 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         </li>
       </ul>
     </aside>
+    </DIV>
   );
 }
 
 export default Sidebar;
+
+
+
+const DIV = styled.div`
+
+   position:fixed;
+
+`

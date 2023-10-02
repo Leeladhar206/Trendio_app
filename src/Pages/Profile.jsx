@@ -1,18 +1,16 @@
-
-import React, { useEffect, useState } from "react"
-import { Box, Heading, Button } from "@chakra-ui/react"
-import axios from "axios"
-import { URL } from "./Login"
-import { useNavigate } from "react-router-dom"
-import CartCard from "../Components/CartCard"
-
+import React, { useEffect, useState } from "react";
+import { Box, Heading, Button, Link } from "@chakra-ui/react";
+import axios from "axios";
+import { URL } from "./Login";
+import { useNavigate } from "react-router-dom";
+import CartCard from "../Components/CartCard";
 
 const Profile = () => {
-  const token = localStorage.getItem("token") || ""
-  const [userData, setUserData] = useState(null)
-  const navigate = useNavigate()
-  const [pendingOrders, setPendingOrders] = useState([])
-  const [recentOrders, setRecentOrders] = useState([])
+  const token = localStorage.getItem("token") || "";
+  const [userData, setUserData] = useState(null);
+  const navigate = useNavigate();
+  const [pendingOrders, setPendingOrders] = useState([]);
+  const [recentOrders, setRecentOrders] = useState([]);
 
   useEffect(() => {
     if (token) {
@@ -24,12 +22,12 @@ const Profile = () => {
         },
       })
         .then((response) => {
-          const userData = response.data[0]
+          const userData = response.data[0];
           if (userData) {
-            setUserData(userData)
+            setUserData(userData);
           }
         })
-        .catch((error) => console.log(error))
+        .catch((error) => console.log(error));
 
       axios({
         method: "get",
@@ -43,22 +41,22 @@ const Profile = () => {
             (item) =>
               item.orderStatus === "placed" || item.orderStatus === "shipped"
           )
-        )
+        );
         setRecentOrders(
           response.data.filter(
             (item) =>
               item.orderStatus === "delivered" ||
               item.orderStatus === "cancelled"
           )
-        )
-      })
+        );
+      });
     }
-  }, [token])
+  }, [token]);
 
   const logout = () => {
-    localStorage.removeItem("token")
-    navigate("/")
-  }
+    localStorage.removeItem("token");
+    navigate("/");
+  };
 
   return (
     <Box
@@ -75,20 +73,8 @@ const Profile = () => {
       {userData && (
         <Box textAlign="center">
           <p className="welcome-text">Welcome, {userData.f_name}!</p>
-
-
+          <Link to="/admin">Admin Dashboard</Link>
           <Button colorScheme="red" size="md" mt="4" onClick={logout}>
-
-         <Box padding={3}>
-         <Link  to="/admin"> Admin Dashboard </Link>
-          </Box>
-          <Button
-            colorScheme="red"
-            size="md"
-            mt="4"
-            onClick={logout}
-          >
-
             Logout
           </Button>
         </Box>
@@ -100,7 +86,7 @@ const Profile = () => {
       {recentOrders.length > 0 &&
         recentOrders.map((item) => <CartCard key={item.id} {...item} />)}
     </Box>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

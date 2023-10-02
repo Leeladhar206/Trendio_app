@@ -40,6 +40,8 @@ const paramsobj={
   }
 }
 
+
+
   useEffect(() => {
     // Dispatch the action to get data
     dispatch(getData(paramsobj));
@@ -48,7 +50,7 @@ const paramsobj={
   const WomenProducts = products.filter(
     (product) => product.gender === 'Women'
   );
-
+  console.log(WomenProducts)
   return (
     <Box maxW="box.lg" display={"flex"}>
       <Sidebar order={order} setSort={setSort}/>

@@ -50,9 +50,9 @@ export const SinglePage = () => {
   let singleProduct = useSelector((store) => store.singleProductReducer.product)
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
 
-  let { id } = useParams();
+  // let { id } = useParams();
  
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   
 //   let { singleProduct, isLoading, isError } = useSelector((store: RootState) => ({
 //     singleProduct: store.productReducer.singleProduct,
