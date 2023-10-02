@@ -232,11 +232,10 @@ export  const Payment = () => {
     <DIV >
       <Container maxW="1200px">
         {" "}
-        <br />
-        <br />
+
         <p className="payment_Text">Payment Details</p> <br />
-        <br />
-        <Box
+        {/* <br /> */}
+        {/* <Box
           display="flex"
           justifyContent="center"
           gap="20px"
@@ -247,9 +246,9 @@ export  const Payment = () => {
           </Button>
           <Button width="300px" variant={"outline"} colorScheme="teal" leftIcon={<Icon as={FaGooglePay} boxSize={55} alignItems={"center"} />}>
           </Button>
-        </Box>{" "}
-        <br /> <br />
-        <p className="payment_Text">Or Checkout using a Credit Card</p> <br />
+        </Box>{" "} */}
+        {/* <br /> <br /> */}
+        {/* <p className="payment_Text">Or Checkout using a Credit Card</p> <br /> */}
         <br />
         <Container
           padding="30px"
@@ -299,8 +298,7 @@ export  const Payment = () => {
               <Button className="paymentbtn" ml={["5","10","15","20"]} m={"auto"} width="300px" colorScheme="teal" variant={"outline"} type="submit">
                 Make Payment
               </Button>{" "}
-              <br />
-              <br />
+           
             </form>
             {/* modal */}
             <Modal isOpen={isOpen} onClose={onClose}>
@@ -349,7 +347,7 @@ export  const Payment = () => {
               </ModalContent>
             </Modal>
           </Box>
-          <Payment2/>
+          {/* <Payment2/> */}
         </Container>
       </Container>{" "}
       <br />

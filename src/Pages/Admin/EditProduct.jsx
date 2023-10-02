@@ -126,11 +126,11 @@ const EditProduct = () => {
       display="flex"
       flexDirection={{ base: "column", lg: "row" }}
     >
-      <Box overflowY="scroll" height="100vh">
+      <Box overflowY="scroll" height="100vh" w={{base:"100%", lg:"60%"}}>
         <Grid
           templateColumns={{
             base: "1fr",
-            sm: "repeat(2, 1fr)",
+            sm: "repeat(3, 1fr)",
           }}
           w="90%"
           m="auto"

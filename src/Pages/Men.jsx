@@ -1,8 +1,10 @@
+
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { getData } from '../Redux/productReducer/action';
 import './Men.css';
+
 import {
   Box,
   Container,
@@ -13,11 +15,12 @@ import {
   Text,
   Skeleton,
   Select,
-} from '@chakra-ui/react';
-import { FaStar } from 'react-icons/fa';
-import Sidebar from '../Components/Sidebar';
+} from "@chakra-ui/react"
+import { FaStar } from "react-icons/fa"
+import Sidebar from "../Components/Sidebar"
 
 const Men = () => {
+
   const products = useSelector((store) => store.productReducer.products);
   const loading = useSelector((store) => store.productReducer.isLoading);
   const navigate = useNavigate();
@@ -36,17 +39,21 @@ const Men = () => {
     },
   };
 
+
   useEffect(() => {
     // Dispatch the action to get data
-    dispatch(getData(paramsobj));
-  }, [searchParams]);
+    dispatch(getData(paramsobj))
+  }, [searchParams])
+
 
   const menProducts = products.filter((product) => product.gender === 'Men');
+
 
   return (
     <Box maxW="box.lg" display="flex">
       <Sidebar order={order} setSort={setSort} />
-      <Container maxW="container.lg" py={8} pt={20} alignItems="center">
+
+      <Container maxW="container.lg"  pt={8} alignItems="center">  
         <Box display="flex" justifyContent="space-between">
           <Heading as="h1" mb={4} className='heading'>
             Men's Clothing
@@ -63,6 +70,7 @@ const Men = () => {
           </Select>
         </Box>
         <SimpleGrid columns={[1, 2, 3]} spacing={4}>
+
           {loading ? (
             Array.from({ length: 6 }).map((_, index) => (
               <Box
@@ -128,10 +136,11 @@ const Men = () => {
               </Box>
             ))
           )}
+
         </SimpleGrid>
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default Men;
+export default Men

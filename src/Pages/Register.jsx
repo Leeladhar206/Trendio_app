@@ -50,7 +50,7 @@ const Register = () => {
       data: userData,
     })
       .then((r) => navigate("/login"))
-      .catch((error) => console.console.log(error));
+      .catch((error) => console.log(error));
   };
 
   return (
