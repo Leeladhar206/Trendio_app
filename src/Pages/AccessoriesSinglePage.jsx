@@ -130,7 +130,7 @@ export const AccessorySinglePage = () => {
           <Image
             src={singleProduct?.images[selectedImageIndex]}
             w={["500px", "500px", "500px"]}
-            m={"50px auto"}
+            m={"20px auto"}
             border={"1px solid white" }
           />
         </Box>:null}
@@ -281,7 +281,7 @@ export const AccessorySinglePage = () => {
       </Box>
     </Box>
 
-    <Box mx={[2, 4, 6, 10]} w={['100%', '95%', '90%']} px={2} py={4} marginBottom={10}>
+    <Box mx={[2, 4, 6, 10]} w={['100%', '95%', '90%']} px={2} py={4} marginBottom={10} marginLeft={120}>
         <Text fontSize={['2xl', '3xl', '4xl']} fontWeight="bold" mb={4}>
           Frequently Asked Questions
         </Text>
