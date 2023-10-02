@@ -74,15 +74,15 @@
 // }
 
 // export default Login
-import axios from "axios";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import axios from "axios"
+import React, { useState } from "react"
+import { useDispatch } from "react-redux"
 import {
   authRequest,
   authRequestFailure,
   authRequestSuccess,
-} from "../Redux/auth/actions";
-import { Link, useNavigate } from "react-router-dom";
+} from "../Redux/auth/actions"
+import { Link, useNavigate } from "react-router-dom"
 import {
   Box,
   Button,
@@ -92,29 +92,29 @@ import {
   VStack,
   Link as ChakraLink,
   FormControl,
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"
 
-export const URL = import.meta.env.VITE_DBURL;
+export const URL = import.meta.env.VITE_DBURL
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [token, setToken] = useState("")
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleChange = (e) => {
     if (e.target.name === "email") {
-      setEmail(e.target.value);
+      setEmail(e.target.value)
     }
     if (e.target.name === "password") {
-      setPassword(e.target.value);
+      setPassword(e.target.value)
     }
-  };
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(authRequest());
+    e.preventDefault()
+    dispatch(authRequest())
     axios({
       method: "get",
       url: `${URL}/users`,
@@ -124,13 +124,13 @@ const Login = () => {
       },
     })
       .then((r) => {
-        dispatch(authRequestSuccess(r.data[0].token));
-        setToken(r.data[0].token);
-        localStorage.setItem("token", r.data[0].token);
-        navigate("/");
+        dispatch(authRequestSuccess(r.data[0].token))
+        setToken(r.data[0].token)
+        localStorage.setItem("token", r.data[0].token)
+        navigate(-1)
       })
-      .catch((error) => dispatch(authRequestFailure()));
-  };
+      .catch((error) => dispatch(authRequestFailure()))
+  }
 
   return (
     <Box
@@ -183,7 +183,7 @@ const Login = () => {
         </Text>
       </form>
     </Box>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

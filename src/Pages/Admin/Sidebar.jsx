@@ -10,16 +10,19 @@ import {
   BsListCheck,
   BsMenuButtonWideFill,
   BsFillGearFill,
+  BsBoxArrowRight,
 } from 'react-icons/bs';
+import styled from 'styled-components';
 
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
   return (
+    <DIV>
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive" : ""}>
       <div className='sidebar-title'>
-        <div className='sidebar-brand' style={{ width: "130px" }}>
+        {/* <div className='sidebar-brand' style={{ width: "130px" }}>
           <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2qh43n7ugsu0tylcf56h.png" alt="" />
-        </div>
+        </div> */}
         <span className='icon close_icon' onClick={OpenSidebar}>
           <CloseIcon /> {/* Use Chakra UI CloseIcon */}
         </span>
@@ -38,7 +41,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         </li>
         <li className='sidebar-list-item'>
           <a href="">
-            <BsFillGrid3X3GapFill className='icon' /> Categories
+            <BsFillGrid3X3GapFill className='icon' /> Edit Products
           </a>
         </li>
         <li className='sidebar-list-item'>
@@ -46,7 +49,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             <BsPeopleFill className='icon' /> Customers
           </a>
         </li>
-        <li className='sidebar-list-item'>
+        {/* <li className='sidebar-list-item'>
           <a href="">
             <BsListCheck className='icon' /> Inventory
           </a>
@@ -60,10 +63,24 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           <a href="">
             <BsFillGearFill className='icon' /> Settings
           </a>
+        </li> */}
+         <li className='sidebar-list-item'>
+          <a href="">
+            <BsBoxArrowRight className='icon' /> Logout
+          </a>
         </li>
       </ul>
     </aside>
+    </DIV>
   );
 }
 
 export default Sidebar;
+
+
+
+const DIV = styled.div`
+
+   position:fixed;
+
+`
