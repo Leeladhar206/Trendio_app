@@ -25,7 +25,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
 
   return (
-    <DIV>
+    // <DIV>
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive" : ""}>
       <div className='sidebar-title'>
         {/* <div className='sidebar-brand' style={{ width: "130px" }}>
@@ -53,9 +53,9 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             <BsFillGrid3X3GapFill className='icon' /> Edit Products
           </Link>
 
-//           <a href="">
-//             <BsFillGrid3X3GapFill className='icon' /> Edit Products
-//           </a>
+{/* //           <a href=""> */}
+{/* //             <BsFillGrid3X3GapFill className='icon' /> Edit Products */}
+{/* //           </a> */}
 
         </li>
         <li className='sidebar-list-item'>
@@ -63,7 +63,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             <BsPeopleFill className='icon' /> Customers
           </a>
         </li>
-        {/* <li className='sidebar-list-item'>
+        <li className='sidebar-list-item'>
           <a href="">
             <BsListCheck className='icon' /> Inventory
           </a>
@@ -77,7 +77,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           <a href="">
             <BsFillGearFill className='icon' /> Settings
           </a>
-        </li> */}
+        </li>
          <li className='sidebar-list-item'>
           <a href="">
             <BsBoxArrowRight className='icon' /> Logout
@@ -85,12 +85,12 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         </li>
       </ul>
     </aside>
-    </DIV>
+    // {/* </DIV> */}
   );
 }
 
 export default Sidebar;
 
-const DIV = styled.div`
-  position: fixed;
-`;
+// const DIV = styled.div`
+//   position: fixed;
+// `;
