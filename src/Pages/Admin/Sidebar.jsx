@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CloseIcon } from '@chakra-ui/icons'; 
 import {
   BsCart3,
@@ -15,6 +15,15 @@ import {
 import styled from 'styled-components';
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
+
+  const navigate= useNavigate()
+
+  const handleLinkClick = (path) => {
+    navigate(`/admin/${path}`);
+    OpenSidebar();
+  };
+
+
   return (
     <DIV>
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive" : ""}>
@@ -29,19 +38,25 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
       <ul className='sidebar-list'>
         <li className='sidebar-list-item'>
-          <Link to="/dashboard">
+          <Link to="/admin/">
             <BsGrid1X2Fill className='icon' /> Dashboard
           </Link>
         </li>
         <li className='sidebar-list-item'>
-          <Link to="/products">
+          <Link to="/admin/addProduct">
             <BsFillArchiveFill className='icon' /> Add New Products
           </Link>
         </li>
         <li className='sidebar-list-item'>
-          <a href="">
+
+        <Link to="/admin/editProduct">
             <BsFillGrid3X3GapFill className='icon' /> Edit Products
-          </a>
+          </Link>
+
+//           <a href="">
+//             <BsFillGrid3X3GapFill className='icon' /> Edit Products
+//           </a>
+
         </li>
         <li className='sidebar-list-item'>
           <a href="">

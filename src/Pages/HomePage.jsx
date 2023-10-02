@@ -79,7 +79,7 @@ const HomePage = () => {
     >
       <Box dangerouslySetInnerHTML={{ __html: newFont }} />
 
-      <Box pt={10}>
+      <Box pt={5}>
         <Flex
           w="100%"
           m="auto"
@@ -619,7 +619,7 @@ const HomePage = () => {
       </Box>
 
       <Box mx={[2, 4, 6, 10]} w={['100%', '95%', '90%']} px={2} py={4}>
-        <Text fontSize={['2xl', '3xl', '4xl']} fontWeight="bold" mb={4}>
+        <Text fontSize={'3xl'} fontWeight="bold" mb={4}>
           Frequently Asked Questions
         </Text>
         <Accordion allowToggle>
@@ -628,7 +628,7 @@ const HomePage = () => {
               <h2>
                 <AccordionButton>
                   <Box flex="1" textAlign="left">
-                    <Text fontSize={['lg', 'xl', '2xl']} fontWeight={500} p={2}>
+                    <Text fontSize={'lg'} fontWeight={500} p={2}>
                       {faq.question}
                     </Text>
                   </Box>
@@ -636,7 +636,7 @@ const HomePage = () => {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={2}>
-                <Text fontSize={['md', 'lg', 'xl']} p={2}>
+                <Text fontSize={'md'} p={2}>
                   {faq.answer}
                 </Text>
               </AccordionPanel>

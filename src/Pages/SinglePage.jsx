@@ -36,9 +36,17 @@ import { URL } from "./Login"
 // import { getSingleProductData } from '../Redux/UserPage/action';
 
 export const SinglePage = () => {
+
+
+  let singleProduct = useSelector((store) => store.singleProductReducer.product)
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+
+
   let { id } = useParams()
 
   const dispatch = useDispatch()
+
+  
 
 
   //   let { singleProduct, isLoading, isError } = useSelector((store: RootState) => ({
@@ -46,20 +54,6 @@ export const SinglePage = () => {
   //     isLoading: store.productReducer.isLoading,
   //     isError: store.productReducer.isError,
   //   }));
-
-  let singleProduct = useSelector((store) => store.singleProductReducer.product)
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
-
-  // let { id } = useParams();
- 
-  // const dispatch = useDispatch();
-  
-//   let { singleProduct, isLoading, isError } = useSelector((store: RootState) => ({
-//     singleProduct: store.productReducer.singleProduct,
-//     isLoading: store.productReducer.isLoading,
-//     isError: store.productReducer.isError,
-//   }));
-
 
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
     useNumberInput({
@@ -93,10 +87,12 @@ export const SinglePage = () => {
   const addCartHandle = () => {
     let cartItem = {}
     cartItem.productId = singleProduct.id
+    cartItem.image = singleProduct.images[0]
     cartItem.productName = singleProduct.name
     cartItem.price = singleProduct.price
     cartItem.quantity = quantity
     cartItem.total = cartItem.price * cartItem.quantity
+
     cartItem.checkedOut = false
     cartItem.usertoken = localStorage.getItem("token")
     // console.log(cartItem)
