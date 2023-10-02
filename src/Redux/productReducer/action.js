@@ -2,9 +2,9 @@ import axios from "axios"
 import { GETDATA_REQUEST,GETDATA_SUCCESS,GETDATA_FAILURE, POSTDATA_REQUEST, POSTDATA_SUCCESS, POSTDATA_FAILURE, GETSINGLEPRODUCT_REQUEST, GETSINGLEPRODUCT_FAILURE, GETSINGLEPRODUCT_SUCCESS, EDITPRODUCT_SUCCESS, GETACCESSORIES_SUCCESS, GETACCESSORYSINGLEPRODUCT_SUCCESS, DELETE_REQUEST, DELETE_SUCCESS, DELETE_FAILURE} from "./actionType"
 
 
-export const getData = (dispatch)=>{
+export const getData = (paramsobj)=>(dispatch)=>{
    dispatch({type:GETDATA_REQUEST})
-   axios.get(`https://handy-string-backend.onrender.com/products`)
+   axios.get(`https://handy-string-backend.onrender.com/products`,paramsobj)
    .then((res)=> dispatch({type:GETDATA_SUCCESS,payload:res.data}))
    .catch((err)=> dispatch({type:GETDATA_FAILURE}))
 }

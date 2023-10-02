@@ -1,4 +1,3 @@
-
 import React, { ReactNode, useEffect, useState } from "react"
 
 import {
@@ -10,6 +9,21 @@ import {
   useDisclosure,
   useColorModeValue,
 } from "@chakra-ui/react"
+
+import {
+  Button,
+  ChakraProvider,
+  Drawer,
+  DrawerBody,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  Heading,
+  Icon,
+  Text,
+} from "@chakra-ui/react"
+
+import { FaShoppingCart } from "react-icons/fa"
 
 import MenuIcon from "@mui/icons-material/Menu"
 import CloseIcon from "@mui/icons-material/Close"
@@ -43,11 +57,10 @@ const NavLink = ({ to, children }) => (
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure()
-  const [token, setToken] = useState(
-    localStorage.getItem("token") ? localStorage.getItem("token") : null
-  )
+  const [token, setToken] = useState()
   // console.log(token)
 
+  const [isCartOpen, setIsCartOpen] = useState(false)
 
   useEffect(() => {
     setToken(
@@ -75,7 +88,7 @@ export default function Navbar() {
             />
           </Link>
         </HStack>
-        
+
         <HStack
           as="nav"
           spacing={4}
@@ -92,11 +105,45 @@ export default function Navbar() {
           <Link to={token ? "/profile" : "/login"}>
             <PersonOutlineOutlinedIcon />
           </Link>
-          <Link to="/wishlist">
+          {/* <Link to="/wishlist">
             <FavoriteBorderOutlinedIcon />
-          </Link>
-          <Link to="/cart">
-            <ShoppingCartOutlinedIcon />
+          </Link> */}
+          <Link>
+            <Flex justifyContent="center" alignItems="center" height="100vh">
+              <Button
+                onClick={() => setIsCartOpen(true)}
+                // rightIcon={<Icon as={FaShoppingCart} />}
+                colorScheme="black"
+                variant="link"
+              >
+                <ShoppingCartOutlinedIcon />
+              </Button>
+            </Flex>
+
+            {/* Cart Drawer */}
+            <Drawer
+              placement="right"
+              isOpen={isCartOpen}
+              onClose={() => setIsCartOpen(false)}
+            >
+              <DrawerOverlay>
+                <DrawerContent>
+                  <DrawerHeader>Shopping Cart</DrawerHeader>
+                  <DrawerBody>
+                    <Link to="/cart" onClick={() => setIsCartOpen(false)}>
+                      Checkout
+                    </Link>
+                    {/* {cartItems?.length === 0 ? (
+                <Text>Your cart is empty.</Text>
+              ) : (
+                <Box>
+                  
+                </Box>
+              )} */}
+                  </DrawerBody>
+                </DrawerContent>
+              </DrawerOverlay>
+            </Drawer>
           </Link>
         </HStack>
       </Flex>
@@ -117,5 +164,5 @@ export default function Navbar() {
         </Box>
       )}
     </Box>
-  );
+  )
 }

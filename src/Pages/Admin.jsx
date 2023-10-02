@@ -41,9 +41,16 @@ function Admin() {
 
   return (
     <div className='grid-container'>
+
       {/* <Header OpenSidebar={OpenSidebar} /> */}
       <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
       <AdminRoutes />
+
+      {/* <Header OpenSidebar={OpenSidebar}/> */}
+//       <Home />
+//       <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
+      
+
     </div>
   );
 }

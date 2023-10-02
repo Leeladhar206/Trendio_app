@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+
+import React, { useEffect,useState } from 'react'; // Removed unused useState and useSelector
+
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { getData } from '../Redux/productReducer/action';
 import './Men.css';
 import {
@@ -12,52 +14,56 @@ import {
   Image,
   Text,
   Skeleton,
-  Center,
+  Select,
 } from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
+import Sidebar from '../Components/Sidebar';
 
-const renderStarRating = (rating) => {
-  const maxRating = 5;
-  const filledStars = Math.round(rating);
-  const emptyStars = maxRating - filledStars;
 
-  const stars = [];
-
-  for (let i = 0; i < filledStars; i++) {
-    stars.push(<span key={`filled-star-${i}`} className="star" style={{ color: '#ffb128' }}>&#9733;</span>);
-  }
-
-  for (let i = 0; i < emptyStars; i++) {
-    stars.push(<span key={`empty-star-${i}`} className="star" style={{ color: '#ffb128' }}>&#9734;</span>);
-  }
-
-  return (
-    <span className="star-rating">
-      {stars}
-    </span>
-  );
-};
 
 const Women = () => {
   const products = useSelector((store) => store.productReducer.products);
-  const loading = useSelector((store) => store.productReducer.loading);
+  const loading = useSelector((store) => store.productReducer.isLoading);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [searchParams]=useSearchParams()
+  const [order,setSort]=useState(searchParams.get("order")||"")
+//console.log(searchParams)
+const paramsobj={
+  params:{
+    brand:searchParams.getAll("brand"),
+    category:searchParams.getAll("category"),
+    material:searchParams.get("material"),
+    color:searchParams.get("color"),
+    _sort:searchParams.get("order") && "price",
+    _order:searchParams.get("order"),
+  }
+}
+
+
 
   useEffect(() => {
     // Dispatch the action to get data
-    dispatch(getData);
-  }, [dispatch]);
+    dispatch(getData(paramsobj));
+  }, [searchParams]);
 
   const WomenProducts = products.filter(
     (product) => product.gender === 'Women'
   );
-
+  console.log(WomenProducts)
   return (
+    <Box maxW="box.lg" display={"flex"}>
+      <Sidebar order={order} setSort={setSort}/>
     <Container maxW="container.lg" py={8} pt={20} alignItems="center">
+    <Box display={"flex"} justifyContent={"space-between"}>
       <Heading as="h1" mb={4}>
         Women's Clothing
       </Heading>
+<Select placeholder='Sort By Price' value={order} borderColor='gray' w={"20%"} onChange={(e)=>setSort(e.target.value)}> 
+  <option value={"asc"}>Low to High</option>
+  <option value={"desc"}>High to Low</option>
+</Select>
+      </Box>
       <SimpleGrid columns={[1, 2, 3]} spacing={4}>
         {loading ? (
           Array.from({ length: 6 }).map((_, index) => (
@@ -81,6 +87,11 @@ const Women = () => {
               borderWidth="1px"
               borderRadius="lg"
               overflow="hidden"
+              _hover={{
+                transform: 'scale(1.05)',
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+              }}
               onClick={() => navigate(`/product/${product.id}`)}
               style={{ cursor: 'pointer' }}
             >
@@ -112,6 +123,7 @@ const Women = () => {
         )}
       </SimpleGrid>
     </Container>
+    </Box>
   );
 };
 
