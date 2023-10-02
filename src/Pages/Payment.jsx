@@ -1,8 +1,12 @@
-
-
-
-// import { Box, Button, Container, FormControl,Icon ,Image} from "@chakra-ui/react";
-// import React from "react";
+// import {
+//   Box,
+//   Button,
+//   Container,
+//   FormControl,
+//   Icon,
+//   Image,
+// } from "@chakra-ui/react"
+// import React from "react"
 // import {
 //   FormLabel,
 //   Input,
@@ -14,28 +18,26 @@
 //   Text,
 //   useDisclosure,
 //   Heading,
-// } from "@chakra-ui/react";
-// import { styled } from "styled-components";
-// import { useNavigate } from "react-router-dom";
-// import { FaGooglePay } from 'react-icons/fa';
+// } from "@chakra-ui/react"
+// import { styled } from "styled-components"
+// import { useNavigate } from "react-router-dom"
+// import { FaGooglePay } from "react-icons/fa"
 // // import { useDispatch } from "react-redux";
 
-// export  const Payment = () => {
-
-//   const { isOpen, onOpen, onClose } = useDisclosure();
-//   const navigate = useNavigate();
-// //   const dispatch= useDispatch();
+// export const Payment = () => {
+//   const { isOpen, onOpen, onClose } = useDisclosure()
+//   const navigate = useNavigate()
+//   //   const dispatch= useDispatch();
 //   const handlePayment = (e) => {
-//     e.preventDefault();
-//     onOpen();
+//     e.preventDefault()
+//     onOpen()
 //     setTimeout(() => {
-   
-//       navigate("/");
-//     }, 5000);
-//   };
+//       navigate("/")
+//     }, 5000)
+//   }
 
 //   return (
-//     <DIV >
+//     <DIV>
 //       <Container maxW="1200px">
 //         {" "}
 //         <br />
@@ -48,10 +50,17 @@
 //           gap="20px"
 //           flexDirection={{ lg: "row", md: "row", sm: "column", base: "column" }}
 //         >
-//           <Button width="300px" bg="white" variant="outline" colorScheme="teal" >Paytm
+//           <Button width="300px" bg="white" variant="outline" colorScheme="teal">
+//             Paytm
 //           </Button>
-//           <Button width="300px" variant={"outline"} colorScheme="teal" leftIcon={<Icon as={FaGooglePay} boxSize={55} alignItems={"center"} />}>
-//           </Button>
+//           <Button
+//             width="300px"
+//             variant={"outline"}
+//             colorScheme="teal"
+//             leftIcon={
+//               <Icon as={FaGooglePay} boxSize={55} alignItems={"center"} />
+//             }
+//           ></Button>
 //         </Box>{" "}
 //         <br /> <br />
 //         <p className="payment_Text">Or Checkout using a Credit Card</p> <br />
@@ -71,7 +80,7 @@
 //                 <Input
 //                   type="number"
 //                   placeholder="xxxx-xxxx-xxxx"
-//                    maxLength={12}
+//                   maxLength={12}
 //                 />
 //               </FormControl>
 //               <FormControl isRequired>
@@ -93,15 +102,19 @@
 //               <br /> <br />
 //               <FormControl isRequired>
 //                 <FormLabel>Address</FormLabel>
-//                 <Input
-//                   type="text"
-//                   placeholder="Door-no/Locality/City"
-                  
-//                 />
+//                 <Input type="text" placeholder="Door-no/Locality/City" />
 //               </FormControl>{" "}
 //               <br />
 //               <br />
-//               <Button className="paymentbtn" ml={["5","10","15","20"]} m={"auto"} width="300px" colorScheme="teal" variant={"outline"} type="submit">
+//               <Button
+//                 className="paymentbtn"
+//                 ml={["5", "10", "15", "20"]}
+//                 m={"auto"}
+//                 width="300px"
+//                 colorScheme="teal"
+//                 variant={"outline"}
+//                 type="submit"
+//               >
 //                 Make Payment
 //               </Button>{" "}
 //               <br />
@@ -161,19 +174,18 @@
 //       <br />
 //       <br />
 //     </DIV>
-//   );
-// };
+//   )
+// }
 
 // const DIV = styled.div`
-// padding: 20px;
-// margin: auto;
-// background-image: url("https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg");
+//   padding: 20px;
+//   margin: auto;
+//   /* background-image: url("https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg"); */
 //   .payment_Text {
 //     font-size: 20px;
 //     font-weight: bold;
 //   }
-//   p{
+//   p {
 //     text-align: center;
 //   }
-  
-// `;
+// `
