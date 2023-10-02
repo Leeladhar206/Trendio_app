@@ -15,7 +15,6 @@ import {
 import { useDispatch } from "react-redux";
 import { postData } from "../../Redux/productReducer/action";
 
-
 const initialState = {
   gender: "",
   category: "",
@@ -31,19 +30,17 @@ const initialState = {
   reviews: "No Reviews Yet",
 };
 
-function AddProduct () {
+function AddProduct() {
   const [product, setProduct] = useState(initialState);
 
   const [inputImages, setInputImages] = useState({ images: ["", "", ""] });
-
-  
 
   const dispatch = useDispatch();
   const toast = useToast();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setProduct({ ...product, [name]:name=="price"? +value : value });
+    setProduct({ ...product, [name]: name == "price" ? +value : value });
   };
 
   const handleImages = (e, index) => {
@@ -91,11 +88,12 @@ function AddProduct () {
       display={"flex"}
       justifyContent={"center"}
       alignItems={"center"}
-      className='main-container'
+      className="main-container"
     >
       <Box
         w={{ base: "100%", lg: "80%" }}
-        borderWidth="2px" borderColor={"red.200"}
+        borderWidth="2px"
+        borderColor={"red.200"}
         borderRadius={"md"}
         p={{ base: 2, lg: 8 }}
       >
@@ -256,6 +254,6 @@ function AddProduct () {
       </Box>
     </Box>
   );
-};
+}
 
 export default AddProduct;

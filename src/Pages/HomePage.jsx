@@ -422,14 +422,14 @@ const HomePage = () => {
             pt={-10}
           >
             <Text
-              fontSize={{ base: "5xl", xl: "4rem" }}
+              fontSize={{ base: "3xl", xl: "4rem" }}
               fontFamily={"Dela Gothic One, sans-serif"}
             >
               WE THINK
             </Text>
             <Flex alignItems={"center"}>
               <Text
-                fontSize={{ base: "5xl", xl: "4rem" }}
+                fontSize={{ base: "3xl", xl: "4rem" }}
                 fontFamily={"Dela Gothic One, sans-serif"}
               >
                 YOU'LL
@@ -437,7 +437,7 @@ const HomePage = () => {
               <Text
                 pl={4}
                 pb={5}
-                fontSize={"2xl"}
+                fontSize={{ base: "xl", xl: "2xl" }}
                 fontFamily={"Dela Gothic One, sans-serif"}
               >
                 LIKE THIS
@@ -618,8 +618,8 @@ const HomePage = () => {
         />
       </Box>
 
-      <Box mx={[2, 4, 6, 10]} w={['100%', '95%', '90%']} px={2} py={4}>
-        <Text fontSize={'3xl'} fontWeight="bold" mb={4}>
+      <Box mx={[2, 4, 6, 10]} w={["100%", "95%", "90%"]} px={2} py={4}>
+        <Text fontSize={"3xl"} fontWeight="bold" mb={4}>
           Frequently Asked Questions
         </Text>
         <Accordion allowToggle>
@@ -628,7 +628,7 @@ const HomePage = () => {
               <h2>
                 <AccordionButton>
                   <Box flex="1" textAlign="left">
-                    <Text fontSize={'lg'} fontWeight={500} p={2}>
+                    <Text fontSize={"lg"} fontWeight={500} p={2}>
                       {faq.question}
                     </Text>
                   </Box>
@@ -636,7 +636,7 @@ const HomePage = () => {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={2}>
-                <Text fontSize={'md'} p={2}>
+                <Text fontSize={"md"} p={2}>
                   {faq.answer}
                 </Text>
               </AccordionPanel>
