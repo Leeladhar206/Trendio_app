@@ -59,6 +59,11 @@ const Accessories = () => {
               borderWidth="1px"
               borderRadius="lg"
               overflow="hidden"
+              _hover={{
+                transform: 'scale(1.05)',
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+              }}
               onClick={() => navigate(`/accessory/${product.id}`)}
               style={{ cursor: 'pointer' }}
             >
