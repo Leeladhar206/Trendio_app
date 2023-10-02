@@ -53,8 +53,7 @@ const Men = () => {
     <Box maxW="box.lg" display="flex">
       <Sidebar order={order} setSort={setSort} />
 
-      <Container maxW="container.lg" py={8} pt={20} alignItems="center">
-
+      <Container maxW="container.lg"  pt={8} alignItems="center">  
         <Box display="flex" justifyContent="space-between">
           <Heading as="h1" mb={4}>
             Men's Clothing

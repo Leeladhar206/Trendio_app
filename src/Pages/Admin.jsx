@@ -47,8 +47,8 @@ function Admin() {
       <AdminRoutes />
 
       {/* <Header OpenSidebar={OpenSidebar}/> */}
-//       <Home />
-//       <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
+{/* //       <Home /> */}
+{/* //       <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/> */}
       
 
     </div>

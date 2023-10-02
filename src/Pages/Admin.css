@@ -100,14 +100,14 @@ body {
   }
   
   .sidebar-responsive {
-    display: inline !important;
-    position: absolute;
+    /* display: inline !important; */
+    /* position: absolute; */
     /*
       we want the z-index of the sidebar higher so that
       the charts are not showing over the sidebar 
       on small screens
     */
-    z-index: 12 !important;
+    /* z-index: 12 !important; */
   }
   
   /* End Sidebar  */
