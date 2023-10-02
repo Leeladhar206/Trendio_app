@@ -19,6 +19,7 @@ import PrivateRoutes from "./PrivateRoutes"
 import { Alert, AlertIcon, Stack } from "@chakra-ui/react"
 import Men from "../Pages/Men"
 import { Payment } from "../Pages/Payment"
+import Accessories2 from "../Pages/Accessories2"
 
 
 const MainRoutes = () => {
@@ -30,7 +31,7 @@ const MainRoutes = () => {
       {/* <Route path="/signup" element={<Signup />} /> */}
       <Route path="/men" element={<Men />} />
       <Route path="/women" element={<Women />} />
-      <Route path="/accessories" element={<Accessories />} />
+      <Route path="/accessories" element={<Accessories2 />} />
       <Route path="/about" element={<About />} />
       <Route path="/brands" element={<Brands />} />
       <Route path="/payment" element={<Payment />} />

@@ -14,7 +14,6 @@ import {
 } from 'react-icons/bs';
 import styled from 'styled-components';
 
-
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
   return (
     <DIV>
@@ -77,10 +76,6 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
 export default Sidebar;
 
-
-
 const DIV = styled.div`
-
-   position:fixed;
-
-`
+  position: fixed;
+`;
