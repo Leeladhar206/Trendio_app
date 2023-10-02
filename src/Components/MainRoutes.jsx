@@ -43,7 +43,7 @@ const MainRoutes = () => {
 
       <Route path="/admin/*" element={<Admin />} />
 
-      <Route path="/cart" element={<CartPage />} />
+      {/* <Route path="/cart" element={<CartPage />} /> */}
 
       <Route path="/payment" element={<Payment />} />
 //       <Route path="/admin" element={<Admin />} />
