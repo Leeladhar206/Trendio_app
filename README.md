@@ -63,8 +63,6 @@ To run Trendio locally, follow these steps:
 **Shivendra Pratap Dixit**
 
 
-We have made this project Trendio-Fashion Comes To You by using **React JS ,Redux ,Chakra UI,Material UI** tech stack,
-and we use the render for making backend api data for products & login ,signup.
 We have divided the Project in sections like **Men,Women,Accessories,About,Login&SignUp,CartPage.SinglePage,Admin Section** and we work on that as best team.
 Here Are Some ScreenShots Are Available For Reference
 
