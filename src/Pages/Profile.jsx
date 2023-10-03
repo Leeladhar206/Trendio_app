@@ -81,9 +81,9 @@ const Profile = () => {
           <p className="welcome-text">Welcome, {userData.f_name}!</p>
 
 
-          <Box padding={3}>
+          {/* <Box padding={3}>
             <Link to="/admin"> Admin Dashboard </Link>
-          </Box>
+          </Box> */}
 
        
           <Button colorScheme="red" size="md" mt="4" onClick={logout}>

@@ -70,7 +70,7 @@ const HomePage = () => {
     <Box
       fontFamily="Poppins, sans-serif"
       fontSize="md"
-      padding={10}
+      padding={5}
       width="100%"
       margin="auto"
       display="flex"
@@ -79,7 +79,7 @@ const HomePage = () => {
     >
       <Box dangerouslySetInnerHTML={{ __html: newFont }} />
 
-      <Box pt={5}>
+      <Box pt={0}>
         <Flex
           w="100%"
           m="auto"

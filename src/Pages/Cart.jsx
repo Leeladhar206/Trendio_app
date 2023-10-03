@@ -162,6 +162,7 @@ const Cart = () => {
           usertoken: i.usertoken,
           productId: i.productId,
           productName: i.productName,
+          productImage:i.image,
           productPrice: i.price,
           quantity: i.quantity,
           total: i.total,
@@ -207,11 +208,12 @@ const Cart = () => {
       </VStack>
       <Text>
         {cartItems?.filter((item) => item.checkedOut === false).length > 0 &&
-          "Grandtotal: "}
+          "Grandtotal : $"}
         {cartItems?.filter((item) => item.checkedOut === false).length > 0 &&
           cartItems
           .filter((item) => item.checkedOut === false)
-          .reduce((a, c) => (a += c.total), 0)}
+          .reduce((a, c) => (a += c.total), 0).toFixed(2)}
+          
       </Text>
 
       <Button onClick={handleCheckout} colorScheme="teal" mt={4}>

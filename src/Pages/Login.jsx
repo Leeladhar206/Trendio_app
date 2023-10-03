@@ -57,9 +57,11 @@ const Login = () => {
       },
     })
       .then((r) => {
+        
         dispatch(authRequestSuccess(r.data[0].token));
         setToken(r.data[0].token);
         localStorage.setItem("token", r.data[0].token);
+        console.log(r.data)
         navigate(-1);
       })
       .catch((error) => dispatch(authRequestFailure()));
