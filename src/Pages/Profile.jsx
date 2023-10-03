@@ -64,12 +64,14 @@ const Profile = () => {
 
   return (
     <Box
-      maxW="400px"
+      maxW={["400px", "600px","800px"]}
       mx="auto"
       p="4"
       bg="gray.100"
       borderRadius="md"
       boxShadow="md"
+      mb={20}
+      mt={10}
     >
       <Heading as="h1" textAlign="center" mb="4">
         Profile
@@ -79,9 +81,9 @@ const Profile = () => {
           <p className="welcome-text">Welcome, {userData.f_name}!</p>
 
 
-          <Box padding={3}>
+          {/* <Box padding={3}>
             <Link to="/admin"> Admin Dashboard </Link>
-          </Box>
+          </Box> */}
 
        
           <Button colorScheme="red" size="md" mt="4" onClick={logout}>

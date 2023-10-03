@@ -1,8 +1,3 @@
-
-
-
-
-
 import { Box, Button, Container, FormControl,Icon ,Image} from "@chakra-ui/react";
 import React from "react";
 import {
@@ -115,7 +110,7 @@ export  const Payment = () => {
               <ModalContent>
                 <Center>
                   <img
-                    src="https://media3.giphy.com/media/1wX5TJZPqVw3HhyDYn/giphy.gif?cid=6c09b952tdbgt7fl8aiz8lqol27kr4hi3ilgb5dft7e8crix&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
+                    src="https://img.pikbest.com/png-images/20191028/little-boy-pushing-a-shopping-cart-to-buy-things-gif_2515305.png!bw700"
                     alt=""
                     width="100px"
                   />{" "}

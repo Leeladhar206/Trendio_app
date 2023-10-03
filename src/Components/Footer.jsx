@@ -30,7 +30,7 @@ const ListHeader = ({ children }) => {
 const SocialButton = ({ children, label, href }) => {
   return (
     <chakra.button
-      bg={useColorModeValue('#f3e4e6', '#f3e4e6')}
+      bg={useColorModeValue('#f2f2f2', '#f2f2f2')}
       rounded={'full'}
       w={8}
       h={8}
@@ -53,7 +53,7 @@ const SocialButton = ({ children, label, href }) => {
 const Footer = () => {
   return (
     <Box
-      bg="#f3e4e6" // Grey background
+      bg="#f2f2f2" // Grey background
       color="black" // Black text color
     >
       <Container as={Stack} maxW={'6xl'} py={10}>

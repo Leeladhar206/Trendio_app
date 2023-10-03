@@ -19,8 +19,7 @@ import PrivateRoutes from "./PrivateRoutes"
 import { Alert, AlertIcon, Stack } from "@chakra-ui/react"
 import Men from "../Pages/Men"
 
-// import AddProduct from "../Pages/Admin/AddProduct"
-// import EditProduct from "../Pages/Admin/EditProduct"
+
 import { Payment } from "../Pages/Payment"
 import Accessories2 from "../Pages/Accessories2"
 import { AdminRoutes } from "../Pages/Admin/AdminRoutes"
@@ -38,13 +37,11 @@ const MainRoutes = () => {
       <Route path="/about" element={<About />} />
       <Route path="/brands" element={<Brands />} />
 
-      {/* <Route path="/payment" element={<Payment />} /> */}
-
-      {/* <Route path="/cart" element={<CartPage />} /> */}
-
+      <Route path="/admin/*" element={<Admin />} />
       <Route path="/payment" element={<Payment />} />
-      {/* //       <Route path="/admin" element={<Admin />} /> */}
-      <Route path="/cart" element={<Cart />} />
+
+        <Route path="/cart" element={<Cart />} />
+
 
       <Route path="/wishlist" element={<Wishlist />} />
 
@@ -52,9 +49,10 @@ const MainRoutes = () => {
 
       {/* <Route path="/product/:id" element={  <SinglePage />} /> */}
 
-      <Route path="/product/:id" element={<SinglePage />} />
-
-      {/* <Route path="*" element={<NotFound />} /> */}
+      <Route element={<PrivateRoutes/>}>
+        <Route path="/product/:id" element={<SinglePage />} />
+      </Route>
+     
       <Route element={<PrivateRoutes />}>
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin/*" element={<Admin />} />
@@ -64,7 +62,7 @@ const MainRoutes = () => {
         path="*"
         element={
           <Stack spacing={3}>
-            <Alert paddingTop={120} status="error">
+            <Alert paddingTop={30} status="error">
               <AlertIcon />
               There was an error processing your request
             </Alert>

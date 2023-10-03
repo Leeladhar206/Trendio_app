@@ -48,6 +48,7 @@ const Men = () => {
 
   const menProducts = products.filter((product) => product.gender === 'Men');
 
+  console.log(menProducts);
 
   return (
     <Box maxW="box.lg" display="flex">
