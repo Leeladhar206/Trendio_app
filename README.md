@@ -2,25 +2,25 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Collaborators
+# Collaborators
 
-# Leeladhar Jagarapu
+**Leeladhar Jagarapu**
 
-# Vishvendra Tomar
+**Vishvendra Tomar**
 
-# Subhadeep
+**Subhadeep**
 
-# Suriya Singaravel
+**Suriya Singaravel**
 
-# Shivendra Pratap Dixit
+**Shivendra Pratap Dixit**
 
 
-We have made this project Trendio-Fashion Comes To You by using React JS ,Redux ,Chakra UI,Material UI tech stack,
+We have made this project Trendio-Fashion Comes To You by using **React JS ,Redux ,Chakra UI,Material UI** tech stack,
 and we use the render for making backend api data for products & login ,signup.
-We have divided the Project in sections like Men,Women,Accessories,About,Login&SignUp,CartPage.SinglePage,Admin Section and we work on that as best team.
+We have divided the Project in sections like **Men,Women,Accessories,About,Login&SignUp,CartPage.SinglePage,Admin Section** and we work on that as best team.
 Here Are Some ScreenShots Are Available For Reference
 
-# Home
+**Home**
 
 
 ![Home_1](https://github.com/suriyasingaravel/handy-string-7765/assets/112815087/edd299e9-a6d4-4006-82c3-570288d1180b)
@@ -31,12 +31,12 @@ Here Are Some ScreenShots Are Available For Reference
 We have implemented the filtering and sorting functionality according to Brand,Category,Material,and Price.
 
 
-# Men Section
+**Men Section**
 
 ![Men_Sec](https://github.com/suriyasingaravel/handy-string-7765/assets/112815087/b4009086-e981-4ba1-94d0-39ce313b3b88)
 
 
-# Women Section
+**Women Section**
 
 
 
@@ -44,14 +44,20 @@ We have implemented the filtering and sorting functionality according to Brand,C
 
 
 
-# Accessories Section 
+**Accessories Section**
 
 ![Acc_Sec](https://github.com/suriyasingaravel/handy-string-7765/assets/112815087/3ef50dd6-7a55-48cd-aace-bc7d69a1904d)
 
-# About Page
+**About Page**
 
 
 ![About_Page](https://github.com/suriyasingaravel/handy-string-7765/assets/112815087/2b140a84-2072-443f-a2ab-407021a142a9)
+
+
+**Single Page**
+
+
+![Single_Page](https://github.com/suriyasingaravel/handy-string-7765/assets/112815087/6098d290-afb7-414a-b6b2-482fc909ee3d)
 
 
 
