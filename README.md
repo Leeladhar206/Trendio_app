@@ -65,7 +65,7 @@ We have made admin page to Edit,Add&Delete the products,and **we make the functi
 
 
 ![Admin_1](https://github.com/suriyasingaravel/handy-string-7765/assets/112815087/4ea31352-fdcd-496b-8b3f-5cc94c3cc456)
-![admin_2](https://github.com/suriyasingaravel/handy-string-7765/assets/112815087/5ca07c5d-9530-4187-8b0d-e7fb6021cc31
+![admin_2](https://github.com/suriyasingaravel/handy-string-7765/assets/112815087/5ca07c5d-9530-4187-8b0d-e7fb6021cc31)
 
 ![Admin_3](https://github.com/suriyasingaravel/handy-string-7765/assets/112815087/bb929cb5-5f51-4f12-887f-ad2667308691)
 
