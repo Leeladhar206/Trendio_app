@@ -3,6 +3,10 @@
 
 Trendio is a web application that offers a wide range of men and women's clothing and accessories. This README provides an overview of the project, installation instructions, and details on how to use the application.
 
+
+# Netlify Link - 
+ https://651c286aa4b175366a4b5e5d--lively-alpaca-0e97c3.netlify.app/
+
 ![Home_1](https://github.com/suriyasingaravel/handy-string-7765/assets/112815087/edd299e9-a6d4-4006-82c3-570288d1180b)
 
 ## Table of Contents
