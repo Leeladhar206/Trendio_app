@@ -57,16 +57,15 @@ setBrands(newbrands)
   };
   return (
 
-    <Box py={8} mt={5} mb={10} pt={8}  borderRight={".2px solid whitesmoke"} w={["30%","35%","40%"]} position="sticky" // Use absolute positioning
-    top="0"             // Stick it to the top
+    <Box py={8} mt={5} mb={10} pt={8}  borderRight={".2px solid whitesmoke"} w={["63%","35%","24%"]} position="sticky" // Use absolute positioning
+    top="0"           
     zIndex={"1"}>
-<Heading as="h6" fontSize={["sm","md",'xl']} ml={8} mb={5} >Filter By Brands</Heading>
-<Box ml={8} mb={5}>
-        <Stack spacing={[1, 5]} direction={['column',"column", 'row']} >
+<Heading as="h6" fontSize={["sm","md",'xl']} ml={8} mb={5} > Filter By Brands </Heading>
+   <Box ml={8} mb={5} w={["30%","25%","27%"]}>
+    <Stack spacing={[1, 4]} direction={['column',"column", 'row']} >
     <Checkbox value='H&M' checked={brand.includes("H&M")} onChange={handleChange}>H&M</Checkbox>
     <Checkbox value="Levi's" checked={brand.includes("Levi's")} onChange={handleChange}>LEVI'S</Checkbox>
     <Checkbox value='Old Navy'checked={brand.includes("Old Navy")} onChange={handleChange}>Old Navy</Checkbox>
-    
   </Stack>
   <Stack spacing={[1, 5]} direction={['column',"column", 'row']} >
   <Checkbox value='Gap'checked={brand.includes("gap")} onChange={handleChange}>GAP</Checkbox>
@@ -78,8 +77,8 @@ setBrands(newbrands)
     <Checkbox value='Forever 21'checked={brand.includes("Forever 21")} onChange={handleChange}>Forever 21</Checkbox>
     <Checkbox value="Lacoste" checked={brand.includes("Lacoste")} onChange={handleChange}>Lacoste</Checkbox>
       </Stack>
-        </Box>
-        <Divider/>
+    </Box>
+    <Divider/>
 
       <Heading as="h6" mt={5} fontSize={["sm", "md", "xl"]} ml={8}>
         Filter By Material
@@ -112,28 +111,28 @@ setBrands(newbrands)
           value={color}
           onChange={(e) => setColor(e.target.value)}
         >
-          <option value="Blue" style={{ backgroundColor: "blue" }}>
+          <option value="Blue"  >
             Blue
           </option>
-          <option value="Black" style={{ backgroundColor: "black" }}>
+          <option value="Black">
             Black
           </option>
-          <option value="Mustard" style={{ backgroundColor: "#F1EDA7" }}>
+          <option value="Mustard" >
             Mustard
           </option>
-          <option value="Maroon" style={{ backgroundColor: "	#800000" }}>
+          <option value="Maroon" >
             Maroon
           </option>
-          <option value="Light Blue" style={{ backgroundColor: "lightblue" }}>
+          <option value="Light Blue" >
             Light Blue
           </option>
-          <option value="Pink" style={{ backgroundColor: "pink" }}>
+          <option value="Pink" >
             Pink
           </option>
-          <option value="Olive" style={{ backgroundColor: "olive" }}>
+          <option value="Olive" >
             Olive
           </option>
-          <option value="Red" style={{ backgroundColor: "red" }}>
+          <option value="Red" >
             Red
           </option>
         </Select>

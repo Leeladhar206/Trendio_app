@@ -17,20 +17,22 @@ import {
   Link as ChakraLink,
   FormControl,
   InputGroup,
-  InputRightElement, // Import InputRightElement
-  IconButton, // Import IconButton
+  InputRightElement,
+  IconButton,
+  useToast, // Import useToast
 } from "@chakra-ui/react";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons"; // Import icons for show/hide password
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 export const URL = import.meta.env.VITE_DBURL;
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [showPassword, setShowPassword] = useState(false);
   const [token, setToken] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const toast = useToast(); // Initialize Chakra Toast
 
   const handleChange = (e) => {
     if (e.target.name === "email") {
@@ -57,14 +59,32 @@ const Login = () => {
       },
     })
       .then((r) => {
-        
         dispatch(authRequestSuccess(r.data[0].token));
         setToken(r.data[0].token);
         localStorage.setItem("token", r.data[0].token);
-        console.log(r.data)
         navigate(-1);
+
+        // Show success toast
+        toast({
+          title: "Login Successful",
+          description: "You have successfully logged in.",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
       })
-      .catch((error) => dispatch(authRequestFailure()));
+      .catch((error) => {
+        dispatch(authRequestFailure());
+
+        // Show error toast
+        toast({
+          title: "Login Failed",
+          description: "Invalid email or password.",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
   };
 
   return (

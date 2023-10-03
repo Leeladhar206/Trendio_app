@@ -38,46 +38,46 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
       </div>
 
       <ul className="sidebar-list">
-        <li className="sidebar-list-item">
+        <li className="sidebar-list-item" onClick={()=> navigate("/admin/")}>
           <Link to="/admin/">
             <BsGrid1X2Fill className="icon" /> Dashboard
           </Link>
         </li>
-        <li className="sidebar-list-item">
+        <li className="sidebar-list-item"  onClick={()=> navigate("/admin/addProduct")}>
           <Link to="/admin/addProduct">
             <BsFillArchiveFill className="icon" /> Add New Products
           </Link>
         </li>
-        <li className="sidebar-list-item">
+        <li className="sidebar-list-item" onClick={()=> navigate("/admin/editProduct")}>
           <Link to="/admin/editProduct">
             <BsFillGrid3X3GapFill className="icon" /> Edit Products
           </Link>
         </li>
-        <li className="sidebar-list-item">
+        <li className="sidebar-list-item" onClick={()=> navigate("/admin/customers")} >
           <Link to="/admin/customers">
             <BsPeopleFill className="icon" /> Customers
           </Link>
         </li>
-        <li className="sidebar-list-item">
+        {/* <li className="sidebar-list-item">
           <Link to="/admin/">
             <BsListCheck className="icon" /> Inventory
           </Link>
-        </li>
-        <li className="sidebar-list-item">
+        </li> */}
+        <li className="sidebar-list-item" onClick={()=> navigate("/admin/")}>
           <Link to="/admin/">
-            <BsMenuButtonWideFill className="icon" /> Reports
+            <BsMenuButtonWideFill className="icon"  /> Reports
           </Link>
         </li>
-        <li className="sidebar-list-item">
+        <li className="sidebar-list-item" onClick={()=> navigate("/admin/")}>
           <Link to="/admin/">
             <BsFillGearFill className="icon" /> Settings
           </Link>
         </li>
-        <li className="sidebar-list-item">
+        {/* <li className="sidebar-list-item">
           <Link to="/admin/">
             <BsBoxArrowRight className="icon" /> Logout
           </Link>
-        </li>
+        </li> */}
       </ul>
     </aside>
     // {/* </DIV> */}

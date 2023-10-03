@@ -1,11 +1,11 @@
-
 import React, { useEffect, useState } from "react";
-import { Box, Heading, Button, Link } from "@chakra-ui/react";
+import { Box, Heading, Button, Link, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { URL } from "./Login";
 import { useNavigate } from "react-router-dom";
 import ProfileOrders from "../Components/ProfileOrders";
 import OrderCard from "../Components/OrderCard";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const Profile = () => {
@@ -14,9 +14,12 @@ const Profile = () => {
   const navigate = useNavigate();
   const [pendingOrders, setPendingOrders] = useState([]);
   const [recentOrders, setRecentOrders] = useState([]);
-
+  const [admin, setAdmin] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
+   
+
     if (token) {
       axios({
         method: "get",
@@ -55,16 +58,19 @@ const Profile = () => {
         );
       });
     }
-  }, [token]);
-  console.log("orders", pendingOrders)
+  }, [token ]);
+
+  console.log("orders", pendingOrders);
+
   const logout = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
 
-  console.log(pendingOrders)
+  
+ 
 
-  return (
+return (
     <Box
       maxW={["400px", "600px","800px"]}
       mx="auto"
@@ -83,6 +89,7 @@ const Profile = () => {
           <p className="welcome-text">Welcome, {userData.f_name}!</p>
 
 
+        
           {/* <Box padding={3}>
             <Link to="/admin"> Admin Dashboard </Link>
           </Box> */}

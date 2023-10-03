@@ -84,7 +84,7 @@ function AddProduct() {
       w="100%"
       m={"auto"}
       p={10}
-      pt={20}
+      pt={6}
       display={"flex"}
       justifyContent={"center"}
       alignItems={"center"}

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
@@ -15,18 +14,19 @@ import {
   Text,
   Skeleton,
   Select,
+  Button,
 } from "@chakra-ui/react"
 import { FaStar } from "react-icons/fa"
 import Sidebar from "../Components/Sidebar"
 
 const Men = () => {
-
   const products = useSelector((store) => store.productReducer.products);
   const loading = useSelector((store) => store.productReducer.isLoading);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const [order, setSort] = useState(searchParams.get('order') || '');
+  const [showSidebar, setShowSidebar] = useState(true); // Control sidebar visibility
 
   const paramsobj = {
     params: {
@@ -39,39 +39,45 @@ const Men = () => {
     },
   };
 
-
   useEffect(() => {
     // Dispatch the action to get data
     dispatch(getData(paramsobj))
   }, [searchParams])
 
-
   const menProducts = products.filter((product) => product.gender === 'Men');
 
-  console.log(menProducts);
+  const handleToggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  }
 
   return (
-    <Box maxW="box.lg" display="flex">
-      <Sidebar order={order} setSort={setSort} />
+    <Box maxW="100%" display="flex">
+      {/* Conditional rendering of the sidebar */}
+      {showSidebar && <Sidebar order={order} setSort={setSort} />}
 
-      <Container maxW="container.lg"  pt={8} alignItems="center">  
+      <Container maxW="container.lg" pt={8} alignItems="center">
         <Box display="flex" justifyContent="space-between">
-          <Heading as="h1" mb={4} className='heading'>
+          <Heading as="h1" mb={6} className='heading'>
             Men's Clothing
           </Heading>
+          <Button  mr={2}> 
+          <button onClick={handleToggleSidebar}>
+        {showSidebar ? 'Hide Sidebar' : 'Show Sidebar'}
+      </button>
+      </Button>
           <Select
             placeholder="Sort By Price"
             value={order}
             borderColor="gray"
-            w={["55%","40%","20%"]}
+            mb={5}
+            w={["55%", "40%", "20%"]}
             onChange={(e) => setSort(e.target.value)}
           >
             <option value="asc">Low to High</option>
             <option value="desc">High to Low</option>
           </Select>
         </Box>
-        <SimpleGrid columns={[1, 2, 3]} spacing={4}>
-
+        <SimpleGrid columns={[1, 2, 3]} spacing={4} w={["100%","100%","100%"]} pl={3} >
           {loading ? (
             Array.from({ length: 6 }).map((_, index) => (
               <Box
@@ -137,9 +143,10 @@ const Men = () => {
               </Box>
             ))
           )}
-
         </SimpleGrid>
       </Container>
+      {/* Button to toggle sidebar visibility */}
+     
     </Box>
   )
 }
