@@ -147,19 +147,19 @@ body {
   }
   
   .card:first-child {
-    background-color: #2962ff;
+    border: 2px solid #2962ff;
   }
   
   .card:nth-child(2) {
-    background-color: #ff6d00;
+    border: 2px solid #ff6d00;
   }
   
   .card:nth-child(3) {
-    background-color: #2e7d32;
+    border: 2px solid #2e7d32;
   }
   
   .card:nth-child(4) {
-    background-color: #e9d600;
+    border: 2px solid #e9d600;
   }
   
   .card-inner {
@@ -195,7 +195,7 @@ body {
   
   .card-zoom:hover {
     /* Increase the scale on hover to create a zoom effect */
-    transform: scale(1.1); /* You can adjust the scale factor as needed */
+    transform: scale(1.04); /* You can adjust the scale factor as needed */
     cursor: pointer; /* Change the cursor to a pointer on hover */
   }
   

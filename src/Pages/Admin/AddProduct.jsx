@@ -26,8 +26,8 @@ const initialState = {
   material: "",
   color: "White/Orange",
   description: "",
-  rating: "No ratings Yet",
-  reviews: "No Reviews Yet",
+  rating: 1,
+  reviews: [],
 };
 
 function AddProduct() {

@@ -37,7 +37,7 @@ const MainRoutes = () => {
       <Route path="/about" element={<About />} />
       <Route path="/brands" element={<Brands />} />
 
-      <Route path="/admin/*" element={<Admin />} />
+
       <Route path="/payment" element={<Payment />} />
 
         <Route path="/cart" element={<Cart />} />
@@ -49,9 +49,9 @@ const MainRoutes = () => {
 
       {/* <Route path="/product/:id" element={  <SinglePage />} /> */}
 
-      <Route element={<PrivateRoutes/>}>
+    
         <Route path="/product/:id" element={<SinglePage />} />
-      </Route>
+
      
       <Route element={<PrivateRoutes />}>
         <Route path="/profile" element={<Profile />} />

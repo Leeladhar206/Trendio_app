@@ -66,9 +66,10 @@ export default function Navbar() {
     setToken(
       localStorage.getItem("token") ? localStorage.getItem("token") : null
     )
-    console.log(token)
+   
   }, [])
 
+  console.log(token)
   return (
     <Box zIndex="10" bg="white" color="black" px={4}>
       <Flex h={16} alignItems="center" justifyContent="space-between">

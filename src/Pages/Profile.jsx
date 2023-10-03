@@ -56,11 +56,13 @@ const Profile = () => {
       });
     }
   }, [token]);
-  console.log(pendingOrders)
+  console.log("orders", pendingOrders)
   const logout = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
+
+  console.log(pendingOrders)
 
   return (
     <Box

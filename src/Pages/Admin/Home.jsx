@@ -6,19 +6,26 @@ import { useDispatch, useSelector } from 'react-redux';
  import 
  { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
  from 'recharts';
-import { getData } from '../../Redux/productReducer/action';
+import { getAdminData, getCustomersData, getOrdersData } from '../../Redux/productReducer/action';
 import { useNavigate } from 'react-router-dom';
 
 function Home() {
 
-  const products = useSelector((store) => store.productReducer.products);
+  const products = useSelector((store) => store.productReducer.adminData);
   const dispatch = useDispatch();
+  const customerData = useSelector((store) => store.productReducer.customers);
+  const orders = useSelector((store) => store.productReducer.orders);
   
   const navigate = useNavigate()
+
   useEffect(() => {
     // Dispatch the action to get data
-    dispatch(getData);
+    dispatch(getAdminData());
+    dispatch(getCustomersData());
+    dispatch(getOrdersData())
   }, [dispatch]);
+
+  console.log(orders)
 
     const data = [
         {
@@ -73,7 +80,7 @@ function Home() {
         </div>
 
         <div className='main-cards'>
-        <div className='card card-zoom' onClick={() => { navigate('/men') }}>
+        <div className='card card-zoom' onClick={() => { navigate('/admin/editProduct') }}>
 
                 <div  className='card-inner'>
                     <h3 >PRODUCTS</h3>
@@ -81,26 +88,26 @@ function Home() {
                 </div>
                 <h1>{products.length}</h1>
             </div>
-            <div className='card'>
+            <div className='card card-zoom'>
                 <div className='card-inner'>
                     <h3>CATEGORIES</h3>
                     <BsFillGrid3X3GapFill className='card_icon'/>
                 </div>
-                <h1>12</h1>
+                <h1>{Math.floor(products.length/5)}</h1>
             </div>
-            <div className='card'>
+            <div className='card card-zoom'>
                 <div className='card-inner'>
                     <h3>CUSTOMERS</h3>
                     <BsPeopleFill className='card_icon'/>
                 </div>
-                <h1>33</h1>
+                <h1>{customerData.length}</h1>
             </div>
-            <div className='card'>
+            <div className='card card-zoom' >
                 <div className='card-inner'>
                     <h3>ORDERS</h3>
                     <BsFillBellFill className='card_icon'/>
                 </div>
-                <h1>42</h1>
+                <h1>{orders.length}</h1>
             </div>
         </div>
 

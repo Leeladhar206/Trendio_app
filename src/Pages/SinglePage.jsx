@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 
 import { useToast } from "@chakra-ui/react";
@@ -85,6 +85,9 @@ export const SinglePage = () => {
   }
 
   const [quantity, setQuantity] = useState(1)
+  const token = localStorage.getItem("token")
+
+  const navigate = useNavigate()
 
   const addCartHandle = () => {
     let cartItem = {}
@@ -159,6 +162,10 @@ export const SinglePage = () => {
   ]
 
   // console.log(singleProduct.images)
+if(!token){
+   navigate("/login")
+   return null;
+}
 
   return (
     <>

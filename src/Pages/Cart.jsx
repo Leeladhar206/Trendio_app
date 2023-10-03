@@ -154,6 +154,9 @@ const Cart = () => {
 
  
   const handleCheckout = () => {
+    
+
+
     for (let i of cartItems) {
       axios({
         method: "post",
