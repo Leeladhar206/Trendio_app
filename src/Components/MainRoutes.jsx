@@ -38,15 +38,9 @@ const MainRoutes = () => {
       <Route path="/accessories" element={<Accessories2 />} />
       <Route path="/about" element={<About />} />
       <Route path="/brands" element={<Brands />} />
-
-      {/* <Route path="/payment" element={<Payment />} /> */}
-
       <Route path="/admin/*" element={<Admin />} />
-
-      {/* <Route path="/cart" element={<CartPage />} /> */}
-
       <Route path="/payment" element={<Payment />} />
-{/* //       <Route path="/admin" element={<Admin />} /> */}
+
         <Route path="/cart" element={<Cart />} />
 
       <Route path="/wishlist" element={<Wishlist />} />
@@ -58,7 +52,7 @@ const MainRoutes = () => {
       <Route element={<PrivateRoutes/>}>
         <Route path="/product/:id" element={<SinglePage />} />
       </Route>
-      {/* <Route path="*" element={<NotFound />} /> */}
+     
       <Route element={<PrivateRoutes />}>
         <Route path="/profile" element={<Profile />} />
       </Route>
@@ -66,7 +60,7 @@ const MainRoutes = () => {
         path="*"
         element={
           <Stack spacing={3}>
-            <Alert paddingTop={120} status="error">
+            <Alert paddingTop={30} status="error">
               <AlertIcon />
               There was an error processing your request
             </Alert>

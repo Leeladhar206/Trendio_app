@@ -49,7 +49,7 @@ setSearchParams(params)
         searchParams("")
     }
   return (
-    <Box py={8} mt={5} mb={10} pt={20}  borderRight={".2px solid whitesmoke"} w={["30%","35%","40%"]} position="sticky" // Use absolute positioning
+    <Box py={8} mt={5} mb={10} pt={8}  borderRight={".2px solid whitesmoke"} w={["30%","35%","40%"]} position="sticky" // Use absolute positioning
     top="0"             // Stick it to the top
     zIndex={"1"}>
 <Heading as="h6" fontSize={["sm","md",'xl']} ml={8} mb={5} >Filter By Brands</Heading>

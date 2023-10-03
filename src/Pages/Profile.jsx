@@ -64,12 +64,14 @@ const Profile = () => {
 
   return (
     <Box
-      maxW="400px"
+      maxW={["400px", "600px","800px"]}
       mx="auto"
       p="4"
       bg="gray.100"
       borderRadius="md"
       boxShadow="md"
+      mb={20}
+      mt={10}
     >
       <Heading as="h1" textAlign="center" mb="4">
         Profile

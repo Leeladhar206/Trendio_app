@@ -33,7 +33,7 @@ const Accessories = () => {
 
 
   return (
-    <Container maxW="container.lg" py={8} pt={20}>
+    <Container maxW="container.lg" py={8} pt={8}>
       <Heading as="h1" mb={4} className='heading'>
        Accessories
       </Heading>

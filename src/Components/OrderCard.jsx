@@ -25,7 +25,7 @@ const OrderCard = ({ productName, productPrice, quantity, productImage }) => {
           <Text fontSize="lg" fontWeight="bold">
             Price: ${productPrice}
           </Text>
-          <Text>Quantity: {quantity}</Text>
+          <Text>Quantity: {quantity}</Text> 
         </VStack>
       </Flex>
     </Box>

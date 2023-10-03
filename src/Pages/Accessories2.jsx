@@ -44,14 +44,14 @@ const Accessories2 = () => {
 
   //console.log(products)
 
-  const accessories = products.filter((product) => product.type === 'accessories');
+  const accessories = products.filter((product) => product.type ==='accessories');
 
   //console.log(accessories)
 
   return (
     <Box maxW="box.lg" display="flex">
       <Sidebar_Acc order={order} setSort={setSort} />
-    <Container maxW="container.lg" py={8} pt={20}>
+    <Container maxW="container.lg" py={8} pt={8}>
     <Box display="flex" justifyContent="space-between">
     <Heading as="h1" mb={4} className='heading'>
      Accessories

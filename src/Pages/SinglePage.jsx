@@ -120,16 +120,6 @@ export const SinglePage = () => {
     });
   }
 
-  // const zoomIn = () => {
-  //   // Increase the zoom level
-  //   setZoomLevel(zoomLevel + 0.2);
-  // };
-
-  // const zoomOut = () => {
-  //   // Decrease the zoom level
-  //   setZoomLevel(zoomLevel - 0.2);
-  // };
-
   const faqs = [
     {
       question: "How can I place an order?",
@@ -180,7 +170,7 @@ export const SinglePage = () => {
         pb={"80px"}
         pl={["10%"]}
         pr={["10%"]}
-        pt={"50px"}
+        pt={"10px"}
         fontFamily={"Poppins"}
         bg={"#f5f5f5"}
       >
@@ -212,13 +202,6 @@ export const SinglePage = () => {
                 src={singleProduct?.images[selectedImageIndex]}
                 w={["500px", "500px", "500px"]}
                 m={"50px auto"}
-                // border={"1px solid white" }
-                // onMouseEnter={zoomIn}
-                // onMouseLeave={zoomOut}
-                // style={{
-                //   transform: `scale(${zoomLevel})`, // Apply zoom level
-                //   transition: 'transform 0.2s ease',
-                // }}
               />
             </Box>
           ) : null}
