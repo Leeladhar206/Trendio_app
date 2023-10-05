@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Box,
@@ -10,7 +9,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-const CartCard = ({ productName, price, quantity, image }) => {
+const CartCard = ({ productName, price, quantity, image, increaseQuantity, decreaseQuantity }) => {
   return (
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={3}>
       <Flex>
@@ -27,6 +26,12 @@ const CartCard = ({ productName, price, quantity, image }) => {
             Price: ${price}
           </Text>
           <Text>Quantity: {quantity}</Text>
+          <Button colorScheme="teal" size="sm" onClick={increaseQuantity}>
+            Increase
+          </Button>
+          <Button colorScheme="red" size="sm" onClick={decreaseQuantity}>
+            Decrease
+          </Button>
         </VStack>
       </Flex>
     </Box>

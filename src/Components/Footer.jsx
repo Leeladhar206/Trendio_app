@@ -55,6 +55,7 @@ const Footer = () => {
     <Box
       bg="#f2f2f2" // Grey background
       color="black" // Black text color
+      mt={10}
     >
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>

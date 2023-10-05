@@ -9,11 +9,10 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-const OrderCard = ({ productName, productPrice, quantity, productImage }) => {
+const OrderCard = ({ productName, productPrice, quantity, productImage, productId, cancelOrder, id,date }) => {
   return (
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={3}>
       <Flex>
-       
         <Box flex={1}>
           <Image src={productImage} alt={productName} maxH="100px" maxW="100px" />
         </Box>
@@ -25,7 +24,9 @@ const OrderCard = ({ productName, productPrice, quantity, productImage }) => {
           <Text fontSize="lg" fontWeight="bold">
             Price: ${productPrice}
           </Text>
-          <Text>Quantity: {quantity}</Text> 
+          <Text>Quantity: {quantity}</Text>
+          <Text>Booking Date and Time: {date} </Text> {/* Display booking date and time */}
+          <Button colorScheme='orange' onClick={() => cancelOrder(productId)}>Cancel Order</Button>
         </VStack>
       </Flex>
     </Box>
