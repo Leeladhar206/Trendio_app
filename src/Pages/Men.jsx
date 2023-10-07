@@ -50,6 +50,8 @@ const Men = () => {
     setShowSidebar(!showSidebar);
   }
 
+  console.log(menProducts)
+
   return (
     <Box maxW="100%" display="flex">
       {/* Conditional rendering of the sidebar */}

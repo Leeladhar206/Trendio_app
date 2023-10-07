@@ -99,7 +99,7 @@ export  const Payment = () => {
               </FormControl>{" "}
               <br />
               <br />
-              <Button className="paymentbtn" ml={["5","10","15","20"]} m={"auto"} width="300px" colorScheme="teal" variant={"outline"} type="submit">
+              <Button className="paymentbtn" ml={["5","10","15","20"]} m={["auto","auto","auto"]} width={["150px","200px","300px"]} colorScheme="teal" variant={"outline"} type="submit">
                 Make Payment
               </Button>{" "}
            
