@@ -11,7 +11,7 @@ import {
   ButtonGroup,
   Tooltip,
 } from '@chakra-ui/react';
-import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 
 const About = () => {
@@ -95,7 +95,7 @@ const About = () => {
           <Tooltip label="Go to Men's Shop">
             <Link to="/men">
               <Button colorScheme="teal" mt={140}>
-                Men's Shop <ArrowForwardIcon />
+              <ArrowBackIcon/> Men's Shop 
               </Button>
             </Link>
           </Tooltip>
